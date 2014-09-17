@@ -1,0 +1,9 @@
+<div ng-controller="CalendarListController">
+    <ul>
+        <li ng-repeat="calendar in calendars">
+            <a ng-href="#/calendarios/{{ calendar.year }}">
+                {{ calendar.year }}
+            </a>
+        </li>
+    </ul>
+</div>

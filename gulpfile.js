@@ -26,7 +26,7 @@ gulp.task('build', ['clean'], function () {
   templates = templates.pipe(templateCache('templates.min.js', {'standalone' : true}));
 
   scripts = require('event-stream').merge(src, templates);
-  scripts = scripts.pipe(preprocess({context: { NODE_ENV: 'development'}}));
+  scripts = scripts.pipe(preprocess({context : { NODE_ENV : process.env.NODE_ENV || 'development'}}));
   scripts = scripts.pipe(concat('scripts.min.js'));
   scripts = scripts.pipe(ngAnnotate());
   scripts = scripts.pipe(uglify());
@@ -34,7 +34,7 @@ gulp.task('build', ['clean'], function () {
   index = gulp.src('./index.html');
   index = index.pipe(minifyHtml());
 
-  return require('event-stream').merge(scripts, index).pipe(gulp.dest('build'));
+  return require('event-stream').merge(scripts, index).pipe(gulp.dest('www'));
 });
 
 gulp.task('watch', function () {
@@ -43,4 +43,5 @@ gulp.task('watch', function () {
   });
 });
 
+gulp.task('heroku:production', ['build']);
 gulp.task('default', ['build']);

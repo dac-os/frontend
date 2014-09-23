@@ -48,5 +48,4 @@ gulp.task('watch', ['build'], function () {
   });
 });
 
-gulp.task('heroku:production', ['build']);
 gulp.task('default', ['build']);

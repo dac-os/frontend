@@ -43,7 +43,6 @@ gulp.task('watch', ['build'], function () {
   require('dacos-courses');
   require('dacos-enrollment');
   require('dacos-history');
-  
   return watch(['index.js', '*/*.js', 'views/*/*.html'], function () {
     gulp.start('build');
   });

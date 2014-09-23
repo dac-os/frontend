@@ -2,9 +2,7 @@
   "name": "frontend",
   "version": "1.0.0",
   "description": "frontend do sistema da diretoria academica DAC",
-  "directories": {
-    "test": "test"
-  },
+  "main": "index.js",
   "scripts": {
     "prestart": "gulp build",
     "start": "statik ./build --port ${PORT}"
@@ -13,7 +11,6 @@
     "type": "git",
     "url": "https://github.com/dac-os/frontend.git"
   },
-  "author": "",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/dac-os/frontend/issues"

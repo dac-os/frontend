@@ -1,6 +1,7 @@
 'use strict';
 
-var gulp, ngAnnotate, concat, uglify, templateCache, minifyHtml, watch, preprocess, del;
+var statik, gulp, ngAnnotate, concat, uglify, templateCache, minifyHtml, watch, preprocess, del;
+statik = require('statik');
 gulp = require('gulp');
 ngAnnotate = require('gulp-ng-annotate');
 concat = require('gulp-concat');
@@ -43,6 +44,10 @@ gulp.task('watch', ['build'], function () {
   require('dacos-courses');
   require('dacos-enrollment');
   require('dacos-history');
+  statik({
+    'port' : 3000,
+    'root' : './build'
+  });
   return watch(['index.js', '*/*.js', 'views/*/*.html'], function () {
     gulp.start('build');
   });

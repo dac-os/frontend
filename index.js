@@ -5,6 +5,11 @@
   var app;
   app = angular.module('dacos', ['ngRoute', 'ngResource', 'templates']);
 
+  app.config(function ($locationProvider) {
+    $locationProvider.html5Mode(true);
+    $locationProvider.hashPrefix('!');
+  });
+
   /* @if NODE_ENV=='production' */
   app.constant('authUri', 'http://dacos-auth.herokuapp.com');
   app.constant('calendarUri', 'http://dacos-calendar.herokuapp.com');

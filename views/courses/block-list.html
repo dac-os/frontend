@@ -1,0 +1,7 @@
+<ul ng-controller="BlockListController">
+    <li ng-repeat="block in blocks">
+        <a  ng-href="./{{modality.course.code}}-{{modality.code}}/blocos/{{block.code}}">
+            {{ block.code }}
+        </a>
+    </li>
+</ul>

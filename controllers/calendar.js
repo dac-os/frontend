@@ -5,16 +5,25 @@
   var app;
   app = angular.module('dacos');
   app.config(function ($routeProvider) {
-    $routeProvider.when('/calendarios', {'templateUrl' : 'calendar/list.html'});
-    $routeProvider.when('/calendarios/:year', {'templateUrl' : 'calendar/details.html'});
+    $routeProvider.when('/calendarios', {'templateUrl' : 'calendar/calendar-list.html'});
+    $routeProvider.when('/calendarios/:calendarCode', {'templateUrl' : 'calendar/calendar-details.html'});
+    $routeProvider.when('/calendarios/:calendarCode/eventos', {'templateUrl' : 'calendar/event-list.html'});
+    $routeProvider.when('/calendarios/:calendarCode/eventos/:eventCode', {'templateUrl' : 'calendar/event-details.html'});
   });
 
   app.controller('CalendarListController', function ($scope, Calendar) {
     $scope.calendars = Calendar.query();
   });
 
-  app.controller('CalendarDetailsController', function ($scope, $routeParams, Calendar, Event) {
-    $scope.calendar = Calendar.get({'year' : $routeParams.year});
-    $scope.events = Event.query({'year' : $routeParams.year});
+  app.controller('CalendarDetailsController', function ($scope, $routeParams, Calendar) {
+    $scope.calendar = Calendar.get($routeParams);
+  });
+
+  app.controller('EventListController', function ($scope, $routeParams, Event) {
+    $scope.events = Event.query($routeParams);
+  });
+
+  app.controller('EventDetailsController', function ($scope, $routeParams, Event) {
+    $scope.event = Event.get($routeParams);
   });
 })(angular);

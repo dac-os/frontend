@@ -1,11 +1,5 @@
 <div ng-controller="CatalogDetailsController">
     <h1>Catalogo de {{ catalog.year }}</h1>
     <h2>modalidades</h2>
-    <ul>
-        <li ng-repeat="modality in modalities">
-            <a  ng-href="#/catalogos/{{catalog.year}}/modalidades/{{modality.course.code}}-{{modality.code}}">
-                {{modality.course.code}} {{modality.code}} - {{modality.course.name}}
-            </a>
-        </li>
-    </ul>
+    <ng-include src="'courses/modality-list.html'"></ng-include>
 </div>

@@ -1,0 +1,7 @@
+<ul ng-controller="ModalityListController">
+    <li ng-repeat="modality in modalities">
+        <a ng-href="./{{catalog.year}}/modalidades/{{modality.course.code}}-{{modality.code}}">
+            {{modality.course.code}} {{modality.code}} - {{modality.course.name}}
+        </a>
+    </li>
+</ul>

@@ -1,6 +1,6 @@
 # IDE folder
 .idea
-www
+build
 
 # Logs
 logs

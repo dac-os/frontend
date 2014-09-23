@@ -1,0 +1,7 @@
+<ul ng-controller="RequirementListController">
+    <li ng-repeat="requirement in requirements">
+        <a ng-href="./{{block.code}}/requisitos/{{requirement.discipline.code}}">
+            {{ requirement.discipline.code }}
+        </a>
+    </li>
+</ul>

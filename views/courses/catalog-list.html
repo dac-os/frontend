@@ -1,0 +1,7 @@
+<ul ng-controller="CatalogListController">
+    <li ng-repeat="catalog in catalogs">
+        <a ng-href="/catalogos/{{catalog.year}}">
+            {{catalog.year}}
+        </a>
+    </li>
+</ul>

@@ -1,9 +1,5 @@
 <div ng-controller="ModalityDetailsController">
     <h1>Modalidade {{modality.course.code}} {{modality.code}} do curso {{modality.course.name}}</h1>
     <h2>blocos de disciplinas</h2>
-    <ul>
-        <li ng-repeat="block in blocks">
-            {{ block.code }}
-        </li>
-    </ul>
+    <ng-include src="'courses/block-list.html'"></ng-include>
 </div>

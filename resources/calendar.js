@@ -6,10 +6,10 @@
   app = angular.module('dacos');
 
   app.factory('Calendar', function (calendarUri, $resource) {
-    return $resource(calendarUri + '/calendars/:year');
+    return $resource(calendarUri + '/calendars/:calendarCode');
   });
 
   app.factory('Event', function (calendarUri, $resource) {
-    return $resource(calendarUri + '/calendars/:year/events/:slug');
+    return $resource(calendarUri + '/calendars/:calendarCode/events/:eventCode');
   });
 })(angular);

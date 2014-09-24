@@ -36,6 +36,7 @@
     "gulp-preprocess": "^1.1.1",
     "gulp-uglify": "^1.0.1",
     "gulp-watch": "^1.0.4",
+    "nconf": "^0.6.9",
     "statik": "^1.4.6"
   }
 }

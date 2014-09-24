@@ -1,6 +1,7 @@
 'use strict';
 
-var statik, gulp, ngAnnotate, concat, uglify, templateCache, minifyHtml, watch, preprocess, del;
+var nconf, statik, gulp, ngAnnotate, concat, uglify, templateCache, minifyHtml, watch, preprocess, del;
+nconf = require('nconf');
 statik = require('statik');
 gulp = require('gulp');
 ngAnnotate = require('gulp-ng-annotate');
@@ -11,6 +12,10 @@ minifyHtml = require('gulp-minify-html');
 watch = require('gulp-watch');
 preprocess = require('gulp-preprocess');
 del = require('del');
+
+nconf.argv();
+nconf.env();
+nconf.defaults(require('./config'));
 
 gulp.task('clean', function (cb) {
   return del(['build'], cb);
@@ -27,7 +32,13 @@ gulp.task('build', ['clean'], function () {
   templates = templates.pipe(templateCache('templates.min.js', {'standalone' : true}));
 
   scripts = require('event-stream').merge(src, templates);
-  scripts = scripts.pipe(preprocess({context : { NODE_ENV : process.env.NODE_ENV || 'development'}}));
+  scripts = scripts.pipe(preprocess({'context' : {
+    'HISTORY_URI'    : nconf.get('HISTORY_URI'),
+    'ENROLLMENT_URI' : nconf.get('ENROLLMENT_URI'),
+    'COURSES_URI'    : nconf.get('COURSES_URI'),
+    'CALENDAR_URI'   : nconf.get('CALENDAR_URI'),
+    'AUTH_URI'       : nconf.get('AUTH_URI')
+  }}));
   scripts = scripts.pipe(concat('scripts.min.js'));
   scripts = scripts.pipe(ngAnnotate());
   scripts = scripts.pipe(uglify());
@@ -45,7 +56,7 @@ gulp.task('watch', ['build'], function () {
   require('dacos-enrollment');
   require('dacos-history');
   statik({
-    'port' : 3000,
+    'port' : nconf.get('PORT'),
     'root' : './build'
   });
   return watch(['index.js', '*/*.js', 'views/*/*.html'], function () {

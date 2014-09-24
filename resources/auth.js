@@ -10,6 +10,8 @@
   });
 
   app.factory('User', function (authUri, $resource) {
-    return $resource(authUri + '/users/:slug');
+    return $resource(authUri + '/users/:userCode', null, {
+      'login' : {'method' : 'POST', 'url' : '/users/me/session'}
+    });
   });
 })(angular);

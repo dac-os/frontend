@@ -1,0 +1,8 @@
+{
+  "PORT"           : 3000,
+  "HISTORY_URI"    : "http://localhost:8081",
+  "ENROLLMENT_URI" : "http://localhost:8082",
+  "COURSES_URI"    : "http://localhost:8083",
+  "CALENDAR_URI"   : "http://localhost:8084",
+  "AUTH_URI"       : "http://localhost:8085"
+}

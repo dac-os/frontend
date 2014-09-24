@@ -1,0 +1,20 @@
+{
+  "name": "frontend",
+  "main": "index.js",
+  "version": "0.0.0",
+  "homepage": "https://github.com/dac-os/frontend",
+  "authors": [
+    "Lamasu <rafaerthal@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "js-base64": "~2.1.5"
+  }
+}

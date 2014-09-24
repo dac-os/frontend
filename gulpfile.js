@@ -1,6 +1,6 @@
 'use strict';
 
-var nconf, statik, gulp, ngAnnotate, concat, uglify, templateCache, minifyHtml, watch, preprocess, del;
+var nconf, statik, gulp, ngAnnotate, concat, uglify, templateCache, minifyHtml, watch, preprocess, bower, del;
 nconf = require('nconf');
 statik = require('statik');
 gulp = require('gulp');
@@ -11,6 +11,7 @@ templateCache = require('gulp-angular-templatecache');
 minifyHtml = require('gulp-minify-html');
 watch = require('gulp-watch');
 preprocess = require('gulp-preprocess');
+bower = require('gulp-bower');
 del = require('del');
 
 nconf.argv();
@@ -18,10 +19,14 @@ nconf.env();
 nconf.defaults(require('./config'));
 
 gulp.task('clean', function (cb) {
-  return del(['build'], cb);
+  return del(['build/index.html', 'build/scripts.min.js'], cb);
 });
 
-gulp.task('build', ['clean'], function () {
+gulp.task('bower', function () {
+  return bower('./build').pipe(gulp.dest('build'));
+});
+
+gulp.task('build', ['clean', 'bower'], function () {
   var templates, src, scripts, index;
 
   src = gulp.src(['index.js', '*/*.js']);

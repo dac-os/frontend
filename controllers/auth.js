@@ -8,10 +8,14 @@
     $routeProvider.when('/entrar', {'templateUrl' : 'auth/login.html'});
   });
 
-  app.controller('AuthLoginController', function ($scope, User) {
+  app.controller('AuthLoginController', function ($scope, $location, User) {
     $scope.user = new User({});
     $scope.login = function () {
-      console.log($scope.user)
+      $scope.user.$login(function () {
+        $location.path('/');
+      }, function () {
+        $scope.message = 'nao autorizado.';
+      });
     };
   });
 })(angular);

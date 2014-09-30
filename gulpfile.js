@@ -61,7 +61,7 @@ gulp.task('watch', ['build'], function () {
   require('dacos-enrollment');
   require('dacos-history');
   statik({
-    'port' : nconf.get('PORT'),
+    'port' : /*nconf.get('PORT')*/3000,
     'root' : './build'
   });
   return watch(['index.js', '*/*.js', 'views/*/*.html'], function () {

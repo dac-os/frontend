@@ -1,0 +1,5 @@
+<form ng-controller="ProfileCreateController as main" ng-submit="main.save()">
+    Nome <input ng-model="main.profile.name"><br />
+    Permissões(separar por virgula) <input ng-model="main.profile.permissions" ng-list=","><br />
+    <input type="submit">
+</form>

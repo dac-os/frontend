@@ -24,7 +24,13 @@
     };
   });
 
-  app.factory('Session', function () {
-    return session;
+  app.service('Session', function () {
+    this.hasSession = function () {
+      return !!session;
+    };
+
+    this.can = function (permission) {
+      return !!session && !!session.profile && !!session.profile.permissions && session.profile.permissions.indexOf(permission) > -1;
+    };
   });
 })(angular);

@@ -1,0 +1,14 @@
+<ul ng-controller="ProfileListController as main">
+    <li ng-repeat="profile in main.profiles">
+        <a ng-href="#/gerenciar-perfis/{{profile.slug}}/editar">
+            editar
+        </a>
+        <span ng-click="main.remove($index)">
+            remover
+        </span>
+        <a ng-href="#/gerenciar-perfis/{{profile.slug}}">
+            {{profile.name}}
+        </a>
+    </li>
+    <a href="#/gerenciar-perfis/criar">+ criar</a>
+</ul>

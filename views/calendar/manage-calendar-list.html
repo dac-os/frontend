@@ -1,0 +1,14 @@
+<ul ng-controller="CalendarListController as main">
+    <li ng-repeat="calendar in main.calendars">
+        <a ng-href="#/gerenciar-calendarios/{{calendar.year}}/editar">
+            editar
+        </a>
+        <span ng-click="main.remove($index)">
+            remover
+        </span>
+        <a ng-href="#/gerenciar-calendarios/{{calendar.year}}">
+            {{calendar.year}}
+        </a>
+    </li>
+    <a href="#/gerenciar-calendarios/criar">+ criar</a>
+</ul>

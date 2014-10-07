@@ -15,35 +15,35 @@
     $routeProvider.when('/catalogos/:catalogCode/modalidades/:modalityCode/blocos/:blockCode/requisitos/:requirementCode', {'templateUrl' : 'courses/requirement-details.html'});
   });
 
-  app.controller('CatalogListController', function ($scope, $routeParams, Catalog) {
-    $scope.catalogs = Catalog.query();
+  app.controller('CatalogListController', function ($routeParams, Catalog) {
+    this.catalogs = Catalog.query();
   });
 
-  app.controller('CatalogDetailsController', function ($scope, $routeParams, Catalog) {
-    $scope.catalog = Catalog.get($routeParams);
+  app.controller('CatalogDetailsController', function ($routeParams, Catalog) {
+    this.catalog = Catalog.get($routeParams);
   });
 
-  app.controller('ModalityListController', function ($scope, $routeParams, Modality) {
-    $scope.modalities = Modality.query($routeParams);
+  app.controller('ModalityListController', function ($routeParams, Modality) {
+    this.modalities = Modality.query($routeParams);
   });
 
-  app.controller('ModalityDetailsController', function ($scope, $routeParams, Modality) {
-    $scope.modality = Modality.get($routeParams);
+  app.controller('ModalityDetailsController', function ($routeParams, Modality) {
+    this.modality = Modality.get($routeParams);
   });
 
-  app.controller('BlockListController', function ($scope, $routeParams, Block) {
-    $scope.blocks = Block.query($routeParams);
+  app.controller('BlockListController', function ($routeParams, Block) {
+    this.blocks = Block.query($routeParams);
   });
 
-  app.controller('BlockDetailsController', function ($scope, $routeParams, Block) {
-    $scope.block = Block.get($routeParams);
+  app.controller('BlockDetailsController', function ($routeParams, Block) {
+    this.block = Block.get($routeParams);
   });
 
-  app.controller('RequirementListController', function ($scope, $routeParams, Requirement) {
-    $scope.requirements = Requirement.query($routeParams);
+  app.controller('RequirementListController', function ($routeParams, Requirement) {
+    this.requirements = Requirement.query($routeParams);
   });
 
-  app.controller('RequirementDetailsController', function ($scope, $routeParams, Requirement) {
-    $scope.requirement = Requirement.get($routeParams);
+  app.controller('RequirementDetailsController', function ($routeParams, Requirement) {
+    this.requirement = Requirement.get($routeParams);
   });
 })(angular);

@@ -1,7 +1,7 @@
-<ul ng-controller="EventListController">
-    <li ng-repeat="event in events">
-        <a ng-href="./{{calendar.year}}/eventos/{{event.slug}}">
-            {{event.date}} - {{event.name}}
+<ul ng-controller="EventListController as main">
+    <li ng-repeat="event in main.events">
+        <a ng-href="#/calendarios/{{main.calendar.year}}/eventos/{{event.slug}}">
+            {{event.name}}
         </a>
     </li>
 </ul>

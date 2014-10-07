@@ -12,15 +12,32 @@
 <body>
 <ul>
     <li>
-        <a href="/catalogos">Catalogos</a>
+        <a href="#/catalogos">Catalogos</a>
     </li>
     <li>
-        <a href="/calendarios">Calendarios</a>
+        <a href="#/calendarios">Calendarios</a>
+    </li>
+    <li ng-show="session.can('changeProfile')">
+        <a href="#/gerenciar-perfis">Gerenciar Perfis</a>
+    </li>
+    <li ng-show="session.can('changeUser')">
+        <a href="#/gerenciar-usuarios">Gerenciar Usuarios</a>
+    </li>
+    <li ng-show="session.can('changeCalendar')">
+        <a href="#/gerenciar-calendarios">Gerenciar Calendarios</a>
+    </li>
+    <li ng-show="session.can('changeCatalog')">
+        <a href="#/gerenciar-catalogos">Gerenciar Catalogos</a>
     </li>
 </ul>
-<ul ng-hide="!!session()">
+<ul ng-hide="session.hasSession()">
     <li>
-        <a href="/entrar">Entrar</a>
+        <a href="#/entrar">Entrar</a>
+    </li>
+</ul>
+<ul ng-show="session.hasSession()">
+    <li>
+        <a href="#/sair">Sair</a>
     </li>
 </ul>
 <ng-view></ng-view>

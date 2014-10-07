@@ -1,6 +1,6 @@
-<form ng-controller="AuthLoginController" ng-submit="login()">
-    <div ng-show="message" ng-click="message=null">{{ message }}</div>
-    RA: <input type="text" ng-model="user.academicRegistry"><br />
-    Senha: <input type="text" ng-model="user.password"><br />
+<form ng-controller="AuthLoginController as main" ng-submit="main.login()">
+    <div ng-show="message" ng-click="main.message=null">{{ message }}</div>
+    RA: <input type="text" ng-model="main.user.academicRegistry"><br />
+    Senha: <input type="text" ng-model="main.user.password"><br />
     <input type="submit">
 </form>

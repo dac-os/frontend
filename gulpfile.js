@@ -26,7 +26,7 @@ gulp.task('bower', function () {
   return bower('./build').pipe(gulp.dest('build'));
 });
 
-gulp.task('build', ['clean', 'bower'], function () {
+gulp.task('build', ['clean'], function () {
   var templates, src, scripts, index;
 
   src = gulp.src(['index.js', '*/*.js']);
@@ -69,4 +69,4 @@ gulp.task('watch', ['build'], function () {
   });
 });
 
-gulp.task('default', ['build']);
+gulp.task('default', ['bower', 'build']);

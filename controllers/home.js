@@ -8,7 +8,5 @@
     $routeProvider.when('/', {'templateUrl' : 'home/home.html'});
   });
 
-  app.controller('HomeController', function (Catalog) {
-    console.log(Catalog.query());
-  });
+  app.controller('HomeController', function (Catalog) {});
 })(angular);

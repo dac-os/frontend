@@ -1,5 +1,5 @@
-<div ng-controller="BlockDetailsController">
-    <h1>Bloco {{ block.code }}</h1>
+<div ng-controller="BlockDetailsController as main">
+    <h1>Bloco {{ main.block.code }}</h1>
     <h2>requisitos</h2>
     <ng-include src="'courses/requirement-list.html'"></ng-include>
 </div>

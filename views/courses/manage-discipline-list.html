@@ -1,0 +1,14 @@
+<ul ng-controller="DisciplineListController as main">
+    <li ng-repeat="discipline in main.disciplines">
+        <a ng-href="#/gerenciar-disciplinas/{{discipline.code}}/editar">
+            editar
+        </a>
+        <span ng-click="main.remove($index)">
+            remover
+        </span>
+        <a ng-href="#/gerenciar-disciplinas/{{discipline.code}}">
+            {{discipline.code}}
+        </a>
+    </li>
+    <a href="#/gerenciar-disciplinas/criar">+ criar</a>
+</ul>

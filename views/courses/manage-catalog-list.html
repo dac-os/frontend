@@ -1,0 +1,14 @@
+<ul ng-controller="CatalogListController as main">
+    <li ng-repeat="catalog in main.catalogs">
+        <a ng-href="#/gerenciar-catalogos/{{catalog.year}}/editar">
+            editar
+        </a>
+        <span ng-click="main.remove($index)">
+            remover
+        </span>
+        <a ng-href="#/gerenciar-catalogos/{{catalog.year}}">
+            {{catalog.year}}
+        </a>
+    </li>
+    <a href="#/gerenciar-catalogos/criar">+ criar</a>
+</ul>

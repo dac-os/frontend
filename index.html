@@ -29,6 +29,12 @@
     <li ng-show="session.can('changeCatalog')">
         <a href="#/gerenciar-catalogos">Gerenciar Catalogos</a>
     </li>
+    <li ng-show="session.can('changeCourse')">
+        <a href="#/gerenciar-cursos">Gerenciar Cursos</a>
+    </li>
+    <li ng-show="session.can('changeDiscipline')">
+        <a href="#/gerenciar-disciplinas">Gerenciar Disciplinas</a>
+    </li>
 </ul>
 <ul ng-hide="session.hasSession()">
     <li>
@@ -37,7 +43,7 @@
 </ul>
 <ul ng-show="session.hasSession()">
     <li>
-        <a href="#/sair">Sair</a>
+        <span ng-click="session.unsetCredentials()">Sair</span>
     </li>
 </ul>
 <ng-view></ng-view>

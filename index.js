@@ -3,7 +3,7 @@
   'use strict';
 
   var app;
-  app = angular.module('dacos', ['ngRoute', 'ngResource', 'templates']);
+  app = angular.module('dacos', ['ngRoute', 'ngResource', 'ngCookies', 'templates']);
 
   app.constant('authUri', '/* @echo AUTH_URI */');
   app.constant('calendarUri', '/* @echo CALENDAR_URI */');

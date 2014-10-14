@@ -1,0 +1,14 @@
+<ul ng-controller="CourseListController as main">
+    <li ng-repeat="course in main.courses">
+        <a ng-href="#/gerenciar-cursos/{{course.code}}/editar">
+            editar
+        </a>
+        <span ng-click="main.remove($index)">
+            remover
+        </span>
+        <a ng-href="#/gerenciar-cursos/{{course.code}}">
+            {{course.code}}
+        </a>
+    </li>
+    <a href="#/gerenciar-cursos/criar">+ criar</a>
+</ul>

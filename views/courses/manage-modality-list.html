@@ -1,0 +1,14 @@
+<ul ng-controller="ModalityListController as main">
+    <li ng-repeat="modality in main.modalities">
+        <a ng-href="#/gerenciar-catalogos/{{main.catalog.year}}/modalidades/{{modality.course.code}}-{{modality.code}}/editar">
+            editar
+        </a>
+        <span ng-click="main.remove($index)">
+            remover
+        </span>
+        <a ng-href="#/gerenciar-catalogos/{{main.catalog.year}}/modalidades/{{modality.course.code}}-{{modality.code}}">
+            {{modality.course.code}} {{modality.code}}
+        </a>
+    </li>
+    <a href="#/gerenciar-catalogos/{{main.catalog.year}}/modalidades/criar">+ criar</a>
+</ul>

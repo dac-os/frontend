@@ -1,0 +1,14 @@
+<ul ng-controller="ListController as main">
+    <li ng-repeat=" in main.">
+        <a ng-href="#/">
+            editar
+        </a>
+        <span ng-click="main.remove($index)">
+            remover
+        </span>
+        <a ng-href="#/">
+            {{}}
+        </a>
+    </li>
+    <a href="#/">+ criar</a>
+</ul>

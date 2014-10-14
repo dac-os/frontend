@@ -7,7 +7,6 @@
   app.config(function ($routeProvider) {
     $routeProvider.when('/calendarios', {'templateUrl' : 'calendar/calendar-list.html'});
     $routeProvider.when('/calendarios/:calendarCode', {'templateUrl' : 'calendar/calendar-details.html'});
-    $routeProvider.when('/calendarios/:calendarCode/eventos', {'templateUrl' : 'calendar/event-list.html'});
     $routeProvider.when('/calendarios/:calendarCode/eventos/:eventCode', {'templateUrl' : 'calendar/event-details.html'});
 
     $routeProvider.when('/gerenciar-calendarios', {'templateUrl' : 'calendar/manage-calendar-list.html'});
@@ -21,8 +20,8 @@
     $routeProvider.when('/gerenciar-calendarios/:calendarCode/eventos/:eventCode/editar', {'templateUrl' : 'calendar/manage-event-update.html'});
   });
 
-  app.controller('CalendarListController', function (Calendar) {
-    this.calendars = Calendar.query();
+  app.controller('CalendarListController', function ($routeParams, Calendar) {
+    this.calendars = Calendar.query($routeParams);
     this.remove = function (i) {
       this.calendars[i].$remove(function () {
         this.calendars.splice(i, 1);

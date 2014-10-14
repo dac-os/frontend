@@ -5,7 +5,7 @@
   var app;
   app = angular.module('dacos');
 
-  app.factory('User', function (authUri, $resource, Credentials) {
+  app.factory('User', function (authUri, $resource, Session) {
     return $resource(authUri + '/users/:userCode', null, {
       'login' : {
         'method'            : 'POST',
@@ -15,7 +15,7 @@
         },
         'transformResponse' : function (data) {
           if (data) {
-            Credentials(angular.fromJson(data).token);
+            Session.setCredentials(angular.fromJson(data).token);
           }
         }
       }

@@ -1,4 +1,7 @@
-<div ng-controller="DetailsController as main">
-    <br />
-    <ng-include src="'calendar/manage--list.html'"></ng-include>
+<div ng-controller="BlockDetailsController as main">
+    Código {{main.block.code}}<br />
+    Tipo {{main.block.type}}<br />
+    Créditos {{main.block.credits}}<br />
+    Requisitos<br />
+    <ng-include src="'courses/manage-requirement-list.html'"></ng-include>
 </div>

@@ -12,19 +12,41 @@
     });
   });
 
-  app.factory('Modality', function (coursesUri, $resource) {
+  app.factory('Modality', function (coursesUri, $resource, Session) {
     return $resource(coursesUri + '/catalogs/:catalogCode/modalities/:modalityCode', {'modalityCode' : '@code', 'catalogCode' : '@catalogCode'}, {
-      'update' : {'method' : 'PUT'},
+      'update' : {'method' : 'PUT', 'transformRequest' : function (data, headers) {
+        var res;
+        res = angular.copy(data);
+        if (data && data.course && data.course.code) {
+          res.course = data.course.code;
+        }
+        headers()['csrf-token'] = Session.getCredentials();
+        return angular.toJson(res);
+      }},
       'save'   : {'method' : 'POST', 'url' : coursesUri + '/catalogs/:catalogCode/modalities'}
     });
   });
 
   app.factory('Block', function (coursesUri, $resource) {
-    return $resource(coursesUri + '/catalogs/:catalogCode/modalities/:modalityCode/blocks/:blockCode');
+    return $resource(coursesUri + '/catalogs/:catalogCode/modalities/:modalityCode/blocks/:blockCode', {'blockCode' : '@code', 'modalityCode' : '@modalityCode', 'catalogCode' : '@catalogCode'}, {
+      'update' : {'method' : 'PUT'},
+      'save'   : {'method' : 'POST', 'url' : coursesUri + '/catalogs/:catalogCode/modalities/:modalityCode/blocks'}
+    });
   });
 
-  app.factory('Requirement', function (coursesUri, $resource) {
-    return $resource(coursesUri + '/catalogs/:catalogCode/modalities/:modalityCode/blocks/:blockCode/requirements/:requirementCode');
+  app.factory('Requirement', function (coursesUri, $resource, Session) {
+    return $resource(coursesUri + '/catalogs/:catalogCode/modalities/:modalityCode/blocks/:blockCode/requirements/:requirementCode', {'requirementCode' : '@code', 'blockCode' : '@blockCode', 'modalityCode' : '@modalityCode', 'catalogCode' : '@catalogCode'}, {
+      'update' : {'method' : 'PUT', 'transformRequest' : function (data, headers) {
+        var res;
+        res = angular.copy(data);
+        if (data && data.discipline && data.discipline.code) {
+          res.discipline = data.discipline.code;
+        }
+        headers()['csrf-token'] = Session.getCredentials();
+        return angular.toJson(res);
+      }},
+      'save'   : {'method' : 'POST', 'url' : coursesUri + '/catalogs/:catalogCode/modalities/:modalityCode/blocks/:blockCode/requirements'}
+    });
   });
 
   app.factory('Course', function (coursesUri, $resource) {

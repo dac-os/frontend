@@ -26,6 +26,10 @@
       });
     };
 
+    this.getCredentials = function () {
+      return credentials;
+    }
+
     this.unsetCredentials = function () {
       credentials = null;
       delete $cookies.token;

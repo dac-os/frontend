@@ -45,7 +45,7 @@
   app.controller('CourseListController', function ($routeParams, Course) {
     this.courses = Course.query($routeParams);
     this.remove = function (i) {
-      this.courses[i].$remove(function () {
+      this.courses[i].$remove($routeParams, function () {
         this.courses.splice(i, 1);
       }.bind(this));
     }.bind(this);
@@ -76,7 +76,7 @@
   app.controller('DisciplineListController', function ($routeParams, Discipline) {
     this.disciplines = Discipline.query($routeParams);
     this.remove = function (i) {
-      this.disciplines[i].$remove(function () {
+      this.disciplines[i].$remove($routeParams, function () {
         this.disciplines.splice(i, 1);
       }.bind(this));
     }.bind(this);
@@ -107,7 +107,7 @@
   app.controller('CatalogListController', function ($routeParams, Catalog) {
     this.catalogs = Catalog.query($routeParams);
     this.remove = function (i) {
-      this.catalogs[i].$remove(function () {
+      this.catalogs[i].$remove($routeParams, function () {
         this.catalogs.splice(i, 1);
       }.bind(this));
     }.bind(this);
@@ -139,7 +139,10 @@
     this.catalog = Catalog.get($routeParams);
     this.modalities = Modality.query($routeParams);
     this.remove = function (i) {
-      this.modalities[i].$remove(function () {
+      this.modalities[i].$remove({
+        'modalityCode' : this.modalities[i].course.code + '-' + this.modalities[i].code,
+        'catalogCode'  : this.catalog.year
+      }, function () {
         this.modalities.splice(i, 1);
       }.bind(this));
     }.bind(this);
@@ -155,7 +158,7 @@
     this.modality = new Modality($routeParams);
     this.save = function () {
       this.modality.$save(function () {
-        $location.path('/gerenciar-catalogos');
+        $location.path('/gerenciar-catalogos/' + this.catalog.year);
       }.bind(this));
     }.bind(this);
   });
@@ -165,7 +168,7 @@
     this.modality = Modality.get($routeParams);
     this.save = function () {
       this.modality.$update($routeParams, function () {
-        $location.path('/gerenciar-catalogos');
+        $location.path('/gerenciar-catalogos/' + this.catalog.year);
       }.bind(this));
     }.bind(this);
   });
@@ -175,7 +178,7 @@
     this.modality = Modality.get($routeParams);
     this.blocks = Block.query($routeParams);
     this.remove = function (i) {
-      this.blocks[i].$remove(function () {
+      this.blocks[i].$remove($routeParams, function () {
         this.blocks.splice(i, 1);
       }.bind(this));
     }.bind(this);
@@ -193,7 +196,7 @@
     this.block = new Block($routeParams);
     this.save = function () {
       this.block.$save(function () {
-        $location.path('/gerenciar-catalogos');
+        $location.path('/gerenciar-catalogos/' + this.catalog.year + '/modalidades/' + this.modality.course.code + '-' + this.modality.code);
       }.bind(this));
     }.bind(this);
   });
@@ -204,7 +207,7 @@
     this.block = Block.get($routeParams);
     this.save = function () {
       this.block.$update($routeParams, function () {
-        $location.path('/gerenciar-catalogos');
+        $location.path('/gerenciar-catalogos/' + this.catalog.year + '/modalidades/' + this.modality.course.code + '-' + this.modality.code);
       }.bind(this));
     }.bind(this);
   });
@@ -215,7 +218,12 @@
     this.block = Block.get($routeParams);
     this.requirements = Requirement.query($routeParams);
     this.remove = function (i) {
-      this.requirements[i].$remove(function () {
+      this.requirements[i].$remove({
+        'requirementCode' : this.requirements[i].discipline ? this.requirements[i].discipline.code : this.requirements[i].mask,
+        'blockCode'       : this.block.code,
+        'modalityCode'    : this.modality.course.code + '-' + this.modality.code,
+        'catalogCode'     : this.catalog.year
+      }, function () {
         this.requirements.splice(i, 1);
       }.bind(this));
     }.bind(this);
@@ -235,7 +243,7 @@
     this.requirement = new Requirement($routeParams);
     this.save = function () {
       this.requirement.$save(function () {
-        $location.path('/gerenciar-catalogos');
+        $location.path('/gerenciar-catalogos/' + this.catalog.year + '/modalidades/' + this.modality.course.code + '-' + this.modality.code + '/blocos/' + this.block.code);
       }.bind(this));
     }.bind(this);
   });
@@ -247,7 +255,7 @@
     this.requirement = Requirement.get($routeParams);
     this.save = function () {
       this.requirement.$update($routeParams, function () {
-        $location.path('/gerenciar-catalogos');
+        $location.path('/gerenciar-catalogos/' + this.catalog.year + '/modalidades/' + this.modality.course.code + '-' + this.modality.code + '/blocos/' + this.block.code);
       }.bind(this));
     }.bind(this);
   });

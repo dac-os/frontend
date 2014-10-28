@@ -1,3 +1,6 @@
-<form ng-controller="CreateController as main" ng-submit="main.save()">
+<form ng-controller="BlockCreateController as main" ng-submit="main.save()">
+    Código <input ng-model="main.block.code"><br />
+    Tipo <input ng-model="main.block.type"><br />
+    Créditos<input ng-model="main.block.credits"><br />
     <input type="submit">
 </form>

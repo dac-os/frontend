@@ -1,3 +1,6 @@
-<form ng-controller="CreateController as main" ng-submit="main.save()">
+<form ng-controller="RequirementCreateController as main" ng-submit="main.save()">
+    Disciplina <input ng-model="main.requirement.discipline"><br />
+    Mascara <input ng-model="main.requirement.mask"><br />
+    Semestre sugerido <input ng-model="main.requirement.suggestedSemester"><br />
     <input type="submit">
 </form>

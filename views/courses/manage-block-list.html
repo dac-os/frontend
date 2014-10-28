@@ -1,14 +1,14 @@
-<ul ng-controller="ListController as main">
-    <li ng-repeat=" in main.">
-        <a ng-href="#/">
+<ul ng-controller="BlockListController as main">
+    <li ng-repeat="block in main.blocks">
+        <a ng-href="#/gerenciar-catalogos/{{main.catalog.year}}/modalidades/{{main.modality.course.code}}-{{main.modality.code}}/blocos/{{block.code}}/editar">
             editar
         </a>
         <span ng-click="main.remove($index)">
             remover
         </span>
-        <a ng-href="#/">
-            {{}}
+        <a ng-href="#/gerenciar-catalogos/{{main.catalog.year}}/modalidades/{{main.modality.course.code}}-{{main.modality.code}}/blocos/{{block.code}}">
+            {{block.code}}
         </a>
     </li>
-    <a href="#/">+ criar</a>
+    <a ng-href="#/gerenciar-catalogos/{{main.catalog.year}}/modalidades/{{main.modality.course.code}}-{{main.modality.code}}/blocos/criar">+ criar</a>
 </ul>

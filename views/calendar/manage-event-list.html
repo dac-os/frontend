@@ -1,14 +1,56 @@
-<ul ng-controller="EventListController as main">
-    <li ng-repeat="event in main.events">
-        <a ng-href="#/gerenciar-calendarios/{{main.calendar.year}}/eventos/{{event.slug}}/editar">
-            editar
-        </a>
-        <span ng-click="main.remove($index)">
-            remover
-        </span>
-        <a ng-href="#/gerenciar-calendarios/{{main.calendar.year}}/eventos/{{event.slug}}">
-            {{event.name}}
-        </a>
-    </li>
-    <a href="#/gerenciar-calendarios/{{main.calendar.year}}/eventos/criar">+ criar</a>
-</ul>
+<div ng-controller="EventListController as main">
+    <h2>Eventos</h2>
+    <a href="#/gerenciar-calendarios/{{main.calendar.year}}/eventos/criar" class="btn btn-success">
+        <span class="glyphicon glyphicon-plus"></span>
+        criar novo evento
+    </a>
+    <table class="table">
+        <thead>
+        <tr>
+            <th width="30%"></th>
+            <th>Ano</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="event in main.events">
+            <td>
+                <a href="#/gerenciar-calendarios/{{main.calendar.year}}/eventos/{{event.slug}}/editar"
+                   class="btn btn-warning btn-xs">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                    <span>editar</span>
+                </a>
+                <span ng-click="main.remove($index)" class="btn btn-danger btn-xs">
+                    <span class="glyphicon glyphicon-trash"></span>
+                    <span>remover</span>
+                </span>
+                <a ng-href="#/gerenciar-calendarios/{{main.calendar.year}}/eventos/{{event.slug}}/"
+                   class="btn btn-info btn-xs">
+                    <span class="glyphicon glyphicon-hand-up"></span>
+                    <span>detalhes</span>
+                </a>
+            </td>
+            <td>
+                {{event.name}}
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <nav>
+        <ul class="pager">
+            <li class="previous disabled" ng-show="main.page == 0">
+                <a ng-href="#/gerenciar-calendarios/{{main.calendar.year}}">Anteriores</a>
+            </li>
+            <li class="previous" ng-hide="main.page == 0">
+                <a ng-href="#/gerenciar-calendarios/{{main.calendar.year}}?page={{main.page - 1}}">Anteriores</a>
+            </li>
+
+
+            <li class="next disabled" ng-show="main.events.length < pageSize">
+                <a ng-href="#/gerenciar-calendarios/{{main.calendar.year}}?page={{main.page}}">Próximos</a>
+            </li>
+            <li class="next" ng-hide="main.events.length < pageSize">
+                <a ng-href="#/gerenciar-calendarios/{{main.calendar.year}}?page={{main.page + 1}}">Próximos</a>
+            </li>
+        </ul>
+    </nav>
+</div>

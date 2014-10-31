@@ -1,14 +1,57 @@
-<ul ng-controller="CalendarListController as main">
-    <li ng-repeat="calendar in main.calendars">
-        <a ng-href="#/gerenciar-calendarios/{{calendar.year}}/editar">
-            editar
-        </a>
-        <span ng-click="main.remove($index)">
-            remover
-        </span>
-        <a ng-href="#/gerenciar-calendarios/{{calendar.year}}">
-            {{calendar.year}}
-        </a>
-    </li>
-    <a href="#/gerenciar-calendarios/criar">+ criar</a>
-</ul>
+<div ng-controller="CalendarListController as main">
+    <h1>Calendários</h1>
+    <ol class="breadcrumb">
+        <li><a href="#/">Home</a></li>
+        <li class="active">Gerenciar Calendários</li>
+    </ol>
+    <a href="#/gerenciar-calendarios/criar" class="btn btn-success btn-lg">
+        <span class="glyphicon glyphicon-plus"></span>
+        criar novo calendário
+    </a>
+    <table class="table">
+        <thead>
+        <tr>
+            <th width="30%"></th>
+            <th>Ano</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="calendar in main.calendars">
+            <td>
+                <a href="#/gerenciar-calendarios/{{calendar.year}}/editar" class="btn btn-warning btn-xs">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                    <span>editar</span>
+                </a>
+                <span ng-click="main.remove($index)" class="btn btn-danger btn-xs">
+                    <span class="glyphicon glyphicon-trash"></span>
+                    <span>remover</span>
+                </span>
+                <a ng-href="#/gerenciar-calendarios/{{calendar.year}}" class="btn btn-info btn-xs">
+                    <span class="glyphicon glyphicon-hand-up"></span>
+                    <span>detalhes</span>
+                </a>
+            </td>
+            <td>
+                {{calendar.year}}
+            </td>
+        </tr>
+        </tbody>
+    </table><nav>
+    <ul class="pager">
+        <li class="previous disabled" ng-show="main.page == 0">
+            <a ng-href="#/gerenciar-calendarios">Anteriores</a>
+        </li>
+        <li class="previous" ng-hide="main.page == 0">
+            <a ng-href="#/gerenciar-calendarios?page={{main.page - 1}}">Anteriores</a>
+        </li>
+
+
+        <li class="next disabled" ng-show="main.calendars.length < pageSize">
+            <a ng-href="#/gerenciar-calendarios?page={{main.page}}">Próximos</a>
+        </li>
+        <li class="next" ng-hide="main.calendars.length < pageSize">
+            <a ng-href="#/gerenciar-calendarios?page={{main.page + 1}}">Próximos</a>
+        </li>
+    </ul>
+</nav>
+</div>

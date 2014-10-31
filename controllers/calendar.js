@@ -73,7 +73,7 @@
     this.event = new Event($routeParams);
     this.save = function () {
       this.event.$save(function () {
-        $location.path('/gerenciar-calendarios/' + this.calendar.year + '/eventos');
+        $location.path('/gerenciar-calendarios/' + this.calendar.year);
       }.bind(this));
     }.bind(this);
   });
@@ -83,7 +83,7 @@
     this.event = Event.get($routeParams);
     this.save = function () {
       this.event.$update($routeParams, function () {
-        $location.path('/gerenciar-calendarios/' + this.calendar.year + '/eventos');
+        $location.path('/gerenciar-calendarios/' + this.calendar.year);
       }.bind(this));
     }.bind(this);
   });

@@ -1,5 +1,13 @@
 <div ng-controller="CalendarDetailsController as main">
-    Ano {{main.calendar.year}}<br />
-    eventos<br />
+    <h1>Calendário</h1>
+    <ol class="breadcrumb">
+        <li><a href="#/">Home</a></li>
+        <li><a href="#/gerenciar-calendarios">Gerenciar Calendários</a></li>
+        <li class="active">Calendário</li>
+    </ol>
+    <dl class="dl-horizontal">
+        <dt>Ano</dt>
+        <dd>{{main.calendar.year}}</dd>
+    </dl>
     <ng-include src="'calendar/manage-event-list.html'"></ng-include>
 </div>

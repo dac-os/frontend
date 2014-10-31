@@ -1,6 +1,44 @@
-<form ng-controller="EventCreateController as main" ng-submit="main.save()">
-    Nome <input ng-model="main.event.name"><br />
-    Data <input ng-model="main.event.date"><br />
-    Descrição <input ng-model="main.event.description"><br />
-    <input type="submit">
-</form>
+<div ng-controller="EventCreateController as main">
+    <h1>Cadastrar Evento</h1>
+    <ol class="breadcrumb">
+        <li><a href="#/">Home</a></li>
+        <li><a href="#/gerenciar-calendarios">Gerenciar Calendários</a></li>
+        <li><a href="#/gerenciar-calendarios/{{main.calendar.year}}">{{main.calendar.year}}</a></li>
+        <li class="active">Criar</li>
+    </ol>
+    <div class="alert alert-danger" role="alert" ng-show="error">
+        <div ng-show="error.duplicated">Evento repetido</div>
+        <div ng-show="error.name">O nome do evento é obrigatório</div>
+        <div ng-show="error.date">A data é obrigatória</div>
+    </div>
+    <form class="form-horizontal" role="form" ng-submit="main.save()">
+        <div ng-class="{'form-group' : true, 'has-error' : !!error.name}">
+            <label for="inputName" class="col-sm-2 control-label">Evento</label>
+
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputName" placeholder="evento"
+                       ng-model="main.event.name">
+            </div>
+        </div>
+        <div ng-class="{'form-group' : true, 'has-error' : !!error.date}">
+            <label for="inputDate" class="col-sm-2 control-label">Data</label>
+
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputDate" ng-model="main.event.date">
+            </div>
+        </div>
+        <div ng-class="{'form-group' : true, 'has-error' : !!error.description}">
+            <label for="inputDescription" class="col-sm-2 control-label">Descrição<br/></label>
+
+            <div class="col-sm-10">
+                <textarea class="form-control" rows="3" id="inputDescription"
+                          ng-model="main.profile.description"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-success btn-lg">criar evento</button>
+            </div>
+        </div>
+    </form>
+</div>

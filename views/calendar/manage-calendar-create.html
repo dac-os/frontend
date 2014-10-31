@@ -1,4 +1,27 @@
-<form ng-controller="CalendarCreateController as main" ng-submit="main.save()">
-    Ano <input ng-model="main.calendar.year"><br />
-    <input type="submit">
-</form>
+<div ng-controller="CalendarCreateController as main">
+    <h1>Cadastrar Calendário</h1>
+    <ol class="breadcrumb">
+        <li><a href="#/">Home</a></li>
+        <li><a href="#/gerenciar-calendarios">Gerenciar Calendários</a></li>
+        <li class="active">Criar</li>
+    </ol>
+    <div class="alert alert-danger" role="alert" ng-show="error">
+        <span ng-show="error.duplicated">Calendário repetido</span>
+        <span ng-show="error.year">O ano é obrigatório</span>
+    </div>
+    <form class="form-horizontal" role="form" ng-submit="main.save()">
+        <div ng-class="{'form-group' : true, 'has-error' : !!error.year}">
+            <label for="inputYear" class="col-sm-2 control-label">Ano</label>
+
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputYear" placeholder="ano"
+                       ng-model="main.calendar.year">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-success btn-lg">criar calendário</button>
+            </div>
+        </div>
+    </form>
+</div>

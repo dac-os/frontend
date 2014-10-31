@@ -14,9 +14,7 @@
           headers()['authorization'] = 'basic ' + Base64.encode(data.academicRegistry + ':' + data.password);
         },
         'transformResponse' : function (data) {
-          if (data) {
-            Session.setCredentials(angular.fromJson(data).token);
-          }
+          Session.setCredentials(data ? angular.fromJson(data).token : null);
         }
       }
     });

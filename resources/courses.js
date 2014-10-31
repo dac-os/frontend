@@ -12,15 +12,12 @@
     });
   });
 
-  app.factory('Modality', function (coursesUri, $resource, Session) {
+  app.factory('Modality', function (coursesUri, $resource) {
     return $resource(coursesUri + '/catalogs/:catalogCode/modalities/:modalityCode', {'modalityCode' : '@code', 'catalogCode' : '@catalogCode'}, {
-      'update' : {'method' : 'PUT', 'transformRequest' : function (data, headers) {
+      'update' : {'method' : 'PUT', 'transformRequest' : function (data) {
         var res;
         res = angular.copy(data);
-        if (data && data.course && data.course.code) {
-          res.course = data.course.code;
-        }
-        headers()['csrf-token'] = Session.getCredentials();
+        res.course = data && data.course && data.course.code ? data.course.code : null;
         return angular.toJson(res);
       }},
       'save'   : {'method' : 'POST', 'url' : coursesUri + '/catalogs/:catalogCode/modalities'}
@@ -34,15 +31,12 @@
     });
   });
 
-  app.factory('Requirement', function (coursesUri, $resource, Session) {
+  app.factory('Requirement', function (coursesUri, $resource) {
     return $resource(coursesUri + '/catalogs/:catalogCode/modalities/:modalityCode/blocks/:blockCode/requirements/:requirementCode', {'requirementCode' : '@code', 'blockCode' : '@blockCode', 'modalityCode' : '@modalityCode', 'catalogCode' : '@catalogCode'}, {
-      'update' : {'method' : 'PUT', 'transformRequest' : function (data, headers) {
+      'update' : {'method' : 'PUT', 'transformRequest' : function (data) {
         var res;
         res = angular.copy(data);
-        if (data && data.discipline && data.discipline.code) {
-          res.discipline = data.discipline.code;
-        }
-        headers()['csrf-token'] = Session.getCredentials();
+        res.discipline = data && data.discipline && data.discipline.code ? data.discipline.code : null;
         return angular.toJson(res);
       }},
       'save'   : {'method' : 'POST', 'url' : coursesUri + '/catalogs/:catalogCode/modalities/:modalityCode/blocks/:blockCode/requirements'}

@@ -64,7 +64,7 @@ gulp.task('watch', ['build'], function () {
     'port' : /*nconf.get('PORT')*/3000,
     'root' : './build'
   });
-  return watch(['index.js', 'controllers/*.js', 'resources/*.js', 'services/*.js', 'views/*/*.html'], function () {
+  return watch(['index.js', 'index.html', 'controllers/*.js', 'resources/*.js', 'services/*.js', 'views/*/*.html'], function () {
     gulp.start('build');
   });
 });

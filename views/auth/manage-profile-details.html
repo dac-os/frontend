@@ -1,4 +1,16 @@
 <div ng-controller="ProfileDetailsController as main">
-    Nome {{main.profile.name}}<br />
-    Permissões {{main.profile.permissions.join(',')}}<br />
+    <h1>Perfil</h1>
+    <ol class="breadcrumb">
+        <li><a href="#/">Home</a></li>
+        <li><a href="#/gerenciar-perfis">Gerenciar Perfis</a></li>
+        <li class="active">Perfil</li>
+    </ol>
+    <dl class="dl-horizontal">
+        <dt>Nome</dt>
+        <dd>{{main.profile.name}}</dd>
+    </dl>
+    <dl class="dl-horizontal">
+        <dt>Permissões</dt>
+        <dd>{{main.profile.permissions.join(',')}}</dd>
+    </dl>
 </div>

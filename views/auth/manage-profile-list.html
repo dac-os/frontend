@@ -1,14 +1,45 @@
-<ul ng-controller="ProfileListController as main">
-    <li ng-repeat="profile in main.profiles">
-        <a ng-href="#/gerenciar-perfis/{{profile.slug}}/editar">
-            editar
-        </a>
-        <span ng-click="main.remove($index)">
-            remover
-        </span>
-        <a ng-href="#/gerenciar-perfis/{{profile.slug}}">
-            {{profile.name}}
-        </a>
-    </li>
-    <a href="#/gerenciar-perfis/criar">+ criar</a>
-</ul>
+<div ng-controller="ProfileListController as main">
+    <h1>Perfis</h1>
+    <ol class="breadcrumb">
+        <li><a href="#/">Home</a></li>
+        <li class="active">Gerenciar Perfis</li>
+    </ol>
+
+    <div class="form-group">
+        <div class="input-group">
+            <div class="input-group-addon">Filtrar</div>
+            <input class="form-control">
+        </div>
+    </div>
+
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th width="30%"></th>
+            <th>Perfil</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="profile in main.profiles">
+            <td>
+                <a href="#/gerenciar-perfis/{{profile.slug}}/editar" class="btn btn-warning btn-xs">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                    <span>editar</span>
+                </a>
+                <span ng-click="main.remove($index)" class="btn btn-danger btn-xs">
+                    <span class="glyphicon glyphicon-trash"></span>
+                    <span>remover</span>
+                </span>
+                <a ng-href="#/gerenciar-perfis/{{profile.slug}}" class="btn btn-info btn-xs">
+                    <span class="glyphicon glyphicon-hand-up"></span>
+                    <span>detalhes</span>
+                </a>
+            </td>
+            <td>
+                {{profile.name}}
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

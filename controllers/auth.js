@@ -24,6 +24,7 @@
   });
 
   app.controller('ProfileListController', function ($routeParams, Profile) {
+    this.page = $routeParams.page * 1 || 0;
     this.profiles = Profile.query($routeParams);
     this.remove = function (i) {
       this.profiles[i].$remove(function () {

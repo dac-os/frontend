@@ -38,6 +38,7 @@ gulp.task('build', ['clean'], function () {
 
   scripts = require('event-stream').merge(src, templates);
   scripts = scripts.pipe(preprocess({'context' : {
+    'PAGE_SIZE'      : nconf.get('PAGE_SIZE'),
     'HISTORY_URI'    : nconf.get('HISTORY_URI'),
     'ENROLLMENT_URI' : nconf.get('ENROLLMENT_URI'),
     'COURSES_URI'    : nconf.get('COURSES_URI'),

@@ -7,6 +7,4 @@
   app.config(function ($routeProvider) {
     $routeProvider.when('/', {'templateUrl' : 'home/home.html'});
   });
-
-  app.controller('HomeController', function (Catalog) {});
 })(angular);

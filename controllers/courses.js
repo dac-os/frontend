@@ -43,6 +43,7 @@
   });
 
   app.controller('CourseListController', function ($routeParams, Course) {
+    this.page = $routeParams.page * 1 || 0;
     this.courses = Course.query($routeParams);
     this.remove = function (i) {
       this.courses[i].$remove($routeParams, function () {
@@ -74,6 +75,7 @@
   });
 
   app.controller('DisciplineListController', function ($routeParams, Discipline) {
+    this.page = $routeParams.page * 1 || 0;
     this.disciplines = Discipline.query($routeParams);
     this.remove = function (i) {
       this.disciplines[i].$remove($routeParams, function () {
@@ -105,6 +107,7 @@
   });
 
   app.controller('CatalogListController', function ($routeParams, Catalog) {
+    this.page = $routeParams.page * 1 || 0;
     this.catalogs = Catalog.query($routeParams);
     this.remove = function (i) {
       this.catalogs[i].$remove($routeParams, function () {
@@ -136,6 +139,7 @@
   });
 
   app.controller('ModalityListController', function ($routeParams, Catalog, Modality) {
+    this.page = $routeParams.page * 1 || 0;
     this.catalog = Catalog.get($routeParams);
     this.modalities = Modality.query($routeParams);
     this.remove = function (i) {
@@ -174,6 +178,7 @@
   });
 
   app.controller('BlockListController', function ($routeParams, Catalog, Modality, Block) {
+    this.page = $routeParams.page * 1 || 0;
     this.catalog = Catalog.get($routeParams);
     this.modality = Modality.get($routeParams);
     this.blocks = Block.query($routeParams);
@@ -213,6 +218,7 @@
   });
 
   app.controller('RequirementListController', function ($routeParams, Catalog, Modality, Block, Requirement) {
+    this.page = $routeParams.page * 1 || 0;
     this.catalog = Catalog.get($routeParams);
     this.modality = Modality.get($routeParams);
     this.block = Block.get($routeParams);

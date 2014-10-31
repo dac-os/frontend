@@ -21,6 +21,7 @@
   });
 
   app.controller('CalendarListController', function ($routeParams, Calendar) {
+    this.page = $routeParams.page * 1 || 0;
     this.calendars = Calendar.query($routeParams);
     this.remove = function (i) {
       this.calendars[i].$remove(function () {
@@ -52,6 +53,7 @@
   });
 
   app.controller('EventListController', function ($routeParams, Calendar, Event) {
+    this.page = $routeParams.page * 1 || 0;
     this.calendar = Calendar.get($routeParams);
     this.events = Event.query($routeParams);
     this.remove = function (i) {

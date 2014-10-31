@@ -4,15 +4,10 @@
         <li><a href="#/">Home</a></li>
         <li class="active">Gerenciar Perfis</li>
     </ol>
-
-    <div class="form-group">
-        <div class="input-group">
-            <div class="input-group-addon">Filtrar</div>
-            <input class="form-control">
-        </div>
-    </div>
-
-
+    <a href="#/gerenciar-perfis/criar" class="btn btn-success btn-lg">
+        <span class="glyphicon glyphicon-plus"></span>
+        criar novo perfil
+    </a>
     <table class="table">
         <thead>
         <tr>
@@ -41,5 +36,22 @@
             </td>
         </tr>
         </tbody>
-    </table>
+    </table><nav>
+    <ul class="pager">
+        <li class="previous disabled" ng-show="main.page == 0">
+            <a ng-href="#/gerenciar-perfis">Anteriores</a>
+        </li>
+        <li class="previous" ng-hide="main.page == 0">
+            <a ng-href="#/gerenciar-perfis?page={{main.page - 1}}">Anteriores</a>
+        </li>
+
+
+        <li class="next disabled" ng-show="main.profiles.length < pageSize">
+            <a ng-href="#/gerenciar-perfis?page={{main.page}}">Próximos</a>
+        </li>
+        <li class="next" ng-hide="main.profiles.length < pageSize">
+            <a ng-href="#/gerenciar-perfis?page={{main.page + 1}}">Próximos</a>
+        </li>
+    </ul>
+</nav>
 </div>

@@ -5,14 +5,20 @@
   var app, credentials;
   app = angular.module('dacos');
   app.config(function ($httpProvider) {
-    $httpProvider.defaults.transformRequest = function (data, headers) {
-      headers()['csrf-token'] = credentials;
-      return angular.toJson(data);
-    };
+    $httpProvider.interceptors.push('RequestAuthHandler');
   });
 
   app.run(function ($rootScope, Session) {
     $rootScope.session = Session;
+  });
+
+  app.factory('RequestAuthHandler', function () {
+    return {
+      'request' : function (config) {
+        config.headers['csrf-token'] = credentials;
+        return config;
+      }
+    };
   });
 
   app.service('Session', function ($cookies, $http, authUri) {
@@ -25,10 +31,6 @@
         session = data;
       });
     };
-
-    this.getCredentials = function () {
-      return credentials;
-    }
 
     this.unsetCredentials = function () {
       credentials = null;

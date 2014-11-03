@@ -21,13 +21,7 @@
   });
 
   app.controller('CalendarListController', function ($routeParams, Calendar) {
-    this.page = $routeParams.page * 1 || 0;
     this.calendars = Calendar.query($routeParams);
-    this.remove = function (i) {
-      this.calendars[i].$remove(function () {
-        this.calendars.splice(i, 1);
-      }.bind(this));
-    }.bind(this);
   });
 
   app.controller('CalendarDetailsController', function ($routeParams, Calendar) {
@@ -53,14 +47,8 @@
   });
 
   app.controller('EventListController', function ($routeParams, Calendar, Event) {
-    this.page = $routeParams.page * 1 || 0;
     this.calendar = Calendar.get($routeParams);
     this.events = Event.query($routeParams);
-    this.remove = function (i) {
-      this.events[i].$remove($routeParams, function () {
-        this.events.splice(i, 1);
-      }.bind(this));
-    }.bind(this);
   });
 
   app.controller('EventDetailsController', function ($routeParams, Calendar, Event) {

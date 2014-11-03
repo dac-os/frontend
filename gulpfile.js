@@ -70,7 +70,7 @@ gulp.task('watch', ['build'], function () {
     'root' : './build'
   });
 
-  return watch(['index.js', 'index.html', 'controllers/*.js', 'resources/*.js', 'services/*.js', 'views/*/*.html'], function () {
+  return watch(['index.js', 'index.html', 'controllers/*.js', 'directives/*.js', 'resources/*.js', 'services/*.js', 'views/*/*.html'], function () {
     gulp.start('build');
   });
 });

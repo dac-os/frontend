@@ -3,9 +3,7 @@
         <a ng-href="#/gerenciar-cursos/{{course.code}}/editar">
             editar
         </a>
-        <span ng-click="main.remove($index)">
-            remover
-        </span>
+        <remove-button element="course">remover</remove-button>
         <a ng-href="#/gerenciar-cursos/{{course.code}}">
             {{course.code}}
         </a>

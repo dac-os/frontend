@@ -39,7 +39,7 @@
         res.discipline = data && data.discipline && data.discipline.code ? data.discipline.code : null;
         return angular.toJson(res);
       }},
-      'save'   : {'method' : 'POST', 'url' : coursesUri + '/catalogs/:catalogCode/modalities/:modalityCode/blocks/:blockCode/requirements'}
+      'save'   : {'method' : 'POST', 'url' : coursesUri + '/catalogs/:catalogCode/modalities/:modalityCode/blocks/:blockCode/requirements'},
     });
   });
 

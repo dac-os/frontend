@@ -22,10 +22,7 @@
                     <span class="glyphicon glyphicon-pencil"></span>
                     <span>editar</span>
                 </a>
-                <span ng-click="main.remove($index)" class="btn btn-danger btn-xs">
-                    <span class="glyphicon glyphicon-trash"></span>
-                    <span>remover</span>
-                </span>
+                <remove-button element="calendar">remover</remove-button>
                 <a ng-href="#/gerenciar-calendarios/{{calendar.year}}" class="btn btn-info btn-xs">
                     <span class="glyphicon glyphicon-hand-up"></span>
                     <span>detalhes</span>
@@ -37,21 +34,6 @@
         </tr>
         </tbody>
     </table><nav>
-    <ul class="pager">
-        <li class="previous disabled" ng-show="main.page == 0">
-            <a ng-href="#/gerenciar-calendarios">Anteriores</a>
-        </li>
-        <li class="previous" ng-hide="main.page == 0">
-            <a ng-href="#/gerenciar-calendarios?page={{main.page - 1}}">Anteriores</a>
-        </li>
-
-
-        <li class="next disabled" ng-show="main.calendars.length < pageSize">
-            <a ng-href="#/gerenciar-calendarios?page={{main.page}}">Próximos</a>
-        </li>
-        <li class="next" ng-hide="main.calendars.length < pageSize">
-            <a ng-href="#/gerenciar-calendarios?page={{main.page + 1}}">Próximos</a>
-        </li>
-    </ul>
+    <nav-bar collection="main.calendars"></nav-bar>
 </nav>
 </div>

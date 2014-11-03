@@ -43,13 +43,7 @@
   });
 
   app.controller('CourseListController', function ($routeParams, Course) {
-    this.page = $routeParams.page * 1 || 0;
     this.courses = Course.query($routeParams);
-    this.remove = function (i) {
-      this.courses[i].$remove($routeParams, function () {
-        this.courses.splice(i, 1);
-      }.bind(this));
-    }.bind(this);
   });
 
   app.controller('CourseDetailsController', function ($routeParams, Course) {
@@ -75,13 +69,7 @@
   });
 
   app.controller('DisciplineListController', function ($routeParams, Discipline) {
-    this.page = $routeParams.page * 1 || 0;
     this.disciplines = Discipline.query($routeParams);
-    this.remove = function (i) {
-      this.disciplines[i].$remove($routeParams, function () {
-        this.disciplines.splice(i, 1);
-      }.bind(this));
-    }.bind(this);
   });
 
   app.controller('DisciplineDetailsController', function ($routeParams, Discipline) {
@@ -107,13 +95,7 @@
   });
 
   app.controller('CatalogListController', function ($routeParams, Catalog) {
-    this.page = $routeParams.page * 1 || 0;
     this.catalogs = Catalog.query($routeParams);
-    this.remove = function (i) {
-      this.catalogs[i].$remove($routeParams, function () {
-        this.catalogs.splice(i, 1);
-      }.bind(this));
-    }.bind(this);
   });
 
   app.controller('CatalogDetailsController', function ($routeParams, Catalog) {
@@ -139,17 +121,8 @@
   });
 
   app.controller('ModalityListController', function ($routeParams, Catalog, Modality) {
-    this.page = $routeParams.page * 1 || 0;
     this.catalog = Catalog.get($routeParams);
     this.modalities = Modality.query($routeParams);
-    this.remove = function (i) {
-      this.modalities[i].$remove({
-        'modalityCode' : this.modalities[i].course.code + '-' + this.modalities[i].code,
-        'catalogCode'  : this.catalog.year
-      }, function () {
-        this.modalities.splice(i, 1);
-      }.bind(this));
-    }.bind(this);
   });
 
   app.controller('ModalityDetailsController', function ($routeParams, Catalog, Modality) {
@@ -178,15 +151,9 @@
   });
 
   app.controller('BlockListController', function ($routeParams, Catalog, Modality, Block) {
-    this.page = $routeParams.page * 1 || 0;
     this.catalog = Catalog.get($routeParams);
     this.modality = Modality.get($routeParams);
     this.blocks = Block.query($routeParams);
-    this.remove = function (i) {
-      this.blocks[i].$remove($routeParams, function () {
-        this.blocks.splice(i, 1);
-      }.bind(this));
-    }.bind(this);
   });
 
   app.controller('BlockDetailsController', function ($routeParams, Catalog, Modality, Block) {
@@ -218,21 +185,10 @@
   });
 
   app.controller('RequirementListController', function ($routeParams, Catalog, Modality, Block, Requirement) {
-    this.page = $routeParams.page * 1 || 0;
     this.catalog = Catalog.get($routeParams);
     this.modality = Modality.get($routeParams);
     this.block = Block.get($routeParams);
     this.requirements = Requirement.query($routeParams);
-    this.remove = function (i) {
-      this.requirements[i].$remove({
-        'requirementCode' : this.requirements[i].discipline ? this.requirements[i].discipline.code : this.requirements[i].mask,
-        'blockCode'       : this.block.code,
-        'modalityCode'    : this.modality.course.code + '-' + this.modality.code,
-        'catalogCode'     : this.catalog.year
-      }, function () {
-        this.requirements.splice(i, 1);
-      }.bind(this));
-    }.bind(this);
   });
 
   app.controller('RequirementDetailsController', function ($routeParams, Catalog, Modality, Block, Requirement) {

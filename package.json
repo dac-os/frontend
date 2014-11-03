@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "prestart": "gulp build",
-    "start": "statik ./build --port ${PORT}"
+    "start": "statik ./build --port ${PORT}",
+    "watch": "gulp watch"
   },
   "repository": {
     "type": "git",

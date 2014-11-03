@@ -61,10 +61,15 @@ gulp.task('watch', ['build'], function () {
   require('dacos-courses');
   require('dacos-enrollment');
   require('dacos-history');
+
+  nconf.argv();
+  nconf.env();
+  nconf.defaults(require('./config'));
   statik({
-    'port' : /*nconf.get('PORT')*/3000,
+    'port' : nconf.get('PORT'),
     'root' : './build'
   });
+
   return watch(['index.js', 'index.html', 'controllers/*.js', 'resources/*.js', 'services/*.js', 'views/*/*.html'], function () {
     gulp.start('build');
   });

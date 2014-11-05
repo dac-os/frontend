@@ -3,7 +3,10 @@
         <a ng-href="#/gerenciar-cursos/{{course.code}}/editar">
             editar
         </a>
-        <remove-button element="course">remover</remove-button>
+        <span ng-controller="CourseDeleteController as main" ng-click="main.remove(course)" class="btn btn-danger btn-xs">
+            <span class="glyphicon glyphicon-trash"></span>
+            <span>remover</span>
+        </span>
         <a ng-href="#/gerenciar-cursos/{{course.code}}">
             {{course.code}}
         </a>

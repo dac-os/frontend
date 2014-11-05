@@ -19,7 +19,10 @@
                     <span class="glyphicon glyphicon-pencil"></span>
                     <span>editar</span>
                 </a>
-                <remove-button element="event">remover</remove-button>
+                <span ng-controller="EventDeleteController as main" ng-click="main.remove(event)" class="btn btn-danger btn-xs">
+                    <span class="glyphicon glyphicon-trash"></span>
+                    <span>remover</span>
+                </span>
                 <a ng-href="#/gerenciar-calendarios/{{main.calendar.year}}/eventos/{{event.slug}}/"
                    class="btn btn-info btn-xs">
                     <span class="glyphicon glyphicon-hand-up"></span>

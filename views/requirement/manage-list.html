@@ -3,7 +3,10 @@
         <a ng-href="#/gerenciar-catalogos/{{main.catalog.year}}/modalidades/{{main.modality.course.code}}-{{main.modality.code}}/blocos/{{main.block.code}}/requisitos/{{requirement.mask || requirement.discipline.code}}/editar">
             editar
         </a>
-        <remove-button element="requirement" label="'requirementCode'" code="requirement.discipline ? requirement.discipline.code : requirement.mask">remover</remove-button>
+        <span ng-controller="RequirementDeleteController as main" ng-click="main.remove(requirement)" class="btn btn-danger btn-xs">
+            <span class="glyphicon glyphicon-trash"></span>
+            <span>remover</span>
+        </span>
         <a ng-href="#/gerenciar-catalogos/{{main.catalog.year}}/modalidades/{{main.modality.course.code}}-{{main.modality.code}}/blocos/{{main.block.code}}/requisitos/{{requirement.mask || requirement.discipline.code}}">
             {{requirement.discipline.code}}
         </a>

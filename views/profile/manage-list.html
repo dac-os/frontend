@@ -11,7 +11,7 @@
     <table class="table">
         <thead>
         <tr>
-            <th width="30%"></th>
+            <th width="35%"></th>
             <th>Perfil</th>
         </tr>
         </thead>
@@ -22,7 +22,10 @@
                     <span class="glyphicon glyphicon-pencil"></span>
                     <span>editar</span>
                 </a>
-                <remove-button element="profile">remover</remove-button>
+                <span ng-controller="ProfileDeleteController as main" ng-click="main.remove(profile)" class="btn btn-danger btn-xs">
+                    <span class="glyphicon glyphicon-trash"></span>
+                    <span>remover</span>
+                </span>
                 <a ng-href="#/gerenciar-perfis/{{profile.slug}}" class="btn btn-info btn-xs">
                     <span class="glyphicon glyphicon-hand-up"></span>
                     <span>detalhes</span>
@@ -33,7 +36,8 @@
             </td>
         </tr>
         </tbody>
-    </table><nav>
-    <nav-bar collection="main.profiles"></nav-bar>
-</nav>
+    </table>
+    <nav>
+        <nav-bar collection="main.profiles"></nav-bar>
+    </nav>
 </div>

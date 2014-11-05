@@ -3,7 +3,10 @@
         <a ng-href="#/gerenciar-catalogos/{{main.catalog.year}}/modalidades/{{modality.course.code}}-{{modality.code}}/editar">
             editar
         </a>
-        <remove-button element="modality" label="'modalityCode'" code="modality.course.code + '-' + modality.code">remover</remove-button>
+        <span ng-controller="ModalityDeleteController as main" ng-click="main.remove(modality)" class="btn btn-danger btn-xs">
+            <span class="glyphicon glyphicon-trash"></span>
+            <span>remover</span>
+        </span>
         <a ng-href="#/gerenciar-catalogos/{{main.catalog.year}}/modalidades/{{modality.course.code}}-{{modality.code}}">
             {{modality.course.code}} {{modality.code}} {{modality.name}}
         </a>

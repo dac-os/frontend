@@ -3,7 +3,10 @@
         <a ng-href="#/gerenciar-catalogos/{{catalog.year}}/editar">
             editar
         </a>
-        <remove-button element="catalog">remover</remove-button>
+        <span ng-controller="CatalogDeleteController as main" ng-click="main.remove(catalog)" class="btn btn-danger btn-xs">
+            <span class="glyphicon glyphicon-trash"></span>
+            <span>remover</span>
+        </span>
         <a ng-href="#/gerenciar-catalogos/{{catalog.year}}">
             {{catalog.year}}
         </a>

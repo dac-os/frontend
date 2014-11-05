@@ -3,7 +3,10 @@
         <a ng-href="#/gerenciar-disciplinas/{{discipline.code}}/editar">
             editar
         </a>
-        <remove-button element="discipline">remover</remove-button>
+        <span ng-controller="DisciplineDeleteController as main" ng-click="main.remove(discipline)" class="btn btn-danger btn-xs">
+            <span class="glyphicon glyphicon-trash"></span>
+            <span>remover</span>
+        </span>
         <a ng-href="#/gerenciar-disciplinas/{{discipline.code}}">
             {{discipline.code}}
         </a>

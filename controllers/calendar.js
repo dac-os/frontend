@@ -31,18 +31,14 @@
   app.controller('CalendarCreateController', function ($routeParams, $location, Calendar) {
     this.calendar = new Calendar($routeParams);
     this.save = function () {
-      this.calendar.$save(function () {
-        $location.path('/gerenciar-calendarios');
-      }.bind(this));
+      this.calendar.$save($routeParams, $location.parent(1));
     }.bind(this);
   });
 
   app.controller('CalendarUpdateController', function ($routeParams, $controller, $location) {
     angular.extend(this, $controller('CalendarDetailsController'));
     this.save = function () {
-      this.calendar.$update($routeParams, function () {
-        $location.path('/gerenciar-calendarios');
-      }.bind(this));
+      this.calendar.$update($routeParams, $location.parent(2));
     }.bind(this);
   });
 })(angular);

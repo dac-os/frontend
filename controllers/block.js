@@ -33,18 +33,14 @@
     angular.extend(this, $controller('ModalityDetailsController'));
     this.block = new Block($routeParams);
     this.save = function () {
-      this.block.$save(function () {
-        $location.path('/gerenciar-catalogos/' + this.catalog.year + '/modalidades/' + this.modality.course.code + '-' + this.modality.code);
-      }.bind(this));
+      this.block.$save($routeParams, $location.parent(1));
     }.bind(this);
   });
 
   app.controller('BlockUpdateController', function ($routeParams, $controller, $location) {
     angular.extend(this, $controller('BlockDetailsController'));
     this.save = function () {
-      this.block.$update($routeParams, function () {
-        $location.path('/gerenciar-catalogos/' + this.catalog.year + '/modalidades/' + this.modality.course.code + '-' + this.modality.code);
-      }.bind(this));
+      this.block.$update($routeParams, $location.parent(2));
     }.bind(this);
   });
 })(angular);

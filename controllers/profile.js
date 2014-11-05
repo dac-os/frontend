@@ -28,18 +28,14 @@
   app.controller('ProfileCreateController', function ($routeParams, $location, Profile) {
     this.profile = new Profile($routeParams);
     this.save = function () {
-      this.profile.$save(function () {
-        $location.path('/gerenciar-perfis');
-      }.bind(this));
+      this.profile.$save($routeParams, $location.parent(1));
     }.bind(this);
   });
 
   app.controller('ProfileUpdateController', function ($routeParams, $controller, $location) {
     angular.extend(this, $controller('ProfileDetailsController'));
     this.save = function () {
-      this.profile.$update(function () {
-        $location.path('/gerenciar-perfis');
-      }.bind(this));
+      this.profile.$update($routeParams, $location.parent(2));
     }.bind(this);
   });
 })(angular);

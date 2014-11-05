@@ -36,18 +36,14 @@
     angular.extend(this, $controller('CatalogDetailsController'));
     this.modality = new Modality($routeParams);
     this.save = function () {
-      this.modality.$save(function () {
-        $location.path('/gerenciar-catalogos/' + this.catalog.year);
-      }.bind(this));
+      this.modality.$save($routeParams, $location.parent(1));
     }.bind(this);
   });
 
   app.controller('ModalityUpdateController', function ($routeParams, $controller, $location) {
     angular.extend(this, $controller('ModalityDetailsController'));
     this.save = function () {
-      this.modality.$update($routeParams, function () {
-        $location.path('/gerenciar-catalogos/' + this.catalog.year);
-      }.bind(this));
+      this.modality.$update($routeParams, $location.parent(2));
     }.bind(this);
   });
 })(angular);

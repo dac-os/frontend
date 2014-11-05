@@ -28,18 +28,14 @@
   app.controller('DisciplineCreateController', function ($routeParams, $location, Discipline) {
     this.discipline = new Discipline($routeParams);
     this.save = function () {
-      this.discipline.$save(function () {
-        $location.path('/gerenciar-disciplinas');
-      }.bind(this));
+      this.discipline.$save($routeParams, $location.parent(1));
     }.bind(this);
   });
 
   app.controller('DisciplineUpdateController', function ($routeParams, $controller, $location) {
     angular.extend(this, $controller('DisciplineDetailsController'));
     this.save = function () {
-      this.discipline.$update($routeParams, function () {
-        $location.path('/gerenciar-disciplinas');
-      }.bind(this));
+      this.discipline.$update($routeParams, $location.parent(2));
     }.bind(this);
   });
 })(angular);

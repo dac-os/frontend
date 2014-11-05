@@ -31,18 +31,14 @@
   app.controller('CatalogCreateController', function ($routeParams, $location, Catalog) {
     this.catalog = new Catalog($routeParams);
     this.save = function () {
-      this.catalog.$save(function () {
-        $location.path('/gerenciar-catalogos');
-      }.bind(this));
+      this.catalog.$save($routeParams, $location.parent(1));
     }.bind(this);
   });
 
   app.controller('CatalogUpdateController', function ($routeParams, $controller, $location) {
     angular.extend(this, $controller('CatalogDetailsController'));
     this.save = function () {
-      this.catalog.$update($routeParams, function () {
-        $location.path('/gerenciar-catalogos');
-      }.bind(this));
+      this.catalog.$update($routeParams, $location.parent(2));
     }.bind(this);
   });
 })(angular);

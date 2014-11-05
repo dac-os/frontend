@@ -36,18 +36,14 @@
     angular.extend(this, $controller('BlockDetailsController'));
     this.requirement = new Requirement($routeParams);
     this.save = function () {
-      this.requirement.$save(function () {
-        $location.path('/gerenciar-catalogos/' + this.catalog.year + '/modalidades/' + this.modality.course.code + '-' + this.modality.code + '/blocos/' + this.block.code);
-      }.bind(this));
+      this.requirement.$save($routeParams, $location.parent(1));
     }.bind(this);
   });
 
   app.controller('RequirementUpdateController', function ($routeParams, $controller, $location) {
     angular.extend(this, $controller('RequirementDetailsController'));
     this.save = function () {
-      this.requirement.$update($routeParams, function () {
-        $location.path('/gerenciar-catalogos/' + this.catalog.year + '/modalidades/' + this.modality.course.code + '-' + this.modality.code + '/blocos/' + this.block.code);
-      }.bind(this));
+      this.requirement.$update($routeParams, $location.parent(2));
     }.bind(this);
   });
 })(angular);

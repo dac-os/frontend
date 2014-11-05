@@ -28,18 +28,14 @@
   app.controller('CourseCreateController', function ($routeParams, $location, Course) {
     this.course = new Course($routeParams);
     this.save = function () {
-      this.course.$save(function () {
-        $location.path('/gerenciar-cursos');
-      }.bind(this));
+      this.course.$save($routeParams, $location.parent(1));
     }.bind(this);
   });
 
   app.controller('CourseUpdateController', function ($routeParams, $controller, $location) {
     angular.extend(this, $controller('CourseDetailsController'));
     this.save = function () {
-      this.course.$update($routeParams, function () {
-        $location.path('/gerenciar-cursos');
-      }.bind(this));
+      this.course.$update($routeParams, $location.parent(2));
     }.bind(this);
   });
 })(angular);

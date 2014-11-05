@@ -33,18 +33,14 @@
     angular.extend(this, $controller('CalendarDetailsController'));
     this.event = new Event($routeParams);
     this.save = function () {
-      this.event.$save(function () {
-        $location.path('/gerenciar-calendarios/' + this.calendar.year);
-      }.bind(this));
+      this.event.$save($routeParams, $location.parent(1));
     }.bind(this);
   });
 
   app.controller('EventUpdateController', function ($routeParams, $controller, $location) {
     angular.extend(this, $controller('EventDetailsController'));
     this.save = function () {
-      this.event.$update($routeParams, function () {
-        $location.path('/gerenciar-calendarios/' + this.calendar.year);
-      }.bind(this));
+      this.event.$update($routeParams, $location.parent(2));
     }.bind(this);
   });
 })(angular);

@@ -34,8 +34,8 @@
     }.bind(this);
   });
 
-  app.controller('CourseUpdateController', function ($routeParams, $location, Course) {
-    this.course = Course.get($routeParams);
+  app.controller('CourseUpdateController', function ($routeParams, $controller, $location) {
+    angular.extend(this, $controller('CourseDetailsController'));
     this.save = function () {
       this.course.$update($routeParams, function () {
         $location.path('/gerenciar-cursos');

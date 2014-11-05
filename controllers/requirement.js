@@ -13,17 +13,13 @@
     $routeProvider.when('/gerenciar-catalogos/:catalogCode/modalidades/:modalityCode/blocos/:blockCode/requisitos/:requirementCode/editar', {'templateUrl' : 'requirement/manage-update.html'});
   });
 
-  app.controller('RequirementListController', function ($routeParams, Catalog, Modality, Block, Requirement) {
-    this.catalog = Catalog.get($routeParams);
-    this.modality = Modality.get($routeParams);
-    this.block = Block.get($routeParams);
+  app.controller('RequirementListController', function ($routeParams, $controller, Requirement) {
+    angular.extend(this, $controller('BlockDetailsController'));
     this.requirements = Requirement.query($routeParams);
   });
 
-  app.controller('RequirementDetailsController', function ($routeParams, Catalog, Modality, Block, Requirement) {
-    this.catalog = Catalog.get($routeParams);
-    this.modality = Modality.get($routeParams);
-    this.block = Block.get($routeParams);
+  app.controller('RequirementDetailsController', function ($routeParams, $controller, Requirement) {
+    angular.extend(this, $controller('BlockDetailsController'));
     this.requirement = Requirement.get($routeParams);
   });
 
@@ -36,10 +32,8 @@
     };
   });
 
-  app.controller('RequirementCreateController', function ($routeParams, $location, Catalog, Modality, Block, Requirement) {
-    this.catalog = Catalog.get($routeParams);
-    this.modality = Modality.get($routeParams);
-    this.block = Block.get($routeParams);
+  app.controller('RequirementCreateController', function ($routeParams, $controller, $location, Requirement) {
+    angular.extend(this, $controller('BlockDetailsController'));
     this.requirement = new Requirement($routeParams);
     this.save = function () {
       this.requirement.$save(function () {
@@ -48,11 +42,8 @@
     }.bind(this);
   });
 
-  app.controller('RequirementUpdateController', function ($routeParams, $location, Catalog, Modality, Block, Requirement) {
-    this.catalog = Catalog.get($routeParams);
-    this.modality = Modality.get($routeParams);
-    this.block = Block.get($routeParams);
-    this.requirement = Requirement.get($routeParams);
+  app.controller('RequirementUpdateController', function ($routeParams, $controller, $location) {
+    angular.extend(this, $controller('RequirementDetailsController'));
     this.save = function () {
       this.requirement.$update($routeParams, function () {
         $location.path('/gerenciar-catalogos/' + this.catalog.year + '/modalidades/' + this.modality.course.code + '-' + this.modality.code + '/blocos/' + this.block.code);

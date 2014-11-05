@@ -34,8 +34,8 @@
     }.bind(this);
   });
 
-  app.controller('DisciplineUpdateController', function ($routeParams, $location, Discipline) {
-    this.discipline = Discipline.get($routeParams);
+  app.controller('DisciplineUpdateController', function ($routeParams, $controller, $location) {
+    angular.extend(this, $controller('DisciplineDetailsController'));
     this.save = function () {
       this.discipline.$update($routeParams, function () {
         $location.path('/gerenciar-disciplinas');

@@ -13,13 +13,13 @@
     $routeProvider.when('/gerenciar-catalogos/:catalogCode/modalidades/:modalityCode/editar', {'templateUrl' : 'modality/manage-update.html'});
   });
 
-  app.controller('ModalityListController', function ($routeParams, Catalog, Modality) {
-    this.catalog = Catalog.get($routeParams);
+  app.controller('ModalityListController', function ($routeParams, $controller, Modality) {
+    angular.extend(this, $controller('CatalogDetailsController'));
     this.modalities = Modality.query($routeParams);
   });
 
-  app.controller('ModalityDetailsController', function ($routeParams, Catalog, Modality) {
-    this.catalog = Catalog.get($routeParams);
+  app.controller('ModalityDetailsController', function ($routeParams, $controller, Modality) {
+    angular.extend(this, $controller('CatalogDetailsController'));
     this.modality = Modality.get($routeParams);
   });
 
@@ -32,8 +32,8 @@
     };
   });
 
-  app.controller('ModalityCreateController', function ($routeParams, $location, Catalog, Modality) {
-    this.catalog = Catalog.get($routeParams);
+  app.controller('ModalityCreateController', function ($routeParams, $controller, $location, Modality) {
+    angular.extend(this, $controller('CatalogDetailsController'));
     this.modality = new Modality($routeParams);
     this.save = function () {
       this.modality.$save(function () {
@@ -42,9 +42,8 @@
     }.bind(this);
   });
 
-  app.controller('ModalityUpdateController', function ($routeParams, $location, Catalog, Modality) {
-    this.catalog = Catalog.get($routeParams);
-    this.modality = Modality.get($routeParams);
+  app.controller('ModalityUpdateController', function ($routeParams, $controller, $location) {
+    angular.extend(this, $controller('ModalityDetailsController'));
     this.save = function () {
       this.modality.$update($routeParams, function () {
         $location.path('/gerenciar-catalogos/' + this.catalog.year);

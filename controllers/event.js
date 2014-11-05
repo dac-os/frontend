@@ -13,13 +13,13 @@
     $routeProvider.when('/gerenciar-calendarios/:calendarCode/eventos/:eventCode/editar', {'templateUrl' : 'event/manage-update.html'});
   });
 
-  app.controller('EventListController', function ($routeParams, Calendar, Event) {
-    this.calendar = Calendar.get($routeParams);
+  app.controller('EventListController', function ($routeParams, $controller, Event) {
+    angular.extend(this, $controller('CalendarDetailsController'));
     this.events = Event.query($routeParams);
   });
 
-  app.controller('EventDetailsController', function ($routeParams, Calendar, Event) {
-    this.calendar = Calendar.get($routeParams);
+  app.controller('EventDetailsController', function ($routeParams, $controller, Event) {
+    angular.extend(this, $controller('CalendarDetailsController'));
     this.event = Event.get($routeParams);
   });
 
@@ -29,8 +29,8 @@
     };
   });
 
-  app.controller('EventCreateController', function ($routeParams, $location, Calendar, Event) {
-    this.calendar = Calendar.get($routeParams);
+  app.controller('EventCreateController', function ($routeParams, $controller, $location, Event) {
+    angular.extend(this, $controller('CalendarDetailsController'));
     this.event = new Event($routeParams);
     this.save = function () {
       this.event.$save(function () {
@@ -39,9 +39,8 @@
     }.bind(this);
   });
 
-  app.controller('EventUpdateController', function ($routeParams, $location, Calendar, Event) {
-    this.calendar = Calendar.get($routeParams);
-    this.event = Event.get($routeParams);
+  app.controller('EventUpdateController', function ($routeParams, $controller, $location) {
+    angular.extend(this, $controller('EventDetailsController'));
     this.save = function () {
       this.event.$update($routeParams, function () {
         $location.path('/gerenciar-calendarios/' + this.calendar.year);

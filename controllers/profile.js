@@ -34,8 +34,8 @@
     }.bind(this);
   });
 
-  app.controller('ProfileUpdateController', function ($routeParams, $location, Profile) {
-    this.profile = Profile.get($routeParams);
+  app.controller('ProfileUpdateController', function ($routeParams, $controller, $location) {
+    angular.extend(this, $controller('ProfileDetailsController'));
     this.save = function () {
       this.profile.$update(function () {
         $location.path('/gerenciar-perfis');

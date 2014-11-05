@@ -37,8 +37,8 @@
     }.bind(this);
   });
 
-  app.controller('CalendarUpdateController', function ($routeParams, $location, Calendar) {
-    this.calendar = Calendar.get($routeParams);
+  app.controller('CalendarUpdateController', function ($routeParams, $controller, $location) {
+    angular.extend(this, $controller('CalendarDetailsController'));
     this.save = function () {
       this.calendar.$update($routeParams, function () {
         $location.path('/gerenciar-calendarios');

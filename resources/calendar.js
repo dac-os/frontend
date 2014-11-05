@@ -11,10 +11,4 @@
       'save'   : {'method' : 'POST', 'url' : calendarUri + '/calendars'}
     });
   });
-
-  app.factory('Event', function (calendarUri, $resource) {
-    return $resource(calendarUri + '/calendars/:calendarCode/events/:eventCode', {'eventCode' : '@slug', 'calendarCode' : '@calendarCode'}, {
-      'update' : {'method' : 'PUT'}
-    });
-  });
 })(angular);

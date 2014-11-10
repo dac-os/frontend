@@ -1,4 +1,14 @@
 <form ng-controller="CatalogUpdateController as main" ng-submit="main.save()">
+    <h1>Editar Catálogos</h1>
+    <ol class="breadcrumb">
+        <li><a href="#/">Home</a></li>
+        <li><a href="#/gerenciar-catalogos">Gerenciar Catálogos</a></li>
+        <li class="active">Editar Catálogo</li>
+    </ol>
     Ano <input ng-model="main.catalog.year"><br />
     <input type="submit">
+    <div class="alert alert-danger" role="alert" ng-show="error">
+        <span ng-show="error.duplicated">Catálogo repetido</span>
+        <span ng-show="error.year">O ano é obrigatório</span>
+    </div>
 </form>

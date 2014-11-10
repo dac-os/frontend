@@ -1,4 +1,10 @@
 <div ng-controller="CatalogDetailsController as main">
+    <h1>Catálogos</h1>
+    <ol class="breadcrumb">
+        <li><a href="#/">Home</a></li>
+        <li><a href="#/gerenciar-catalogos">Gerenciar Catálogos</a></li>
+        <li class="active">Catálogo</li>
+    </ol>
     Ano {{main.catalog.year}}<br />
     modalidades<br />
     <ng-include src="'modality/manage-list.html'"></ng-include>

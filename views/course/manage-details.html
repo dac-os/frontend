@@ -1,5 +1,16 @@
+<h1>Calendário</h1>
+    <ol class="breadcrumb">
+        <li><a href="#/">Home</a></li>
+        <li><a href="#/gerenciar-cursos">Gerenciar Cursos</a></li>
+        <li class="active">Cursos</li>
+    </ol>
 <div ng-controller="CourseDetailsController as main">
-    Código {{main.course.code}}<br />
-    Nome {{main.course.name}}<br />
-    Nível {{main.course.level}}<br />
+    <dl class="dl-horizontal">
+        <dt>Código</dt>
+        <dd>{{main.course.code}}</dd>
+        <dt>Nome</dt>
+        <dd>{{main.course.name}}</dd>
+        <dt>Nível</dt>
+        <dd>{{main.course.level}}</dd>
+    </dl>
 </div>

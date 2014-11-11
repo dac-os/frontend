@@ -5,16 +5,21 @@
         <li class="active">Gerenciar Catálogos</li>
     </ol>
     <li ng-repeat="catalog in main.catalogs">
-        <a ng-href="#/gerenciar-catalogos/{{catalog.year}}/editar">
-            editar
+        <a href="#/gerenciar-catalogos/{{catalog.year}}/editar" class="btn btn-warning btn-xs">
+                <span class="glyphicon glyphicon-pencil"></span>
+                <span>editar</span>
         </a>
-        <span ng-controller="CatalogDeleteController as main" ng-click="main.remove(catalog)" class="btn btn-danger btn-xs">
+         <span ng-controller="CatalogDeleteController as main" ng-click="main.remove(catalog)" class="btn btn-danger btn-xs">
             <span class="glyphicon glyphicon-trash"></span>
             <span>remover</span>
         </span>
-        <a ng-href="#/gerenciar-catalogos/{{catalog.year}}">
+         <a ng-href="#/gerenciar-catalogos/{{catalog.year}}">
             {{catalog.year}}
         </a>
     </li>
-    <a href="#/gerenciar-catalogos/criar">+ criar</a>
+    <a href="#/gerenciar-catalogos/criar" class="btn btn-success btn-lg">
+            <span class="glyphicon glyphicon-plus"></span>
+            criar novo catálogo
+    </a>
 </ul>
+

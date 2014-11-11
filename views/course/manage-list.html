@@ -13,9 +13,14 @@
             <span class="glyphicon glyphicon-trash"></span>
             <span>remover</span>
         </span>
-        <a ng-href="#/gerenciar-cursos/{{course.code}}">
-            {{course.code}}
+        <a ng-href="#/gerenciar-cursos/{{course.code}}" class="btn btn-info btn-xs">
+            <span class="glyphicon glyphicon-hand-up"></span>
+            <span>detalhes</span>
         </a>
+        </td>
+        <td>
+            {{course.code}}
+        </td>
     </li>
     <a href="#/gerenciar-cursos/criar" class="btn btn-success btn-lg">
         <span class="glyphicon glyphicon-plus"></span>

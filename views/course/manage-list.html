@@ -4,26 +4,37 @@
         <li><a href="#/">Home</a></li>
         <li class="active">Gerenciar Cursos</li>
     </ol>
-    <li ng-repeat="course in main.courses">
-        <a href="#/gerenciar-cursos/{{course.code}}/editar" class="btn btn-warning btn-xs">
-            <span class="glyphicon glyphicon-pencil"></span>
-            <span>editar</span>
-        </a>
-        <span ng-controller="CourseDeleteController as main" ng-click="main.remove(course)" class="btn btn-danger btn-xs">
-            <span class="glyphicon glyphicon-trash"></span>
-            <span>remover</span>
-        </span>
-        <a ng-href="#/gerenciar-cursos/{{course.code}}" class="btn btn-info btn-xs">
-            <span class="glyphicon glyphicon-hand-up"></span>
-            <span>detalhes</span>
-        </a>
-        </td>
-        <td>
-            {{course.code}}
-        </td>
-    </li>
-    <a href="#/gerenciar-cursos/criar" class="btn btn-success btn-lg">
+     <a href="#/gerenciar-cursos/criar" class="btn btn-success btn-lg">
         <span class="glyphicon glyphicon-plus"></span>
-        + criar novo curso
+        criar novo curso
     </a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th width="30%"></th>
+                <th>Cursos</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="course in main.courses">
+                <td>
+                <a href="#/gerenciar-cursos/{{course.code}}/editar" class="btn btn-warning btn-xs">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                    <span>editar</span>
+                </a>
+                    <span ng-controller="CourseDeleteController as main" ng-click="main.remove(course)" class="btn btn-danger btn-xs">
+                    <span class="glyphicon glyphicon-trash"></span>
+                    <span>remover</span>
+                    </span>
+                <a ng-href="#/gerenciar-cursos/{{course.code}}" class="btn btn-info btn-xs">
+                    <span class="glyphicon glyphicon-hand-up"></span>
+                    <span>detalhes</span>
+                </a>
+                </td>
+                <td>
+                    {{course.code}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </ul>

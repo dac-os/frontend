@@ -4,27 +4,38 @@
         <li><a href="#/">Home</a></li>
         <li class="active">Gerenciar Catálogos</li>
     </ol>
-    <li ng-repeat="catalog in main.catalogs">
-        <a href="#/gerenciar-catalogos/{{catalog.year}}/editar" class="btn btn-warning btn-xs">
-                <span class="glyphicon glyphicon-pencil"></span>
-                <span>editar</span>
-        </a>
-         <span ng-controller="CatalogDeleteController as main" ng-click="main.remove(catalog)" class="btn btn-danger btn-xs">
-            <span class="glyphicon glyphicon-trash"></span>
-            <span>remover</span>
-        </span>
-        <a ng-href="#/gerenciar-catalogos/{{catalog.year}}" class="btn btn-info btn-xs">
-            <span class="glyphicon glyphicon-hand-up"></span>
-            <span>detalhes</span>
-        </a>
-        </td>
-        <td>
-                {{catalog.year}}
-        </td>
-    </li>
     <a href="#/gerenciar-catalogos/criar" class="btn btn-success btn-lg">
             <span class="glyphicon glyphicon-plus"></span>
             criar novo catálogo
     </a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th width="30%"></th>
+                <th>Catálogos</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="catalog in main.catalogs">
+                <td>
+                <a href="#/gerenciar-catalogos/{{catalog.year}}/editar" class="btn btn-warning btn-xs">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                    <span>editar</span>
+                </a>
+                <span ng-controller="CatalogDeleteController as main" ng-click="main.remove(catalog)" class="btn btn-danger btn-xs">
+                   <span class="glyphicon glyphicon-trash"></span>
+                    <span>remover</span>
+                </span>
+                <a ng-href="#/gerenciar-catalogos/{{catalog.year}}" class="btn btn-info btn-xs">
+                    <span class="glyphicon glyphicon-hand-up"></span>
+                    <span>detalhes</span>
+                </a>
+                </td>
+            <td>
+                    {{catalog.year}}
+            </td>
+            </tr>
+        </tbody>
+    </table>
 </ul>
 

@@ -1,12 +1,12 @@
-<div ng-controller="EnrollmentListController as main">
-    <h1>Calendários</h1>
+<div ng-controller="EnrollmentRequirementListController as main">
+    <h1>Disciplinas da matrícula</h1>
     <ol class="breadcrumb">
         <li><a href="#/">Home</a></li>
-        <li class="active">Gerenciar Calendários</li>
+        <li class="active">Gerenciar Disciplinas da matrícula</li>
     </ol>
     <a href="#/gerenciar-matriculas/criar" class="btn btn-success btn-lg">
         <span class="glyphicon glyphicon-plus"></span>
-        criar novo calendário
+        adicionar nova disciplina
     </a>
     <table class="table">
         <thead>
@@ -16,23 +16,23 @@
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="enrollment in main.enrollments">
+        <tr ng-repeat="requirement in main.requirements">
             <td>
-                <a href="#/gerenciar-matriculas/{{enrollment.year}}/editar" class="btn btn-warning btn-xs">
+                <a href="#/gerenciar-matriculas/{{requirement.year}}//editar" class="btn btn-warning btn-xs">
                     <span class="glyphicon glyphicon-pencil"></span>
                     <span>editar</span>
                 </a>
-                <span ng-controller="CalendarDeleteController as main" ng-click="main.remove(enrollment)" class="btn btn-danger btn-xs">
+                <span ng-controller="EnrollmentRequirementDeleteController as main" ng-click="main.remove(requirement)" class="btn btn-danger btn-xs">
                     <span class="glyphicon glyphicon-trash"></span>
                     <span>remover</span>
                 </span>
-                <a ng-href="#/gerenciar-matriculas/{{enrollment.year}}" class="btn btn-info btn-xs">
+                <a ng-href="#/gerenciar-matriculas/{{requirement.year}}" class="btn btn-info btn-xs">
                     <span class="glyphicon glyphicon-hand-up"></span>
                     <span>detalhes</span>
                 </a>
             </td>
             <td>
-                {{enrollment.year}}
+                {{requirement.year}}
             </td>
         </tr>
         </tbody>

@@ -1,12 +1,12 @@
-<div ng-controller="EnrollmentCreateController as main">
-    <h1>Cadastrar Calendário</h1>
+<div ng-controller="EnrollmentRequirementCreateController as main">
+    <h1>Cadastrar Disciplina da matrícula</h1>
     <ol class="breadcrumb">
         <li><a href="#/">Home</a></li>
-        <li><a href="#/gerenciar-calendarios">Gerenciar Calendários</a></li>
+        <li><a href="#/gerenciar-calendarios">Gerenciar Disciplinas da matrícula</a></li>
         <li class="active">Criar</li>
     </ol>
     <div class="alert alert-danger" role="alert" ng-show="error">
-        <span ng-show="error.duplicated">Calendário repetido</span>
+        <span ng-show="error.duplicated">Disciplina da matrícula repetido</span>
         <span ng-show="error.year">O ano é obrigatório</span>
     </div>
     <form class="form-horizontal" role="form" ng-submit="main.save()">

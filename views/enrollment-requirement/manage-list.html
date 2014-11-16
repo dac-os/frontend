@@ -1,0 +1,42 @@
+<div ng-controller="EnrollmentListController as main">
+    <h1>Calendários</h1>
+    <ol class="breadcrumb">
+        <li><a href="#/">Home</a></li>
+        <li class="active">Gerenciar Calendários</li>
+    </ol>
+    <a href="#/gerenciar-matriculas/criar" class="btn btn-success btn-lg">
+        <span class="glyphicon glyphicon-plus"></span>
+        criar novo calendário
+    </a>
+    <table class="table">
+        <thead>
+        <tr>
+            <th width="30%"></th>
+            <th>Ano</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="enrollment in main.enrollments">
+            <td>
+                <a href="#/gerenciar-matriculas/{{enrollment.year}}/editar" class="btn btn-warning btn-xs">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                    <span>editar</span>
+                </a>
+                <span ng-controller="CalendarDeleteController as main" ng-click="main.remove(enrollment)" class="btn btn-danger btn-xs">
+                    <span class="glyphicon glyphicon-trash"></span>
+                    <span>remover</span>
+                </span>
+                <a ng-href="#/gerenciar-matriculas/{{enrollment.year}}" class="btn btn-info btn-xs">
+                    <span class="glyphicon glyphicon-hand-up"></span>
+                    <span>detalhes</span>
+                </a>
+            </td>
+            <td>
+                {{enrollment.year}}
+            </td>
+        </tr>
+        </tbody>
+    </table><nav>
+    <nav-bar collection="main.enrollments"></nav-bar>
+</nav>
+</div>

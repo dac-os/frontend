@@ -1,0 +1,15 @@
+<div ng-controller="EnrollmentDetailsController as main">
+    Ano {{main.enrollment.year}}<br />
+    Período {{main.enrollment.period}}<br />
+    Status {{main.enrollment.status}}<br />
+    Data de atualização {{main.enrollment.updatedAt}}<br />
+    Data de criação {{main.enrollment.createdAt}}<br />
+
+    Requisição de aumento de creditos<br />
+    Créditos pedidos {{main.enrollment.creditRaiseRequest.credits}}<br />
+    Data {{main.enrollment.creditRaiseRequest.date}}<br />
+    Status {{main.enrollment.creditRaiseRequest.status}}<br />
+
+    Disciplinas pedidas<br />
+    <ng-include src="'enrollment-requirement/list.html'"></ng-include>
+</div>

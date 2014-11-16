@@ -1,0 +1,13 @@
+<div ng-controller="EnrollmentDetailsController as main">
+    <h1>Calendário</h1>
+    <ol class="breadcrumb">
+        <li><a href="#/">Home</a></li>
+        <li><a href="#/gerenciar-matriculas">Gerenciar Calendários</a></li>
+        <li class="active">Calendário</li>
+    </ol>
+    <dl class="dl-horizontal">
+        <dt>Ano</dt>
+        <dd>{{main.enrollment.year}}</dd>
+    </dl>
+    <ng-include src="'event/manage-list.html'"></ng-include>
+</div>

@@ -9,7 +9,7 @@
   app.factory('EnrollmentRequirement', function (enrollmentUri, $resource, Session) {
     return $resource(enrollmentUri + '/users/:user/enrollments/:enrollmentCode/requirements/:requirementCode', {'user' : Session.academicRegistry, 'enrollmentCode' : '@enrollmentCode', 'requirementCode' : '@requirementCode'}, {
       'update' : {'method' : 'PUT'},
-      'save'   : {'method' : 'POST', 'url' : enrollmentUri + '/users/:user/enrollments'}
+      'save'   : {'method' : 'POST', 'url' : enrollmentUri + '/users/:user/enrollments/:enrollmentCode/requirements'}
     });
   });
 })(angular);

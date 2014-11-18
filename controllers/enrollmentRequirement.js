@@ -9,7 +9,7 @@
     $routeProvider.when('/matriculas/:enrollmentCode/disciplinas/:requirementCode', {'templateUrl' : 'enrollment-requirement/details.html'});
 
     $routeProvider.when('/gerenciar-matriculas/:enrollmentCode/disciplinas', {'templateUrl' : 'enrollment-requirement/manage-list.html'});
-    $routeProvider.when('/gerenciar-matriculas/:enrollmentCode/disciplinas/:requirementCode/:criar', {'templateUrl' : 'enrollment-requirement/manage-create.html'});
+    $routeProvider.when('/gerenciar-matriculas/:enrollmentCode/disciplinas/criar', {'templateUrl' : 'enrollment-requirement/manage-create.html'});
     $routeProvider.when('/gerenciar-matriculas/:enrollmentCode/disciplinas/:requirementCode', {'templateUrl' : 'enrollment-requirement/manage-details.html'});
     $routeProvider.when('/gerenciar-matriculas/:enrollmentCode/disciplinas/:requirementCode/editar', {'templateUrl' : 'enrollment-requirement/manage-update.html'});
   });
@@ -24,12 +24,13 @@
     this.requirement = EnrollmentRequirement.get($routeParams);
   });
 
-  app.controller('EnrollmentRequirementDeleteController', function ($routeParams, $route) {
+  app.controller('EnrollmentRequirementDeleteController', function ($routeParams, $controller, $route) {
+    angular.extend(this, $controller('EnrollmentDetailsController'));
     this.remove = function (enrollmentRequirement) {
       var params;
       params = angular.copy($routeParams);
-      params.enrollmentCode = enrollmentRequirement.enrollment.year + '-' + enrollmentRequirement.enrollment.period;
-      params.requirementCode = enrollmentRequirement.discpline + '-' + enrollmentRequirement.year + '-' + enrollmentRequirement.period + '-' + enrollmentRequirement.offering;
+      params.enrollmentCode = this.enrollment.year + '-' + this.enrollment.period;
+      params.requirementCode = enrollmentRequirement.discipline + '-' + enrollmentRequirement.offering;
       enrollmentRequirement.$delete(params, $route.reload);
     };
   });

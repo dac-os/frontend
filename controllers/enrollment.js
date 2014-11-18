@@ -38,7 +38,7 @@
   });
 
   app.controller('EnrollmentUpdateController', function ($routeParams, $controller, $location) {
-    angular.extend(this, $controller('EnrollmentDetailsController', {'$scope' : $scope}));
+    angular.extend(this, $controller('EnrollmentDetailsController'));
     this.save = function () {
       this.enrollment.$update($routeParams, $location.parent(2));
     };

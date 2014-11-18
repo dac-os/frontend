@@ -2,20 +2,30 @@
     <h1>Editar Disciplina da matrícula</h1>
     <ol class="breadcrumb">
         <li><a href="#/">Home</a></li>
-        <li><a href="#/gerenciar-enrollmentios">Gerenciar Disciplinas da matrícula</a></li>
+        <li><a href="#/gerenciar-matriculas/{{main.enrollment.year}}-{{main.enrollment.period}}">Gerenciar Disciplinas da matrícula</a></li>
         <li class="active">Editar Disciplina da matrícula</li>
     </ol>
     <div class="alert alert-danger" role="alert" ng-show="error">
-        <span ng-show="error.duplicated">Disciplina da matrícula repetido</span>
-        <span ng-show="error.year">O ano é obrigatório</span>
+        <span ng-show="error.duplicated">Disciplina da matrícula repetida</span>
+        <span ng-show="error.discipline">A discplina é obrigatória</span>
+        <span ng-show="error.offering">O oferecimento é obrigatório</span>
     </div>
     <form class="form-horizontal" role="form" ng-submit="main.save()">
-        <div ng-class="{'form-group' : true, 'has-error' : !!error.year}">
-            <label for="inputYear" class="col-sm-2 control-label">Ano</label>
+        <div ng-class="{'form-group' : true, 'has-error' : !!error.discipline}">
+            <label for="inputDiscipline" class="col-sm-2 control-label">Disciplina</label>
 
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputYear" placeholder="ano"
-                       ng-model="main.enrollment.year">
+                <input type="text" class="form-control" id="inputDiscipline" placeholder="disclina"
+                       ng-model="main.requirement.discipline">
+            </div>
+
+        </div>
+        <div ng-class="{'form-group' : true, 'has-error' : !!error.offering}">
+            <label for="inputOffering" class="col-sm-2 control-label">Oferecimento</label>
+
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputOffering" placeholder="oferecimento"
+                       ng-model="main.requirement.offering">
             </div>
         </div>
         <div class="form-group">

@@ -4,7 +4,7 @@
 
   var app;
   app = angular.module('dacos');
-  app.service('Session', function ($rootScope, User) {
+  app.service('Session', function ($rootScope, $cookies, User) {
     var user;
 
     this.can = function (permission) {
@@ -17,6 +17,17 @@
 
     this.reload = function () {
       user = User.get({'userCode' : 'me'});
+      user.$promise.then(function () {
+        $cookies.academicRegistry = user.academicRegistry;
+      });
+    };
+
+    this.academicRegistry = function () {
+      if (user && user.academicRegistry) {
+        return user.academicRegistry;
+      } else {
+        return $cookies.academicRegistry;
+      }
     };
 
     $rootScope.$on('changeCredentials', this.reload);

@@ -1,0 +1,7 @@
+<ul ng-controller="EnrollmentRequirementListController as main">
+    <li ng-repeat="requirement in main.requirements">
+        <a ng-href="#/matriculas/{{main.enrollment.year}}-{{main.enrollment.period}}/disciplinas/{{requirement.discipline}}-{{requirement.offering}}/">
+            {{requirement.discipline}} - {{requirement.offering}}
+        </a>
+    </li>
+</ul>

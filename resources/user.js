@@ -4,18 +4,11 @@
 
   var app;
   app = angular.module('dacos');
-
-  app.factory('User', function (authUri, $resource, Session) {
+  app.factory('User', function (authUri, $resource) {
     return $resource(authUri + '/users/:userCode', null, {
       'login' : {
-        'method'            : 'POST',
-        'url'               : authUri + '/users/me/session',
-        'transformRequest'  : function (data, headers) {
-          headers()['authorization'] = 'basic ' + Base64.encode(data.academicRegistry + ':' + data.password);
-        },
-        'transformResponse' : function (data) {
-          Session.setCredentials(data ? angular.fromJson(data).token : null);
-        }
+        'method' : 'POST',
+        'url'    : authUri + '/users/me/session'
       }
     });
   });

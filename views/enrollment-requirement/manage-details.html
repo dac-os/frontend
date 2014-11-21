@@ -1,0 +1,14 @@
+<div ng-controller="EnrollmentRequirementDetailsController as main">
+    <h1>Disciplina da matrícula</h1>
+    <ol class="breadcrumb">
+        <li><a href="#/">Home</a></li>
+        <li><a href="#/gerenciar-matriculas/{{main.enrollment.year}}-{{main.enrollment.period}}">Gerenciar Disciplinas da matrícula</a></li>
+        <li class="active">Disciplina da matrícula</li>
+    </ol>
+    <dl class="dl-horizontal">
+        <dt>Disciplina</dt>
+        <dd>{{main.requirement.discipline}}</dd>
+        <dt>Oferecimento</dt>
+        <dd>{{main.requirement.offering}}</dd>
+    </dl>
+</div>

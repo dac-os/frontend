@@ -18,26 +18,28 @@
   },
   "homepage": "https://github.com/dac-os/frontend",
   "devDependencies": {
+    "benv": "^0.1.6",
     "dacos-auth": "dac-os/auth.git",
     "dacos-calendar": "dac-os/calendar.git",
     "dacos-courses": "dac-os/courses.git",
     "dacos-enrollment": "dac-os/enrollment.git",
-    "dacos-history": "dac-os/history.git"
+    "dacos-history": "dac-os/history.git",
+    "mocha": "^2.0.1",
+    "should": "^4.1.0"
   },
   "dependencies": {
     "bower": "^1.3.10",
-    "del": "^0.1.3",
     "event-stream": "^3.1.7",
-    "express": "^4.9.4",
     "gulp": "^3.8.8",
     "gulp-angular-templatecache": "^1.3.0",
     "gulp-bower": "0.0.6",
+    "gulp-clean": "^0.3.1",
     "gulp-concat": "^2.4.0",
     "gulp-minify-html": "^0.1.5",
     "gulp-ng-annotate": "^0.3.2",
     "gulp-preprocess": "^1.1.1",
+    "gulp-run-sequence": "^0.3.2",
     "gulp-uglify": "^1.0.1",
-    "gulp-watch": "^1.0.4",
     "nconf": "^0.6.9",
     "statik": "^1.4.6"
   }

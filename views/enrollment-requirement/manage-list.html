@@ -1,0 +1,47 @@
+<div ng-controller="EnrollmentRequirementListController as main">
+    <h1>Disciplinas da matrícula</h1>
+    <a href="#/gerenciar-matriculas/{{main.enrollment.year}}-{{main.enrollment.period}}/disciplinas/criar"
+       class="btn btn-success btn-lg">
+        <span class="glyphicon glyphicon-plus"></span>
+        adicionar nova disciplina
+    </a>
+    <table class="table">
+        <thead>
+        <tr>
+            <th width="30%"></th>
+            <th>Disciplina</th>
+            <th>Oferecimento</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="requirement in main.requirements">
+            <td>
+                <a href="#/gerenciar-matriculas/{{main.enrollment.year}}-{{main.enrollment.period}}/disciplinas/{{requirement.discipline}}-{{requirement.offering}}/editar"
+                   class="btn btn-warning btn-xs">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                    <span>editar</span>
+                </a>
+                <span ng-controller="EnrollmentRequirementDeleteController as main" ng-click="main.remove(requirement)"
+                      class="btn btn-danger btn-xs">
+                    <span class="glyphicon glyphicon-trash"></span>
+                    <span>remover</span>
+                </span>
+                <a ng-href="#/gerenciar-matriculas/{{main.enrollment.year}}-{{main.enrollment.period}}/disciplinas/{{requirement.discipline}}-{{requirement.offering}}"
+                   class="btn btn-info btn-xs">
+                    <span class="glyphicon glyphicon-hand-up"></span>
+                    <span>detalhes</span>
+                </a>
+            </td>
+            <td>
+                {{requirement.discipline}}
+            </td>
+            <td>
+                {{requirement.offering}}
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <nav>
+        <nav-bar collection="main.enrollments"></nav-bar>
+    </nav>
+</div>

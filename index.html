@@ -17,17 +17,16 @@
 </head>
 <body>
 
-
 <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
             <a class="navbar-brand" href="#">DACos</a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <a href="#/entrar" class="btn btn-default navbar-btn navbar-right" ng-hide="session.hasSession()">
+            <a permission-toggle="show" href="#/entrar" class="btn btn-default navbar-btn navbar-right">
                 Entrar
             </a>
-            <span ng-click="session.unsetCredentials()" class="btn btn-default navbar-btn navbar-right" ng-show="session.hasSession()">
+            <span permission-toggle="hide" logout-button="true" class="btn btn-default navbar-btn navbar-right">
                 Sair
             </span>
             <ul class="nav navbar-nav">
@@ -36,6 +35,9 @@
                 </li>
                 <li>
                     <a href="#/calendarios">Calendarios</a>
+                </li>
+                <li>
+                    <a href="#/matriculas">Matriculas</a>
                 </li>
             </ul>
         </div>
@@ -47,25 +49,28 @@
         <div class="col-md-9">
             <ng-view></ng-view>
         </div>
-        <div class="col-md-3" ng-show="session.hasSession()">
+        <div class="col-md-3">
             <ul class="nav nav-pills nav-stacked">
-                <li ng-show="session.can('changeProfile')">
+                <li permission-toggle="changeProfile">
                     <a href="#/gerenciar-perfis">Gerenciar Perfis</a>
                 </li>
-                <li ng-show="session.can('changeUser')">
+                <li permission-toggle="changeUser">
                     <a href="#/gerenciar-usuarios">Gerenciar Usuarios</a>
                 </li>
-                <li ng-show="session.can('changeCalendar')">
+                <li permission-toggle="changeCalendar">
                     <a href="#/gerenciar-calendarios">Gerenciar Calendarios</a>
                 </li>
-                <li ng-show="session.can('changeCatalog')">
+                <li permission-toggle="changeCatalog">
                     <a href="#/gerenciar-catalogos">Gerenciar Catalogos</a>
                 </li>
-                <li ng-show="session.can('changeCourse')">
+                <li permission-toggle="changeCourse">
                     <a href="#/gerenciar-cursos">Gerenciar Cursos</a>
                 </li>
-                <li ng-show="session.can('changeDiscipline')">
+                <li permission-toggle="changeDiscipline">
                     <a href="#/gerenciar-disciplinas">Gerenciar Disciplinas</a>
+                </li>
+                <li permission-toggle="changeEnrollment">
+                    <a href="#/gerenciar-matriculas">Gerenciar Matriculas</a>
                 </li>
             </ul>
         </div>

@@ -1,0 +1,37 @@
+<div ng-controller="EnrollmentDetailsController as main">
+    <h1>Matrícula</h1>
+    <ol class="breadcrumb">
+        <li><a href="#/">Home</a></li>
+        <li><a href="#/gerenciar-matriculas">Gerenciar Matrículas</a></li>
+        <li class="active">Matrícula</li>
+    </ol>
+    <dl class="dl-horizontal">
+        <dt>Ano</dt>
+        <dd>{{main.enrollment.year}}</dd>
+
+        <dt>Período</dt>
+        <dd>{{main.enrollment.period}}</dd>
+
+        <dt>Status</dt>
+        <dd>{{main.enrollment.status}}</dd>
+
+        <dt>Data de atualização</dt>
+        <dd>{{main.enrollment.updatedAt}}</dd>
+
+        <dt>Data de criação</dt>
+        <dd>{{main.enrollment.createdAt}}</dd>
+
+        Requisição de aumento de creditos<br />
+        <dt>Créditos pedidos</dt>
+        <dd>{{main.enrollment.creditRaiseRequest.credits}}</dd>
+
+        <dt>Data</dt>
+        <dd>{{main.enrollment.creditRaiseRequest.date}}</dd>
+
+        <dt>Status</dt>
+        <dd>{{main.enrollment.creditRaiseRequest.status}}</dd>
+    </dl>
+
+    Disciplinas pedidas<br />
+    <ng-include src="'enrollment-requirement/manage-list.html'"></ng-include>
+</div>

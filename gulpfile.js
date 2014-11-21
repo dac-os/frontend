@@ -1,6 +1,6 @@
 'use strict';
 
-var nconf, statik, gulp, ngAnnotate, concat, uglify, templateCache, minifyHtml, watch, preprocess, bower, del;
+var nconf, statik, gulp, ngAnnotate, concat, uglify, templateCache, minifyHtml, watch, preprocess, bower, clean, sequence;
 nconf = require('nconf');
 statik = require('statik');
 gulp = require('gulp');
@@ -9,25 +9,29 @@ concat = require('gulp-concat');
 uglify = require('gulp-uglify');
 templateCache = require('gulp-angular-templatecache');
 minifyHtml = require('gulp-minify-html');
-watch = require('gulp-watch');
 preprocess = require('gulp-preprocess');
 bower = require('gulp-bower');
-del = require('del');
+clean = require('gulp-clean');
+sequence = require('gulp-run-sequence');
 
 nconf.argv();
 nconf.env();
 nconf.defaults(require('./config'));
 
-gulp.task('clean', function (cb) {
-  return del(['build/index.html', 'build/scripts.min.js'], cb);
+gulp.task('clean', function () {
+  return gulp.src(['build/index.html', 'build/scripts.min.js']).pipe(clean());
 });
 
 gulp.task('bower', function () {
   return bower('./build').pipe(gulp.dest('build'));
 });
 
-gulp.task('build', ['clean'], function () {
-  var templates, src, scripts, index;
+gulp.task('index', function () {
+  return gulp.src('./index.html').pipe(minifyHtml()).pipe(gulp.dest('build'));
+});
+
+gulp.task('scripts', function () {
+  var templates, src, scripts;
 
   src = gulp.src(['index.js', '*/*.js']);
   src = src.pipe(concat('scripts.min.js'));
@@ -47,32 +51,25 @@ gulp.task('build', ['clean'], function () {
   }}));
   scripts = scripts.pipe(concat('scripts.min.js'));
   scripts = scripts.pipe(ngAnnotate());
-  scripts = scripts.pipe(uglify());
+  //scripts = scripts.pipe(uglify());
+  scripts = scripts.pipe(gulp.dest('build'));
+  return scripts;
+});
 
-  index = gulp.src('./index.html');
-  index = index.pipe(minifyHtml());
-
-  return require('event-stream').merge(scripts, index).pipe(gulp.dest('build'));
+gulp.task('build', function (next) {
+  return sequence('clean', ['bower', 'index', 'scripts'], next);
 });
 
 gulp.task('watch', ['build'], function () {
+  statik({'port' : nconf.get('PORT'), 'root' : './build'});
   require('dacos-auth');
   require('dacos-calendar');
   require('dacos-courses');
   require('dacos-enrollment');
   require('dacos-history');
-
-  nconf.argv();
-  nconf.env();
-  nconf.defaults(require('./config'));
-  statik({
-    'port' : nconf.get('PORT'),
-    'root' : './build'
-  });
-
-  return watch(['index.js', 'index.html', 'controllers/*.js', 'directives/*.js', 'resources/*.js', 'services/*.js', 'views/*/*.html'], function () {
-    gulp.start('build');
+  return gulp.watch(['**/*', '!node_modules/**/*', '!build/*'], function () {
+    return sequence('clean', ['index', 'scripts']);
   });
 });
 
-gulp.task('default', ['bower', 'build']);
+gulp.task('default', ['build']);

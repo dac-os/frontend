@@ -1,0 +1,47 @@
+<div ng-controller="OfferingListController as main">
+    <h2>Oferecimentos</h2>
+    <a href="#/gerenciar-disciplinas/{{main.discipline.code}}/oferecimentos/criar" class="btn btn-success">
+        <span class="glyphicon glyphicon-plus"></span>
+        criar novo oferecimento
+    </a>
+    <table class="table">
+        <thead>
+        <tr>
+            <th width="30%"></th>
+            <th>Ano</th>
+            <th>Período</th>
+            <th>Código</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="offering in main.offerings">
+            <td>
+                <a href="#/gerenciar-disciplinas/{{main.discipline.code}}/oferecimentos/{{offering.year}}-{{offering.period}}-{{offering.code}}/editar"
+                   class="btn btn-warning btn-xs">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                    <span>editar</span>
+                </a>
+                <span ng-controller="OfferingDeleteController as main" ng-click="main.remove(offering)" class="btn btn-danger btn-xs">
+                    <span class="glyphicon glyphicon-trash"></span>
+                    <span>remover</span>
+                </span>
+                <a ng-href="#/gerenciar-disciplinas/{{main.discipline.code}}/oferecimentos/{{offering.year}}-{{offering.period}}-{{offering.code}}"
+                   class="btn btn-info btn-xs">
+                    <span class="glyphicon glyphicon-hand-up"></span>
+                    <span>detalhes</span>
+                </a>
+            </td>
+            <td>
+                {{offering.year}}
+            </td>
+            <td>
+                {{offering.period}}
+            </td>
+            <td>
+                {{offering.code}}
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <nav-bar collection="main.offerings"></nav-bar>
+</div>

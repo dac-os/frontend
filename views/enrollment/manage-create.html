@@ -6,7 +6,7 @@
         <li class="active">Criar</li>
     </ol>
     <div class="alert alert-danger" role="alert" ng-show="error">
-        <span ng-show="error.duplicated">Matrícula repedida</span>
+        <span ng-show="error.duplicated">Matrícula repetida</span>
         <span ng-show="error.year">O ano é obrigatório</span>
         <span ng-show="error.period">O período é obrigatório</span>
     </div>
@@ -15,7 +15,8 @@
             <label for="inputYear" class="col-sm-2 control-label">Ano</label>
 
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputYear" placeholder="ano"
+                <!-- @todo placeholder="ano" -->
+                <input type="text" class="form-control" id="inputYear"  ui-mask="{{9999}}"
                        ng-model="main.enrollment.year">
             </div>
         </div>
@@ -24,6 +25,7 @@
 
             <div class="col-sm-10">
                 <select class="form-control" id="selectPeriod" ng-model="main.enrollment.period">
+                    <option value=""></option>
                     <option value="1">1º Semestre</option>
                     <option value="2">2º Semestre</option>
                 </select>

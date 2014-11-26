@@ -15,6 +15,7 @@
     "tests"
   ],
   "dependencies": {
-    "js-base64": "~2.1.5"
+    "js-base64": "~2.1.5",
+    "angular-ui-utils": "~0.1.1"
   }
 }

@@ -23,7 +23,7 @@
             <label for="inputPermissions" class="col-sm-2 control-label">Permissões<br/><sub>separadas por virgula</sub></label>
 
             <div class="col-sm-10">
-                <textarea class="form-control" rows="3" id="inputPermissions"
+                <textarea ng-list="," class="form-control" rows="3" id="inputPermissions"
                           ng-model="main.profile.permissions"></textarea>
             </div>
         </div>

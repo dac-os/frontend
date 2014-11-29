@@ -35,16 +35,36 @@
     };
   });
 
-  app.controller('EnrollmentRequirementCreateController', function ($routeParams, $controller, $location, EnrollmentRequirement) {
+  app.controller('EnrollmentRequirementCreateController', function ($scope, $routeParams, $controller, $location, Discipline, Offering, EnrollmentRequirement) {
     angular.extend(this, $controller('EnrollmentDetailsController'));
     this.requirement = new EnrollmentRequirement($routeParams);
+
+    $scope.disciplines = Discipline.query($routeParams);
+
+    $scope.selectDisciplineChanged = function (discipline) {
+      var params;
+      params = angular.copy($routeParams);
+      params.disciplineCode = discipline;
+      $scope.offerings = Offering.query(params);
+    };
+
     this.save = function () {
       this.requirement.$save($routeParams, $location.parent(1));
     };
   });
 
-  app.controller('EnrollmentRequirementUpdateController', function ($routeParams, $controller, $location) {
+  app.controller('EnrollmentRequirementUpdateController', function ($scope, $routeParams, $controller, $location, Discipline, Offering) {
     angular.extend(this, $controller('EnrollmentRequirementDetailsController'));
+
+    $scope.disciplines = Discipline.query($routeParams);
+
+    $scope.selectDisciplineChanged = function (discipline) {
+      var params;
+      params = angular.copy($routeParams);
+      params.disciplineCode = discipline;
+      $scope.offerings = Offering.query(params);
+    }.bind(this);
+
     this.save = function () {
       this.requirement.$update($routeParams, $location.parent(2));
     }.bind(this);

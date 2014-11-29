@@ -3,7 +3,7 @@
   'use strict';
 
   var app;
-  app = angular.module('dacos', ['ngRoute', 'ngResource', 'ngCookies', 'templates']);
+  app = angular.module('dacos', ['ngRoute', 'ngResource', 'ngCookies', 'templates', 'ui.utils']);
 
   app.constant('pageSize', '/* @echo PAGE_SIZE */');
   app.constant('authUri', '/* @echo AUTH_URI */');

@@ -12,20 +12,25 @@
     </div>
     <form class="form-horizontal" role="form" ng-submit="main.save()">
         <div ng-class="{'form-group' : true, 'has-error' : !!error.discipline}">
-            <label for="inputDiscipline" class="col-sm-2 control-label">Disciplina</label>
+            <label for="selectDiscipline" class="col-sm-2 control-label">Disciplina</label>
 
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputDiscipline" placeholder="disclina"
-                       ng-model="main.requirement.discipline">
+                <select class="form-control" id="selectDiscipline"
+                        ng-model="main.requirement.discipline"
+                        ng-change="selectDisciplineChanged(main.requirement.discipline)">
+                    <option ng-repeat="discipline in disciplines" value="{{discipline.code}}">{{discipline.code }} - {{discipline.name}}</option>
+                </select>
             </div>
 
         </div>
         <div ng-class="{'form-group' : true, 'has-error' : !!error.offering}">
-            <label for="inputOffering" class="col-sm-2 control-label">Oferecimento</label>
+            <label for="selectOffering" class="col-sm-2 control-label">Oferecimento</label>
 
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputOffering" placeholder="oferecimento"
-                       ng-model="main.requirement.offering">
+                <select class="form-control" id="selectOffering"
+                        ng-model="main.requirement.offering">
+                    <option ng-repeat="offering in offerings" value="{{offering.year}}-{{offering.period}}-{{offering.code}}" >{{offering.year}}-{{offering.period}}-{{offering.code}}</option>
+                </select>
             </div>
         </div>
         <div class="form-group">

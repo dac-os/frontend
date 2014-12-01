@@ -1,4 +1,23 @@
-<form ng-controller="CatalogCreateController as main" ng-submit="main.save()">
-    Ano <input ng-model="main.catalog.year"><br />
+<div ng-controller="CatalogCreateController as main">
+    <h1>Cadastrar Catálogo</h1>
+    <ol class="breadcrumb">
+        <li><a href="#/">Home</a></li>
+        <li><a href="#/gerenciar-catalogos">Gerenciar Catálogos</a></li>
+        <li class="active">Criar</li>
+    </ol>
+    <div class="alert alert-danger" role="alert" ng-show="error">
+        <span ng-show="error.duplicated">Catálogo repetido</span>
+        <span ng-show="error.year">O ano é obrigatório</span>
+    </div>
+    <form ng-controller="CatalogCreateController as main" ng-submit="main.save()">
+    	<div ng-class="{'form-group' : true, 'has-error' : !!error.year}">
+            <label for="inputYear" class="col-sm-2 control-label">Ano</label>
+
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputYear" placeholder="ano"
+                       ng-model="main.catalog.year">
+            </div>
+        </div>
     <input type="submit">
 </form>
+</div>

@@ -1,8 +1,54 @@
-<form ng-controller="DisciplineUpdateController as main" ng-submit="main.save()">
-    Código <input ng-model="main.discipline.code"><br />
-    Nome <input ng-model="main.discipline.name"><br />
-    Créditos <input ng-model="main.discipline.credits"><br />
-    Departamento <input ng-model="main.discipline.department"><br />
-    Descrição <input ng-model="main.discipline.description"><br />
+<div ng-controller="DisciplineCreateController as main">
+    <h1>Editar Disciplina</h1>
+    <ol class="breadcrumb">
+        <li><a href="#/">Home</a></li>
+        <li><a href="#/gerenciar-disciplinas">Gerenciar Disciplinas</a></li>
+        <li class="active">Editar</li>
+    </ol>
+        <div class="alert alert-danger" role="alert" ng-show="error">
+        <span ng-show="error.name">O nome é obrigatório</span>
+        <span ng-show="error.code">O código é obrigatório</span>
+        <span ng-show="error.credits">Os créditos são obrigatórios</span>
+        <span ng-show="error.department">O departamento é obrigatório</span>   
+        <span ng-show="error.description">A descrição é obrigatória</span>
+
+    </div>
+	<form ng-controller="DisciplineCreateController as main" ng-submit="main.save()">
+    <div ng-class="{'form-group' : true, 'has-error' : !!error.code}">
+        <label for="inputCode" class="col-sm-2 control-label">Código</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputCode" placeholder="Código"
+                ng-model="main.discipline.code">
+        </div>
+    </div>
+    <div ng-class="{'form-group' : true, 'has-error' : !!error.code}">
+        <label for="inputCode" class="col-sm-2 control-label">Nome</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputCode" placeholder="Nome"
+                ng-model="main.discipline.name">
+        </div>
+    </div> 
+ 	<div ng-class="{'form-group' : true, 'has-error' : !!error.code}">
+        <label for="inputCode" class="col-sm-2 control-label">Departamento</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputCode" placeholder="Departamento"
+                ng-model="main.discipline.department">
+        </div>
+    </div>
+ 	<div ng-class="{'form-group' : true, 'has-error' : !!error.code}">
+        <label for="inputCode" class="col-sm-2 control-label">Créditos</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputCode" placeholder="Créditos"
+                ng-model="main.discipline.credits">
+        </div>
+    </div>
+    <div ng-class="{'form-group' : true, 'has-error' : !!error.code}">
+        <label for="inputCode" class="col-sm-2 control-label">Descrição</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputCode" placeholder="Descrição"
+                ng-model="main.discipline.description">
+        </div>
+    </div>
     <input type="submit">
 </form>
+</div>

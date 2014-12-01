@@ -1,15 +1,43 @@
-<ul ng-controller="DisciplineListController as main">
-    <li ng-repeat="discipline in main.disciplines">
-        <a ng-href="#/gerenciar-disciplinas/{{discipline.code}}/editar">
-            editar
-        </a>
-        <span ng-controller="DisciplineDeleteController as main" ng-click="main.remove(discipline)" class="btn btn-danger btn-xs">
-            <span class="glyphicon glyphicon-trash"></span>
-            <span>remover</span>
-        </span>
-        <a ng-href="#/gerenciar-disciplinas/{{discipline.code}}">
-            {{discipline.code}}
-        </a>
-    </li>
-    <a href="#/gerenciar-disciplinas/criar">+ criar</a>
-</ul>
+<div ng-controller="DisciplineController as main">
+    <h1>Disciplinas</h1>
+    <ol class="breadcrumb">
+        <li><a href="#/">Home</a></li>
+        <li class="active">Gerenciar Disciplinas</li>
+    </ol>
+    <a href="#/gerenciar-disciplinas/criar" class="btn btn-success btn-lg">
+        <span class="glyphicon glyphicon-plus"></span>
+        criar nova disciplina
+    </a>
+    <table class="table">
+        <thead>
+        <tr>
+            <th width="35%"></th>
+            <th>Disciplinas</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="discipline in main.disciplines">
+            <td>
+                <a href="#/gerenciar-disciplinas/{{discipline.slug}}/editar" class="btn btn-warning btn-xs">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                    <span>editar</span>
+                </a>
+                <span ng-controller="DisciplineDeleteController as main" ng-click="main.remove(discipline)" class="btn btn-danger btn-xs">
+                    <span class="glyphicon glyphicon-trash"></span>
+                    <span>remover</span>
+                </span>
+                <a ng-href="#/gerenciar-disciplinas/{{discipline.slug}}" class="btn btn-info btn-xs">
+                    <span class="glyphicon glyphicon-hand-up"></span>
+                    <span>detalhes</span>
+                </a>
+            </td>
+            <td>
+                {{discipline.code}}
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <nav>
+        <nav-bar collection="main.disciplines"></nav-bar>
+    </nav>
+</div>

@@ -1,7 +1,47 @@
-<form ng-controller="ModalityCreateController as main" ng-submit="main.save()">
-    Modalidade <input ng-model="main.modality.name"><br />
-    Código <input ng-model="main.modality.code"><br />
-    Curso <input ng-model="main.modality.course"><br />
-    Limite de créditos <input ng-model="main.modality.creditLimit"><br />
+<div ng-controller="DisciplineCreateController as main">
+    <h1>Cadastrar Modalidade</h1>
+    <ol class="breadcrumb">
+        <li><a href="#/">Home</a></li>
+        <li><a href="#/gerenciar-modalidades">Gerenciar Modalidades</a></li>
+        <li class="active">Criar</li>
+    </ol>
+        <div class="alert alert-danger" role="alert" ng-show="error">
+        <span ng-show="error.duplicated">Modalidade repetida</span>
+        <span ng-show="error.name">A modalidade é obrigatória</span>
+        <span ng-show="error.code">O código é obrigatório</span>
+        <span ng-show="error.course">O curso é são obrigatório</span>
+        <span ng-show="error.creditLimit">O limite de crédito é obrigatório</span>
+
+    </div>
+	<form ng-controller="DisciplineCreateController as main" ng-submit="main.save()">
+    <div ng-class="{'form-group' : true, 'has-error' : !!error.name}">
+        <label for="inputCode" class="col-sm-2 control-label">Modalidade</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputCode" placeholder="Modalidade"
+                ng-model="main.modality.name">
+        </div>
+    </div>
+    <div ng-class="{'form-group' : true, 'has-error' : !!error.code}">
+        <label for="inputCode" class="col-sm-2 control-label">Código</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputCode" placeholder="Código"
+                ng-model="main.discipline.code">
+        </div>
+    </div> 
+ 	<div ng-class="{'form-group' : true, 'has-error' : !!error.course}">
+        <label for="inputCode" class="col-sm-2 control-label">Curso</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputCode" placeholder="Curso"
+                ng-model="main.discipline.course">
+        </div>
+    </div>
+ 	<div ng-class="{'form-group' : true, 'has-error' : !!error.creditLimit}">
+        <label for="inputCode" class="col-sm-2 control-label">Limite de Créditos</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputCode" placeholder="Limite de Créditos"
+                ng-model="main.discipline.creditLimit">
+        </div>
+    </div>
     <input type="submit">
 </form>
+</div>

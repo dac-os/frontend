@@ -51,7 +51,7 @@ gulp.task('scripts', function () {
   }}));
   scripts = scripts.pipe(concat('scripts.min.js'));
   scripts = scripts.pipe(ngAnnotate());
-  //scripts = scripts.pipe(uglify());
+  scripts = scripts.pipe(uglify());
   scripts = scripts.pipe(gulp.dest('build'));
   return scripts;
 });

@@ -1,38 +1,45 @@
-<div ng-controller="CalendarCreateController as main">
+<div ng-controller="CourseCreateController as main">
     <h1>Cadastrar Curso</h1>
     <ol class="breadcrumb">
         <li><a href="#/">Home</a></li>
         <li><a href="#/gerenciar-cursos">Gerenciar Cursos</a></li>
         <li class="active">Criar</li>
     </ol>
-        <div class="alert alert-danger" role="alert" ng-show="error">
+    <div class="alert alert-danger" role="alert" ng-show="error">
         <span ng-show="error.duplicated">Curso repetido</span>
         <span ng-show="error.code">O código é obrigatório</span>
         <span ng-show="error.name">O nome é obrigatório</span>
         <span ng-show="error.level">O nível é obrigatório</span>
     </div>
-    <form ng-controller="CourseCreateController as main" ng-submit="main.save()">
-    <div ng-class="{'form-group' : true, 'has-error' : !!error.code}">
-        <label for="inputCode" class="col-sm-2 control-label">Curso</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="inputCode" placeholder="Curso"
-                ng-model="main.course.code">
+    <form class="form-horizontal" role="form" ng-submit="main.save()">
+        <div ng-class="{'form-group' : true, 'has-error' : !!error.code}">
+            <label for="inputCode" class="col-sm-2 control-label">Curso</label>
+
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputCode" placeholder="Curso"
+                       ng-model="main.course.code">
+            </div>
         </div>
-    </div> 
-    <div ng-class="{'form-group' : true, 'has-error' : !!error.name}">
-        <label for="inputName" class="col-sm-2 control-label">Nome</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="inputName" placeholder="Nome"
-                ng-model="main.course.name">
+        <div ng-class="{'form-group' : true, 'has-error' : !!error.name}">
+            <label for="inputName" class="col-sm-2 control-label">Nome</label>
+
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputName" placeholder="Nome"
+                       ng-model="main.course.name">
+            </div>
         </div>
-    </div>    
-    <div ng-class="{'form-group' : true, 'has-error' : !!error.level}">
-        <label for="inputLevel" class="col-sm-2 control-label">Nível</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="inputLevel" placeholder="Nível"
-                ng-model="main.course.level">
+        <div ng-class="{'form-group' : true, 'has-error' : !!error.level}">
+            <label for="inputLevel" class="col-sm-2 control-label">Nível</label>
+
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputLevel" placeholder="Nível"
+                       ng-model="main.course.level">
+            </div>
         </div>
-    </div> 
-    <input type="submit">
-</form>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-success btn-lg">criar disciplina</button>
+            </div>
+        </div>
+    </form>
 </div>

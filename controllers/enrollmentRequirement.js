@@ -65,6 +65,10 @@
       $scope.offerings = Offering.query(params);
     }.bind(this);
 
+    this.requirement.$promise.then(function() {
+      $scope.selectDisciplineChanged(this.requirement.discipline)
+    }.bind(this));
+
     this.save = function () {
       this.requirement.$update($routeParams, $location.parent(2));
     }.bind(this);

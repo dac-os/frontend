@@ -1,4 +1,4 @@
-<div ng-controller="DisciplineController as main">
+<div ng-controller="DisciplineListController as main">
     <h1>Disciplinas</h1>
     <ol class="breadcrumb">
         <li><a href="#/">Home</a></li>
@@ -18,7 +18,7 @@
         <tbody>
         <tr ng-repeat="discipline in main.disciplines">
             <td>
-                <a href="#/gerenciar-disciplinas/{{discipline.slug}}/editar" class="btn btn-warning btn-xs">
+                <a href="#/gerenciar-disciplinas/{{discipline.code}}/editar" class="btn btn-warning btn-xs">
                     <span class="glyphicon glyphicon-pencil"></span>
                     <span>editar</span>
                 </a>
@@ -26,7 +26,7 @@
                     <span class="glyphicon glyphicon-trash"></span>
                     <span>remover</span>
                 </span>
-                <a ng-href="#/gerenciar-disciplinas/{{discipline.slug}}" class="btn btn-info btn-xs">
+                <a ng-href="#/gerenciar-disciplinas/{{discipline.code}}" class="btn btn-info btn-xs">
                     <span class="glyphicon glyphicon-hand-up"></span>
                     <span>detalhes</span>
                 </a>

@@ -1,4 +1,4 @@
-<div ng-controller="DisciplineCreateController as main">
+<div ng-controller="DisciplineUpdateController as main">
     <h1>Editar Disciplina</h1>
     <ol class="breadcrumb">
         <li><a href="#/">Home</a></li>
@@ -13,7 +13,7 @@
         <span ng-show="error.description">A descrição é obrigatória</span>
 
     </div>
-	<form ng-controller="DisciplineCreateController as main" ng-submit="main.save()">
+	<form ng-controller="DisciplineUpdateController as main" ng-submit="main.save()">
     <div ng-class="{'form-group' : true, 'has-error' : !!error.code}">
         <label for="inputCode" class="col-sm-2 control-label">Código</label>
         <div class="col-sm-10">

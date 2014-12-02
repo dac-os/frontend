@@ -1,28 +1,29 @@
-<ul ng-controller="CatalogListController as main">
-   <h1>Catálogos</h1>
+<div ng-controller="CatalogListController as main">
+    <h1>Catálogos</h1>
     <ol class="breadcrumb">
         <li><a href="#/">Home</a></li>
         <li class="active">Gerenciar Catálogos</li>
     </ol>
     <a href="#/gerenciar-catalogos/criar" class="btn btn-success btn-lg">
-            <span class="glyphicon glyphicon-plus"></span>
-            criar novo catálogo
+        <span class="glyphicon glyphicon-plus"></span>
+        criar novo catálogo
     </a>
     <table class="table">
         <thead>
-            <tr>
-                <th width="30%"></th>
-                <th>Catálogos</th>
-            </tr>
+        <tr>
+            <th width="30%"></th>
+            <th>Catálogos</th>
+        </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="catalog in main.catalogs">
-                <td>
+        <tr ng-repeat="catalog in main.catalogs">
+            <td>
                 <a href="#/gerenciar-catalogos/{{catalog.year}}/editar" class="btn btn-warning btn-xs">
                     <span class="glyphicon glyphicon-pencil"></span>
                     <span>editar</span>
                 </a>
-                <span ng-controller="CatalogDeleteController as main" ng-click="main.remove(catalog)" class="btn btn-danger btn-xs">
+                <span ng-controller="CatalogDeleteController as main" ng-click="main.remove(catalog)"
+                      class="btn btn-danger btn-xs">
                    <span class="glyphicon glyphicon-trash"></span>
                     <span>remover</span>
                 </span>
@@ -30,12 +31,12 @@
                     <span class="glyphicon glyphicon-hand-up"></span>
                     <span>detalhes</span>
                 </a>
-                </td>
-            <td>
-                    {{catalog.year}}
             </td>
-            </tr>
+            <td>
+                {{catalog.year}}
+            </td>
+        </tr>
         </tbody>
     </table>
-</ul>
-
+    <nav-bar collection="main.catalogs"></nav-bar>
+</div>

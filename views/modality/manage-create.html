@@ -1,4 +1,4 @@
-<div ng-controller="DisciplineCreateController as main">
+<div ng-controller="ModalityCreateController as main">
     <h1>Cadastrar Modalidade</h1>
     <ol class="breadcrumb">
         <li><a href="#/">Home</a></li>
@@ -13,7 +13,7 @@
         <span ng-show="error.creditLimit">O limite de crédito é obrigatório</span>
 
     </div>
-	<form ng-controller="DisciplineCreateController as main" ng-submit="main.save()">
+	<form ng-submit="main.save()">
     <div ng-class="{'form-group' : true, 'has-error' : !!error.name}">
         <label for="inputCode" class="col-sm-2 control-label">Modalidade</label>
         <div class="col-sm-10">
@@ -25,21 +25,21 @@
         <label for="inputCode" class="col-sm-2 control-label">Código</label>
         <div class="col-sm-10">
             <input type="text" class="form-control" id="inputCode" placeholder="Código"
-                ng-model="main.discipline.code">
+                ng-model="main.modality.code">
         </div>
     </div> 
  	<div ng-class="{'form-group' : true, 'has-error' : !!error.course}">
         <label for="inputCode" class="col-sm-2 control-label">Curso</label>
         <div class="col-sm-10">
             <input type="text" class="form-control" id="inputCode" placeholder="Curso"
-                ng-model="main.discipline.course">
+                ng-model="main.modality.course">
         </div>
     </div>
  	<div ng-class="{'form-group' : true, 'has-error' : !!error.creditLimit}">
         <label for="inputCode" class="col-sm-2 control-label">Limite de Créditos</label>
         <div class="col-sm-10">
             <input type="text" class="form-control" id="inputCode" placeholder="Limite de Créditos"
-                ng-model="main.discipline.creditLimit">
+                ng-model="main.modality.creditLimit">
         </div>
     </div>
     <input type="submit">

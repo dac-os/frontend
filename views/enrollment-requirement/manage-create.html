@@ -10,6 +10,7 @@
         <span ng-show="error.duplicated">Disciplina da matrícula repetida</span>
         <span ng-show="error.discipline">A discplina é obrigatória</span>
         <span ng-show="error.offering">O oferecimento é obrigatório</span>
+        <span ng-show="error.bid">O lance é obrigatório</span>
     </div>
     <form class="form-horizontal" role="form" ng-submit="main.save()">
         <div ng-class="{'form-group' : true, 'has-error' : !!error.discipline}">
@@ -32,6 +33,14 @@
                         ng-model="main.requirement.offering">
                     <option ng-repeat="offering in offerings" value="{{offering.year}}-{{offering.period}}-{{offering.code}}" >{{offering.year}}-{{offering.period}}-{{offering.code}}</option>
                 </select>
+            </div>
+        </div>
+        <div ng-class="{'form-group' : true, 'has-error' : !!error.bid}">
+            <label for="inputBid" class="col-sm-2 control-label">Lance</label>
+
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputBid"
+                       ng-model="main.requirement.bid">
             </div>
         </div>
         <div class="form-group">

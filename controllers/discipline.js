@@ -11,8 +11,12 @@
     $routeProvider.when('/gerenciar-disciplinas/:disciplineCode/editar', {'templateUrl' : 'discipline/manage-update.html'});
   });
 
-  app.controller('DisciplineListController', function ($routeParams, Discipline) {
-    this.disciplines = Discipline.query($routeParams);
+  app.controller('DisciplineListController', function ($routeParams, $location, Discipline) {
+    this.filterForm = $routeParams;
+    this.filter = function () {
+      this.disciplines = Discipline.query(this.filterForm);
+    };
+    this.filter();
   });
 
   app.controller('DisciplineDetailsController', function ($routeParams, Discipline) {

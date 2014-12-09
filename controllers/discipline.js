@@ -12,11 +12,11 @@
   });
 
   app.controller('DisciplineListController', function ($routeParams, $location, Discipline) {
+    this.disciplines = Discipline.query($routeParams);
     this.filterForm = $routeParams;
     this.filter = function () {
-      this.disciplines = Discipline.query(this.filterForm);
+      $location.search(this.filterForm);
     };
-    this.filter();
   });
 
   app.controller('DisciplineDetailsController', function ($routeParams, Discipline) {

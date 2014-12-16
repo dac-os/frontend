@@ -36,7 +36,7 @@
         <tbody>
         <tr ng-repeat="offering in main.offerings">
             <td>
-                <a href="#/gerenciar-disciplinas/{{main.discipline.code}}/oferecimentos/{{offering.year}}-{{offering.period}}-{{offering.code}}/editar"
+                <a href="#/gerenciar-disciplinas/{{main.discipline.code}}/oferecimentos/{{offering.year}}-{{offering.period}}-{{offering.class}}/editar"
                    class="btn btn-warning btn-xs">
                     <span class="glyphicon glyphicon-pencil"></span>
                     <span>editar</span>
@@ -46,7 +46,7 @@
                     <span class="glyphicon glyphicon-trash"></span>
                     <span>remover</span>
                 </span>
-                <a ng-href="#/gerenciar-disciplinas/{{main.discipline.code}}/oferecimentos/{{offering.year}}-{{offering.period}}-{{offering.code}}"
+                <a ng-href="#/gerenciar-disciplinas/{{main.discipline.code}}/oferecimentos/{{offering.year}}-{{offering.period}}-{{offering.class}}"
                    class="btn btn-info btn-xs">
                     <span class="glyphicon glyphicon-hand-up"></span>
                     <span>detalhes</span>

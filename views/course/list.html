@@ -1,29 +1,33 @@
-<div ng-controller="CatalogListController as main">
-    <h1>Catálogos</h1>
+<div ng-controller="CourseListController as main">
+    <h1>Cursos</h1>
     <ol class="breadcrumb">
         <li><a href="#/">Home</a></li>
-        <li class="active">Catálogos</li>
+        <li class="active">Cursos</li>
     </ol>
     <table class="table">
         <thead>
         <tr>
             <th width="10%"></th>
-            <th>Catálogos</th>
+            <th>Cursos</th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="catalog in main.catalogs">
+        <tr ng-repeat="course in main.courses">
             <td>
-                <a ng-href="#/catalogos/{{catalog.year}}" class="btn btn-info btn-xs">
+                <a ng-href="#/cursos/{{course.code}}" class="btn btn-info btn-xs">
                     <span class="glyphicon glyphicon-hand-up"></span>
                     <span>detalhes</span>
                 </a>
             </td>
             <td>
-                {{catalog.year}}
+                {{course.code}}
+            </td>
+            <td>
+                {{course.name}}
             </td>
         </tr>
         </tbody>
     </table>
-    <nav-bar collection="main.catalogs"></nav-bar>
+    <nav-bar collection="main.courses"></nav-bar>
 </div>

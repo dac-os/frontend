@@ -1,10 +1,5 @@
 <div ng-controller="EnrollmentRequirementListController as main">
     <h1>Disciplinas da matrícula</h1>
-    <a href="#/gerenciar-matriculas/{{main.enrollment.year}}-{{main.enrollment.period}}/disciplinas/criar"
-       class="btn btn-success btn-lg">
-        <span class="glyphicon glyphicon-plus"></span>
-        adicionar nova disciplina
-    </a>
     <table class="table">
         <thead>
         <tr>
@@ -45,7 +40,10 @@
         </tr>
         </tbody>
     </table>
-    <nav>
-        <nav-bar collection="main.enrollments"></nav-bar>
-    </nav>
+    <a href="#/gerenciar-matriculas/{{main.enrollment.year}}-{{main.enrollment.period}}/disciplinas/criar"
+       class="btn btn-success btn-lg">
+        <span class="glyphicon glyphicon-plus"></span>
+        adicionar nova disciplina
+    </a>
+    <nav-bar collection="main.enrollments"></nav-bar>
 </div>

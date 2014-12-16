@@ -1,54 +1,26 @@
 <div ng-controller="ModalityDetailsController as main">
-    <h1>Editar Modalidade</h1>
+    <h1>Modalidade</h1>
     <ol class="breadcrumb">
         <li><a href="#/">Home</a></li>
-        <li><a href="#/gerenciar-catalogos">Gerenciar Catálogos</a></li>
-        <li class="active">Editar Modalidades</li>
+        <li><a href="#/gerenciar-catalogos">Gerenciar Catalogos</a></li>
+        <li><a href="#/gerenciar-catalogos/{{main.catalog.year}}">{{main.catalog.year}}</a></li>
+        <li class="active">Modalidade</li>
     </ol>
-    <div class="alert alert-danger" role="alert" ng-show="error">
-        <span ng-show="error.modality.name">O nome é obrigatório</span>
-        <span ng-show="error.modality.code">O código é obrigatório</span>
-        <span ng-show="error.modality.course.code">O curso é obrigatório</span>
-        <span ng-show="error.modality.creditLimit">O Limite de crédito é obrigatório</span>
-    </div>
-     <div ng-class="{'form-group' : true, 'has-error' : !!error.modality.name}">
-            <label for="inputModalityName" class="col-sm-2 control-label">Modalidade</label>
-
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputModalityName" placeholder="Modalidade"
-                       ng-model="main.modality.name">
-            </div>
-     </div>
-     <div ng-class="{'form-group' : true, 'has-error' : !!error.modality.code}">
-            <label for="inputModalityCode" class="col-sm-2 control-label">Código</label>
-
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputModalityCode" placeholder="Código"
-                       ng-model="main.modality.code">
-            </div>
-     </div>
-     <div ng-class="{'form-group' : true, 'has-error' : !!error.modality.course.code}">
-            <label for="inputModalityCourseCode" class="col-sm-2 control-label">Curso</label>
-
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputModalityCourseCode" placeholder="Curso"
-                       ng-model="main.modality.course.code">
-            </div>
-     </div>
-     <div ng-class="{'form-group' : true, 'has-error' : !!error.modality.creditLimit}">
-            <label for="inputModalityCreditLimit" class="col-sm-2 control-label">Limite de Créditos</label>
-
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputModalityCreditLimity" placeholder="Limite de Créditos"
-                       ng-model="main.modality.creditLimit">
-            </div>
-     </div>
-        <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" class="btn btn-success btn-lg">Salvar</button>
-            </div>
-        </div>
-    </form>
-    Blocos<br />
+    <dl class="dl-horizontal">
+        <dt>Modalidade</dt>
+        <dd>{{main.modality.name}}</dd>
+    </dl>
+    <dl class="dl-horizontal">
+        <dt>Código</dt>
+        <dd>{{main.modality.code}}</dd>
+    </dl>
+    <dl class="dl-horizontal">
+        <dt>Curso</dt>
+        <dd><a ng-href="#/gerenciar-cursos/{{main.modality.course.code}}">{{main.modality.course.code}}</a></dd>
+    </dl>
+    <dl class="dl-horizontal">
+        <dt>Limite de créditos</dt>
+        <dd>{{main.modality.creditLimit}}</dd>
+    </dl>
     <ng-include src="'block/manage-list.html'"></ng-include>
 </div>

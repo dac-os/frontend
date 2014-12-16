@@ -1,9 +1,5 @@
 <div ng-controller="OfferingListController as main">
     <h2>Oferecimentos</h2>
-    <a href="#/gerenciar-disciplinas/{{main.discipline.code}}/oferecimentos/criar" class="btn btn-success">
-        <span class="glyphicon glyphicon-plus"></span>
-        criar novo oferecimento
-    </a>
     <table class="table">
         <thead>
         <tr>
@@ -21,7 +17,8 @@
                     <span class="glyphicon glyphicon-pencil"></span>
                     <span>editar</span>
                 </a>
-                <span ng-controller="OfferingDeleteController as main" ng-click="main.remove(offering)" class="btn btn-danger btn-xs">
+                <span ng-controller="OfferingDeleteController as main" ng-click="main.remove(offering)"
+                      class="btn btn-danger btn-xs">
                     <span class="glyphicon glyphicon-trash"></span>
                     <span>remover</span>
                 </span>
@@ -43,5 +40,9 @@
         </tr>
         </tbody>
     </table>
+    <a href="#/gerenciar-disciplinas/{{main.discipline.code}}/oferecimentos/criar" class="btn btn-success">
+        <span class="glyphicon glyphicon-plus"></span>
+        criar novo oferecimento
+    </a>
     <nav-bar collection="main.offerings"></nav-bar>
 </div>

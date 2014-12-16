@@ -1,6 +1,56 @@
-<form ng-controller="RequirementUpdateController as main" ng-submit="main.save()">
-    Disciplina <input ng-model="main.requirement.discipline.code"><br />
-    Mascara <input ng-model="main.requirement.mask"><br />
-    Semestre sugerido <input ng-model="main.requirement.suggestedSemester"><br />
-    <input type="submit">
-</form>
+<div ng-controller="RequirementUpdateController as main">
+    <h1>Editar Requisito</h1>
+    <ol class="breadcrumb">
+        <li><a href="#/">Home</a></li>
+        <li><a href="#/gerenciar-catalogos">Gerenciar Catalogos</a></li>
+        <li><a href="#/gerenciar-catalogos/{{main.catalog.year}}">{{main.catalog.year}}</a></li>
+        <li>
+            <a href="#/gerenciar-catalogos/{{main.catalog.year}}/modalidades/{{main.modality.course.code}}-{{main.modality.code}}">{{main.modality.code}}</a>
+        </li>
+        <li>
+            <a href="#/gerenciar-catalogos/{{main.catalog.year}}/modalidades/{{main.modality.course.code}}-{{main.modality.code}}/blocos/{{main.block.code}}">{{main.block.code}}</a>
+        </li>
+        <li class="active">Editar Requisito</li>
+    </ol>
+    <div class="alert alert-danger" role="alert" ng-show="error">
+        <span ng-show="error.discipline">A disciplina é obtigatória</span>
+        <span ng-show="error.mask">A máscara é obrigatória</span>
+        <span ng-show="error.suggestedSemester">O semestre sugerido são obrigatórios</span>
+    </div>
+    <form class="form-horizontal" role="form" ng-submit="main.save()">
+        <div ng-class="{'form-group' : true, 'has-error' : !!error.discipline}">
+            <label for="inputDiscipline" class="col-sm-2 control-label">Disciplina</label>
+
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputDiscipline" placeholder="Disciplina"
+                       ng-model="main.requirement.discipline.code">
+            </div>
+        </div>
+        <div ng-class="{'form-group' : true, 'has-error' : !!error.mask}">
+            <label for="inputMask" class="col-sm-2 control-label">Máscara</label>
+
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputMask" placeholder="Máscara"
+                       ng-model="main.requirement.mask">
+            </div>
+        </div>
+        <div ng-class="{'form-group' : true, 'has-error' : !!error.suggestedSemester}">
+            <label for="inputSuggestedPeriod" class="col-sm-2 control-label">Sugestão</label>
+
+            <div class="col-sm-5">
+                <input type="text" class="form-control" id="inputSuggestedPeriod" placeholder="período"
+                       ng-model="main.requirement.suggestion.period">
+            </div>
+            <div class="col-sm-5">
+                <input type="text" class="form-control" id="inputSuggestedType" placeholder="tipo"
+                       ng-model="main.requirement.suggestion.type">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-success btn-lg">alterar</button>
+            </div>
+        </div>
+    </form>
+
+</div>

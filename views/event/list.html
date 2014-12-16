@@ -1,7 +1,30 @@
-<ul ng-controller="EventListController as main">
-    <li ng-repeat="event in main.events">
-        <a ng-href="#/calendarios/{{main.calendar.year}}/eventos/{{event.slug}}">
-            {{event.name}}
-        </a>
-    </li>
-</ul>
+<div ng-controller="EventListController as main">
+    <h2>Eventos</h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th width="10%"></th>
+            <th>Data</th>
+            <th>Evento</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="event in main.events">
+            <td>
+                <a ng-href="#/calendarios/{{main.calendar.year}}/eventos/{{event.slug}}/"
+                   class="btn btn-info btn-xs">
+                    <span class="glyphicon glyphicon-hand-up"></span>
+                    <span>detalhes</span>
+                </a>
+            </td>
+            <td>
+                {{event.date | date:'dd/M/yyyy'}}
+            </td>
+            <td>
+                {{event.name}}
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <nav-bar collection="main.events"></nav-bar>
+</div>

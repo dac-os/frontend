@@ -36,14 +36,14 @@
     angular.extend(this, $controller('CatalogDetailsController'));
     this.modality = new Modality($routeParams);
     this.save = function () {
-      this.modality.$save($routeParams, $location.parent(1));
+      this.modality.$save($routeParams, $location.parent(2));
     }.bind(this);
   });
 
   app.controller('ModalityUpdateController', function ($routeParams, $controller, $location) {
     angular.extend(this, $controller('ModalityDetailsController'));
     this.save = function () {
-      this.modality.$update($routeParams, $location.parent(2));
+      this.modality.$update($routeParams, $location.parent(3));
     }.bind(this);
   });
 })(angular);

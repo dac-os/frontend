@@ -5,6 +5,9 @@
   var app;
   app = angular.module('dacos');
   app.config(function ($routeProvider) {
+    $routeProvider.when('/disciplinas', {'templateUrl' : 'discipline/list.html'});
+    $routeProvider.when('/disciplinas/:disciplineCode', {'templateUrl' : 'discipline/details.html'});
+
     $routeProvider.when('/gerenciar-disciplinas', {'templateUrl' : 'discipline/manage-list.html'});
     $routeProvider.when('/gerenciar-disciplinas/criar', {'templateUrl' : 'discipline/manage-create.html'});
     $routeProvider.when('/gerenciar-disciplinas/:disciplineCode', {'templateUrl' : 'discipline/manage-details.html'});

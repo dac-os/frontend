@@ -36,14 +36,14 @@
     angular.extend(this, $controller('BlockDetailsController'));
     this.requirement = new Requirement($routeParams);
     this.save = function () {
-      this.requirement.$save($routeParams, $location.parent(1));
+      this.requirement.$save($routeParams, $location.parent(2));
     }.bind(this);
   });
 
   app.controller('RequirementUpdateController', function ($routeParams, $controller, $location) {
     angular.extend(this, $controller('RequirementDetailsController'));
     this.save = function () {
-      this.requirement.$update($routeParams, $location.parent(2));
+      this.requirement.$update($routeParams, $location.parent(3));
     }.bind(this);
   });
 })(angular);

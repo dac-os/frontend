@@ -1,7 +1,26 @@
-<ul ng-controller="BlockListController as main">
-    <li ng-repeat="block in main.blocks">
-        <a ng-href="#/catalogos/{{main.catalog.year}}/modalidades/{{main.modality.course.code}}-{{main.modality.code}}/blocos/{{block.code}}">
-            {{ block.code }}
-        </a>
-    </li>
-</ul>
+<div ng-controller="BlockListController as main">
+    <h2>Blocos</h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th width="10%"></th>
+            <th>Código</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="block in main.blocks">
+            <td>
+                <a ng-href="#/catalogos/{{main.catalog.year}}/modalidades/{{main.modality.course.code}}-{{main.modality.code}}/blocos/{{block.code}}"
+                   class="btn btn-info btn-xs">
+                    <span class="glyphicon glyphicon-hand-up"></span>
+                    <span>detalhes</span>
+                </a>
+            </td>
+            <td>
+                {{block.code}}
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <nav-bar collection="main.blocks"></nav-bar>
+</div>

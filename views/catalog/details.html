@@ -1,5 +1,15 @@
 <div ng-controller="CatalogDetailsController as main">
-    <h1>Catalogo de {{ main.catalog.year }}</h1>
-    <h2>modalidades</h2>
+    <h1>Catálogos</h1>
+    <ol class="breadcrumb">
+        <li><a href="#/">Home</a></li>
+        <li><a href="#/catalogos">Catálogos</a></li>
+        <li class="active">Catálogo</li>
+    </ol>
+    <dl class="dl-horizontal">
+        <dt>Ano</dt>
+        <dd>{{main.catalog.year}}</dd>
+    </dl>
     <ng-include src="'modality/list.html'"></ng-include>
 </div>
+
+

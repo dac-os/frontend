@@ -1,36 +1,48 @@
-
-<ul ng-controller="ModalityListController as main">
-        <table class="table">
+<div ng-controller="ModalityListController as main">
+    <h2>Modalidades</h2>
+    <table class="table">
         <thead>
         <tr>
             <th width="30%"></th>
-            <th>Modalidades</th>
+            <th>Modalidade</th>
+            <th>Curso</th>
+            <th>Código</th>
         </tr>
         </thead>
         <tbody>
-        <li ng-repeat="modality in main.modalities">
+        <tr ng-repeat="modality in main.modalities">
             <td>
-                <a ng-href="#/gerenciar-catalogos/{{main.catalog.year}}/modalidades/{{modality.course.code}}-{{modality.code}}/editar"
-                    \\                <span class="glyphicon glyphicon-pencil"></span>
+                <a href="#/gerenciar-catalogos/{{main.catalog.year}}/modalidades/{{modality.course.code}}-{{modality.code}}/editar"
+                   class="btn btn-warning btn-xs">
+                    <span class="glyphicon glyphicon-pencil"></span>
                     <span>editar</span>
                 </a>
-                <span ng-controller="CatalogDeleteController as main" ng-click="main.remove(catalog)"
+                <span ng-controller="ModalityDeleteController as main" ng-click="main.remove(modality)"
                       class="btn btn-danger btn-xs">
-                   <span class="glyphicon glyphicon-trash"></span>
+                    <span class="glyphicon glyphicon-trash"></span>
                     <span>remover</span>
                 </span>
-                <a ng-href="#/gerenciar-catalogos/{{main.catalog.year}}/modalidades/{{modality.course.code}}-{{modality.code}}" class="btn btn-info btn-xs">
+                <a ng-href="#/gerenciar-catalogos/{{main.catalog.year}}/modalidades/{{modality.course.code}}-{{modality.code}}/"
+                   class="btn btn-info btn-xs">
                     <span class="glyphicon glyphicon-hand-up"></span>
                     <span>detalhes</span>
                 </a>
-                {{modality.course.code}} {{modality.code}} {{modality.name}}
+            </td>
+            <td>
+                {{modality.name}}
+            </td>
+            <td>
+                {{modality.course.name}}
+            </td>
+            <td>
+                {{modality.code}}
             </td>
         </tr>
         </tbody>
     </table>
-    </li>
-</ul>
-    <a href="#/gerenciar-catalogos/{{main.catalog.year}}/modalidades/criar" class="btn btn-success btn-lg">
+    <a href="#/gerenciar-catalogos/{{main.catalog.year}}/modalidades/criar" class="btn btn-success">
         <span class="glyphicon glyphicon-plus"></span>
         criar nova modalidade
     </a>
+    <nav-bar collection="main.modalities"></nav-bar>
+</div>

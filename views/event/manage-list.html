@@ -1,14 +1,10 @@
 <div ng-controller="EventListController as main">
     <h2>Eventos</h2>
-    <a href="#/gerenciar-calendarios/{{main.calendar.year}}/eventos/criar" class="btn btn-success">
-        <span class="glyphicon glyphicon-plus"></span>
-        criar novo evento
-    </a>
     <table class="table">
         <thead>
         <tr>
             <th width="30%"></th>
-            <th>Ano</th>
+            <th>Evento</th>
         </tr>
         </thead>
         <tbody>
@@ -19,7 +15,8 @@
                     <span class="glyphicon glyphicon-pencil"></span>
                     <span>editar</span>
                 </a>
-                <span ng-controller="EventDeleteController as main" ng-click="main.remove(event)" class="btn btn-danger btn-xs">
+                <span ng-controller="EventDeleteController as main" ng-click="main.remove(event)"
+                      class="btn btn-danger btn-xs">
                     <span class="glyphicon glyphicon-trash"></span>
                     <span>remover</span>
                 </span>
@@ -35,5 +32,9 @@
         </tr>
         </tbody>
     </table>
+    <a href="#/gerenciar-calendarios/{{main.calendar.year}}/eventos/criar" class="btn btn-success">
+        <span class="glyphicon glyphicon-plus"></span>
+        criar novo evento
+    </a>
     <nav-bar collection="main.events"></nav-bar>
 </div>

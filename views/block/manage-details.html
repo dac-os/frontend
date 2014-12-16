@@ -1,7 +1,23 @@
 <div ng-controller="BlockDetailsController as main">
-    Código {{main.block.code}}<br />
-    Tipo {{main.block.type}}<br />
-    Créditos {{main.block.credits}}<br />
-    Requisitos<br />
+    <h1>Bloco</h1>
+    <ol class="breadcrumb">
+        <li><a href="#/">Home</a></li>
+        <li><a href="#/gerenciar-catalogos">Gerenciar Catalogos</a></li>
+        <li><a href="#/gerenciar-catalogos/{{main.catalog.year}}">{{main.catalog.year}}</a></li>
+        <li><a href="#/gerenciar-catalogos/{{main.catalog.year}}/modalidades/{{main.modality.course.code}}-{{main.modality.code}}">{{main.modality.code}}</a></li>
+        <li class="active">Bloco</li>
+    </ol>
+    <dl class="dl-horizontal">
+        <dt>Código</dt>
+        <dd>{{main.block.code}}</dd>
+    </dl>
+    <dl class="dl-horizontal">
+        <dt>Tipo</dt>
+        <dd>{{main.block.type}}</dd>
+    </dl>
+    <dl class="dl-horizontal">
+        <dt>Créditos</dt>
+        <dd>{{main.block.credits}}</dd>
+    </dl>
     <ng-include src="'requirement/manage-list.html'"></ng-include>
 </div>

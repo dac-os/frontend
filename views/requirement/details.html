@@ -1,3 +1,27 @@
 <div ng-controller="RequirementDetailsController as main">
-    <h1>Requisito {{ main.requirement.discipline.code }}</h1>
+    <h1>Requisito</h1>
+    <ol class="breadcrumb">
+        <li><a href="#/">Home</a></li>
+        <li><a href="#/catalogos">Catalogos</a></li>
+        <li><a href="#/catalogos/{{main.catalog.year}}">{{main.catalog.year}}</a></li>
+        <li>
+            <a href="#/catalogos/{{main.catalog.year}}/modalidades/{{main.modality.course.code}}-{{main.modality.code}}">{{main.modality.code}}</a>
+        </li>
+        <li>
+            <a href="#/catalogos/{{main.catalog.year}}/modalidades/{{main.modality.course.code}}-{{main.modality.code}}/blocos/{{main.block.code}}">{{main.block.code}}</a>
+        </li>
+        <li class="active">Requisito</li>
+    </ol>
+    <dl class="dl-horizontal">
+        <dt>Disciplina</dt>
+        <dd><a ng-href="#/disciplinas/{{main.requirement.discipline.code}}">{{main.requirement.discipline.code}}</a></dd>
+    </dl>
+    <dl class="dl-horizontal">
+        <dt>Mascara</dt>
+        <dd>{{main.requirement.mask}}</dd>
+    </dl>
+    <dl class="dl-horizontal">
+        <dt>Semestre sugerido</dt>
+        <dd>{{main.requirement.suggestion.period}} {{main.requirement.suggestion.type}}</dd>
+    </dl>
 </div>

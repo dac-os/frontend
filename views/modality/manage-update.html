@@ -1,7 +1,54 @@
-<form ng-controller="ModalityUpdateController as main" ng-submit="main.save()">
-    Modalidade <input ng-model="main.modality.name"><br />
-    Código <input ng-model="main.modality.code"><br />
-    Curso <input ng-model="main.modality.course.code"><br />
-    Limite de créditos <input ng-model="main.modality.creditLimit"><br />
-    <input type="submit">
-</form>
+<div ng-controller="ModalityUpdateController as main">
+    <h1>Editar Modalidade</h1>
+    <ol class="breadcrumb">
+        <li><a href="#/">Home</a></li>
+        <li><a href="#/gerenciar-catalogos">Gerenciar Catalogos</a></li>
+        <li><a href="#/gerenciar-modalidades">Gerenciar Modalidades</a></li>
+        <li class="active">Editar</li>
+    </ol>
+    <div class="alert alert-danger" role="alert" ng-show="error">
+        <span ng-show="error.main.modality.name">O nome é obrigatório</span>
+        <span ng-show="error.modality.code">O código é obrigatório</span>
+        <span ng-show="error.course.code">O curso é obrigatório</span>
+        <span ng-show="error.creditLimit">O limite de créditos é obrigatório</span>
+    </div>
+    <form class="form-horizontal" role="form" ng-submit="main.save()">
+        <div ng-class="{'form-group' : true, 'has-error' : !!error.main.modality.name}">
+            <label for="inputModalityName" class="col-sm-2 control-label">Modalidade</label>
+
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputModalityName" placeholder="Nome"
+                       ng-model="main.modality.name">
+            </div>
+        </div>
+        <div ng-class="{'form-group' : true, 'has-error' : !!error.modality.code}">
+            <label for="inputModalityCode" class="col-sm-2 control-label">Código</label>
+
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputModalityCode" placeholder="Código"
+                       ng-model="main.modality.code">
+            </div>
+        </div>
+        <div ng-class="{'form-group' : true, 'has-error' : !!error.modality.course.code}">
+            <label for="inputModalityCourseCode" class="col-sm-2 control-label">Curso</label>
+
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputCourseCode" placeholder="Curso"
+                       ng-model="main.modality.course.code">
+            </div>
+        </div>
+        <div ng-class="{'form-group' : true, 'has-error' : !!error.modalityCreditLimit}">
+            <label for="inputModalityCreditLimit" class="col-sm-2 control-label">Limite de Créditos</label>
+
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputModalityCreditLimity" placeholder="Créditos"
+                       ng-model="main.modalitu.creditLimit">
+            </div>
+        </div>
+            <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-success btn-lg">alterar</button>
+            </div>
+        </div>
+    </form>
+</div>

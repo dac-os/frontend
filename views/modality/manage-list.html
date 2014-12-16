@@ -1,47 +1,36 @@
-<div ng-controller="ModalityListController as main">
-    <h1>Modalidades</h1>
-    <ol class="breadcrumb">
-        <li><a href="#/">Home</a></li>
-        <li><a href="#/gerenciar-catalogos">Gerenciar Catálogos</a></li>
-        <li class="active">Modalidades</li>
-    </ol>
-    <a ng-href="#/gerenciar-modalidades/{{main.catalog.year}}/modalidades/{{modality.course.code}}-{{modality.code}}">
-        <span class="glyphicon glyphicon-plus"></span>
-        Criar Nova Modalidade
-    </a>
-    <table class="table">
+
+<ul ng-controller="ModalityListController as main">
+        <table class="table">
         <thead>
         <tr>
             <th width="30%"></th>
-            <th>Cursos</th>
-            <th></th>
+            <th>Modalidades</th>
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="modality in main.modalities">
+        <li ng-repeat="modality in main.modalities">
             <td>
-                <a ng-href="#/gerenciar-catalogos/{{main.catalog.year}}/modalidades/{{modality.course.code}}-{{modality.code}}/editar">                   
-                    <span class="glyphicon glyphicon-pencil"></span>
+                <a ng-href="#/gerenciar-catalogos/{{main.catalog.year}}/modalidades/{{modality.course.code}}-{{modality.code}}/editar"
+                    \\                <span class="glyphicon glyphicon-pencil"></span>
                     <span>editar</span>
                 </a>
-                    <span ng-controller="ModalityDeleteController as main" ng-click="main.remove(modality)"
-                          class="btn btn-danger btn-xs">
-                    <span class="glyphicon glyphicon-trash"></span>
+                <span ng-controller="CatalogDeleteController as main" ng-click="main.remove(catalog)"
+                      class="btn btn-danger btn-xs">
+                   <span class="glyphicon glyphicon-trash"></span>
                     <span>remover</span>
-                    </span>
-                <a ng-href="#/gerenciar-catalogos/{{modality.course.code}}" class="btn btn-info btn-xs">
+                </span>
+                <a ng-href="#/gerenciar-catalogos/{{main.catalog.year}}/modalidades/{{modality.course.code}}-{{modality.code}}" class="btn btn-info btn-xs">
                     <span class="glyphicon glyphicon-hand-up"></span>
                     <span>detalhes</span>
                 </a>
-            </td>
-            <td>
-                {{modality.code}}
-            </td>
-            <td>
-                {{modality.name}}
+                {{modality.course.code}} {{modality.code}} {{modality.name}}
             </td>
         </tr>
         </tbody>
     </table>
-    <nav-bar collection="main.modalities"></nav-bar>
-</div>
+    </li>
+</ul>
+    <a href="#/gerenciar-catalogos/{{main.catalog.year}}/modalidades/criar" class="btn btn-success btn-lg">
+        <span class="glyphicon glyphicon-plus"></span>
+        criar nova modalidade
+    </a>

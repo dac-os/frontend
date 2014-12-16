@@ -1,7 +1,30 @@
-<ul ng-controller="RequirementListController as main">
-    <li ng-repeat="requirement in main.requirements">
-        <a ng-href="#/catalogos/{{main.catalog.year}}/modalidades/{{main.modality.course.code}}-{{main.modality.code}}/blocos/{{main.block.code}}/requisitos/{{requirement.mask || requirement.discipline.code}}">
-            {{ requirement.discipline.code }}
-        </a>
-    </li>
-</ul>
+<div ng-controller="RequirementListController as main">
+    <h2>Requisitos do Bloco</h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th width="10%"></th>
+            <th>Requisito</th>
+            <th>Sugestão de semestre</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="requirement in main.requirements">
+            <td>
+                <a ng-href="#/catalogos/{{main.catalog.year}}/modalidades/{{main.modality.course.code}}-{{main.modality.code}}/blocos/{{main.block.code}}/requisitos/{{requirement.mask || requirement.discipline.code}}"
+                   class="btn btn-info btn-xs">
+                    <span class="glyphicon glyphicon-hand-up"></span>
+                    <span>detalhes</span>
+                </a>
+            </td>
+            <td>
+                {{requirement.mask || requirement.discipline.code}}
+            </td>
+            <td>
+                {{main.requirement.suggestion.period}} {{main.requirement.suggestion.type}}
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <nav-bar collection="main.requirements"></nav-bar>
+</div>

@@ -33,14 +33,14 @@
     angular.extend(this, $controller('ModalityDetailsController'));
     this.block = new Block($routeParams);
     this.save = function () {
-      this.block.$save($routeParams, $location.parent(1));
+      this.block.$save($routeParams, $location.parent(2));
     }.bind(this);
   });
 
   app.controller('BlockUpdateController', function ($routeParams, $controller, $location) {
     angular.extend(this, $controller('BlockDetailsController'));
     this.save = function () {
-      this.block.$update($routeParams, $location.parent(2));
+      this.block.$update($routeParams, $location.parent(3));
     }.bind(this);
   });
 })(angular);

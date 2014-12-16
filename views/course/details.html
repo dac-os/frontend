@@ -1,0 +1,20 @@
+<div ng-controller="CourseDetailsController as main">
+    <h1>Curso</h1>
+    <ol class="breadcrumb">
+        <li><a href="#/">Home</a></li>
+        <li><a href="#/cursos">Cursos</a></li>
+        <li class="active">Curso</li>
+    </ol>
+    <dl class="dl-horizontal">
+        <dt>Código</dt>
+        <dd>{{main.course.code}}</dd>
+    </dl>
+    <dl class="dl-horizontal">
+        <dt>Nome</dt>
+        <dd>{{main.course.name}}</dd>
+    </dl>
+    <dl class="dl-horizontal">
+        <dt>Nível</dt>
+        <dd>{{main.course.level}}</dd>
+    </dl>
+</div>

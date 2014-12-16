@@ -1,18 +1,18 @@
 <div ng-controller="BlockCreateController as main">
-<h1>Cadastrar Bloco</h1>
+    <h1>Cadastrar Bloco</h1>
     <ol class="breadcrumb">
         <li><a href="#/">Home</a></li>
         <li><a href="#/gerenciar-catalogos">Gerenciar Catálogos</a></li>
         <li><a href="#/gerenciar-modalidades">Gerenciar Modalidades</a></li>
         <li class="active">Criar Bloco</li>
     </ol>
-        <div class="alert alert-danger" role="alert" ng-show="error">
+    <div class="alert alert-danger" role="alert" ng-show="error">
         <span ng-show="error.code">O código é obtigatório</span>
         <span ng-show="error.type">O tipo é obrigatório</span>
         <span ng-show="error.credits">Os créditos são obrigatórios</span>
     </div>
-<form class="form-horizontal" role="form" ng-submit="main.save()">
-	    <div ng-class="{'form-group' : true, 'has-error' : !!error.code}">
+    <form class="form-horizontal" role="form" ng-submit="main.save()">
+        <div ng-class="{'form-group' : true, 'has-error' : !!error.code}">
             <label for="inputCode" class="col-sm-2 control-label">Código</label>
 
             <div class="col-sm-10">
@@ -29,7 +29,7 @@
             </div>
         </div>
         <div ng-class="{'form-group' : true, 'has-error' : !!error.credits}">
-            <label for="inputCredits" class="col-sm-2 control-label">Limite de Créditos</label>
+            <label for="inputCredits" class="col-sm-2 control-label">Créditos</label>
 
             <div class="col-sm-10">
                 <input type="text" class="form-control" id="inputCredits" placeholder="Limite de créditos"
@@ -41,6 +41,5 @@
                 <button type="submit" class="btn btn-success btn-lg">criar bloco</button>
             </div>
         </div>
-</form>
-
-
+    </form>
+</div>

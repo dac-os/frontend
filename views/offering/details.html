@@ -1,0 +1,35 @@
+<div ng-controller="OfferingDetailsController as main">
+    <h1>Oferecimento</h1>
+    <ol class="breadcrumb">
+        <li><a href="#/">Home</a></li>
+        <li><a href="#/disciplinas">Disciplinas</a></li>
+        <li><a href="#/disciplinas/{{main.discipline.code}}">{{main.discipline.code}}</a></li>
+        <li class="active">Oferecimento</li>
+    </ol>
+    <dl class="dl-horizontal">
+        <dt>Código</dt>
+        <dd>{{main.offering.code}}</dd>
+    </dl>
+    <dl class="dl-horizontal">
+        <dt>Ano</dt>
+        <dd>{{main.offering.year}}</dd>
+    </dl>
+    <dl class="dl-horizontal">
+        <dt>Período</dt>
+        <dd>{{main.offering.period}}</dd>
+    </dl>
+    <dl class="dl-horizontal">
+        <dt>Vagas</dt>
+        <dd>{{main.offering.vacancy}}</dd>
+    </dl>
+    <dl class="dl-horizontal">
+        <dt>Horários</dt>
+        <dd>
+            <span ng-repeat="schedule in main.offering.schedules">
+                Dia da semana {{schedule.weekday}}<br/>
+                Horário {{schedule.hour}}<br/>
+                Sala {{schedule.room}}<br/>
+            </span>
+        </dd>
+    </dl>
+</div>

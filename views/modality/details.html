@@ -1,5 +1,26 @@
 <div ng-controller="ModalityDetailsController as main">
-    <h1>Modalidade {{main.modality.course.code}} {{main.modality.code}} do curso {{main.modality.course.name}}</h1>
-    <h2>blocos de disciplinas</h2>
+    <h1>Modalidade</h1>
+    <ol class="breadcrumb">
+        <li><a href="#/">Home</a></li>
+        <li><a href="#/catalogos">Catalogos</a></li>
+        <li><a href="#/catalogos/{{main.catalog.year}}">{{main.catalog.year}}</a></li>
+        <li class="active">Modalidade</li>
+    </ol>
+    <dl class="dl-horizontal">
+        <dt>Modalidade</dt>
+        <dd>{{main.modality.name}}</dd>
+    </dl>
+    <dl class="dl-horizontal">
+        <dt>Código</dt>
+        <dd>{{main.modality.code}}</dd>
+    </dl>
+    <dl class="dl-horizontal">
+        <dt>Curso</dt>
+        <dd><a ng-href="#/cursos/{{main.modality.course.code}}">{{main.modality.course.code}}</a></dd>
+    </dl>
+    <dl class="dl-horizontal">
+        <dt>Limite de créditos</dt>
+        <dd>{{main.modality.creditLimit}}</dd>
+    </dl>
     <ng-include src="'block/list.html'"></ng-include>
 </div>

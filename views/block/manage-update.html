@@ -1,6 +1,48 @@
-<form ng-controller="BlockUpdateController as main" ng-submit="main.save()">
-    Código <input ng-model="main.block.code"><br />
-    Tipo <input ng-model="main.block.type"><br />
-    Créditos<input ng-model="main.block.credits"><br />
-    <input type="submit">
-</form>
+<div ng-controller="BlockUpdateController as main">
+    <h1>Editar Bloco</h1>
+    <ol class="breadcrumb">
+        <li><a href="#/">Home</a></li>
+        <li><a href="#/gerenciar-catalogos">Gerenciar Catalogos</a></li>
+        <li><a href="#/gerenciar-catalogos/{{main.catalog.year}}">{{main.catalog.year}}</a></li>
+        <li>
+            <a href="#/gerenciar-catalogos/{{main.catalog.year}}/modalidades/{{main.modality.course.code}}-{{main.modality.code}}">{{main.modality.code}}</a>
+        </li>
+        <li class="active">Editar Bloco</li>
+    </ol>
+    <div class="alert alert-danger" role="alert" ng-show="error">
+        <span ng-show="error.code">O código é obtigatório</span>
+        <span ng-show="error.type">O tipo é obrigatório</span>
+        <span ng-show="error.credits">Os créditos são obrigatórios</span>
+    </div>
+    <form class="form-horizontal" role="form" ng-submit="main.save()">
+        <div ng-class="{'form-group' : true, 'has-error' : !!error.code}">
+            <label for="inputCode" class="col-sm-2 control-label">Código</label>
+
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputCode" placeholder="Código"
+                       ng-model="main.block.code">
+            </div>
+        </div>
+        <div ng-class="{'form-group' : true, 'has-error' : !!error.type}">
+            <label for="inputType" class="col-sm-2 control-label">Tipo</label>
+
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputType" placeholder="Tipo"
+                       ng-model="main.block.type">
+            </div>
+        </div>
+        <div ng-class="{'form-group' : true, 'has-error' : !!error.credits}">
+            <label for="inputCredits" class="col-sm-2 control-label">Créditos</label>
+
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputCredits" placeholder="Limite de créditos"
+                       ng-model="main.block.credits">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-success btn-lg">alterar</button>
+            </div>
+        </div>
+    </form>
+</div>

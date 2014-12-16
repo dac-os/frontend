@@ -1,7 +1,29 @@
-<ul ng-controller="CalendarListController as main">
-    <li ng-repeat="calendar in main.calendars">
-        <a ng-href="#/calendarios/{{calendar.year}}">
-            {{calendar.year}}
-        </a>
-    </li>
-</ul>
+<div ng-controller="CalendarListController as main">
+    <h1>Calendários</h1>
+    <ol class="breadcrumb">
+        <li><a href="#/">Home</a></li>
+        <li class="active">Calendários</li>
+    </ol>
+    <table class="table">
+        <thead>
+        <tr>
+            <th width="10%"></th>
+            <th>Ano</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="calendar in main.calendars">
+            <td>
+                <a ng-href="#/calendarios/{{calendar.year}}" class="btn btn-info btn-xs">
+                    <span class="glyphicon glyphicon-hand-up"></span>
+                    <span>detalhes</span>
+                </a>
+            </td>
+            <td>
+                {{calendar.year}}
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <nav-bar collection="main.calendars"></nav-bar>
+</div>

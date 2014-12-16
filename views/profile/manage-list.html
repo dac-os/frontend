@@ -4,10 +4,6 @@
         <li><a href="#/">Home</a></li>
         <li class="active">Gerenciar Perfis</li>
     </ol>
-    <a href="#/gerenciar-perfis/criar" class="btn btn-success btn-lg">
-        <span class="glyphicon glyphicon-plus"></span>
-        criar novo perfil
-    </a>
     <table class="table">
         <thead>
         <tr>
@@ -22,7 +18,8 @@
                     <span class="glyphicon glyphicon-pencil"></span>
                     <span>editar</span>
                 </a>
-                <span ng-controller="ProfileDeleteController as main" ng-click="main.remove(profile)" class="btn btn-danger btn-xs">
+                <span ng-controller="ProfileDeleteController as main" ng-click="main.remove(profile)"
+                      class="btn btn-danger btn-xs">
                     <span class="glyphicon glyphicon-trash"></span>
                     <span>remover</span>
                 </span>
@@ -37,7 +34,9 @@
         </tr>
         </tbody>
     </table>
-    <nav>
-        <nav-bar collection="main.profiles"></nav-bar>
-    </nav>
+    <a href="#/gerenciar-perfis/criar" class="btn btn-success btn-lg">
+        <span class="glyphicon glyphicon-plus"></span>
+        criar novo perfil
+    </a>
+    <nav-bar collection="main.profiles"></nav-bar>
 </div>

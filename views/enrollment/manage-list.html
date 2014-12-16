@@ -4,10 +4,6 @@
         <li><a href="#/">Home</a></li>
         <li class="active">Gerenciar Matrículas</li>
     </ol>
-    <a href="#/gerenciar-matriculas/criar" class="btn btn-success btn-lg">
-        <span class="glyphicon glyphicon-plus"></span>
-        criar nova matrícula
-    </a>
     <table class="table">
         <thead>
         <tr>
@@ -19,15 +15,18 @@
         <tbody>
         <tr ng-repeat="enrollment in main.enrollments">
             <td>
-                <a href="#/gerenciar-matriculas/{{enrollment.year}}-{{enrollment.period}}/editar" class="btn btn-warning btn-xs">
+                <a href="#/gerenciar-matriculas/{{enrollment.year}}-{{enrollment.period}}/editar"
+                   class="btn btn-warning btn-xs">
                     <span class="glyphicon glyphicon-pencil"></span>
                     <span>editar</span>
                 </a>
-                <span ng-controller="EnrollmentDeleteController as main" ng-click="main.remove(enrollment)" class="btn btn-danger btn-xs">
+                <span ng-controller="EnrollmentDeleteController as main" ng-click="main.remove(enrollment)"
+                      class="btn btn-danger btn-xs">
                     <span class="glyphicon glyphicon-trash"></span>
                     <span>remover</span>
                 </span>
-                <a ng-href="#/gerenciar-matriculas/{{enrollment.year}}-{{enrollment.period}}" class="btn btn-info btn-xs">
+                <a ng-href="#/gerenciar-matriculas/{{enrollment.year}}-{{enrollment.period}}"
+                   class="btn btn-info btn-xs">
                     <span class="glyphicon glyphicon-hand-up"></span>
                     <span>detalhes</span>
                 </a>
@@ -40,7 +39,10 @@
             </td>
         </tr>
         </tbody>
-    </table><nav>
+    </table>
+    <a href="#/gerenciar-matriculas/criar" class="btn btn-success btn-lg">
+        <span class="glyphicon glyphicon-plus"></span>
+        criar nova matrícula
+    </a>
     <nav-bar collection="main.enrollments"></nav-bar>
-</nav>
 </div>

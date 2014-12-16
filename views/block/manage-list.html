@@ -1,15 +1,41 @@
-<ul ng-controller="BlockListController as main">
-    <li ng-repeat="block in main.blocks">
-        <a ng-href="#/gerenciar-catalogos/{{main.catalog.year}}/modalidades/{{main.modality.course.code}}-{{main.modality.code}}/blocos/{{block.code}}/editar">
-            editar
-        </a>
-        <span ng-controller="BlockDeleteController as main" ng-click="main.remove(block)" class="btn btn-danger btn-xs">
-            <span class="glyphicon glyphicon-trash"></span>
-            <span>remover</span>
-        </span>
-        <a ng-href="#/gerenciar-catalogos/{{main.catalog.year}}/modalidades/{{main.modality.course.code}}-{{main.modality.code}}/blocos/{{block.code}}">
-            {{block.code}}
-        </a>
-    </li>
-    <a ng-href="#/gerenciar-catalogos/{{main.catalog.year}}/modalidades/{{main.modality.course.code}}-{{main.modality.code}}/blocos/criar">+ criar</a>
-</ul>
+<div ng-controller="BlockListController as main">
+    <h2>Blocos</h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th width="30%"></th>
+            <th>Código</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="block in main.blocks">
+            <td>
+                <a href="#/gerenciar-catalogos/{{main.catalog.year}}/modalidades/{{main.modality.course.code}}-{{main.modality.code}}/blocos/{{block.code}}/editar"
+                   class="btn btn-warning btn-xs">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                    <span>editar</span>
+                </a>
+                <span ng-controller="BlockDeleteController as main" ng-click="main.remove(block)"
+                      class="btn btn-danger btn-xs">
+                    <span class="glyphicon glyphicon-trash"></span>
+                    <span>remover</span>
+                </span>
+                <a ng-href="#/gerenciar-catalogos/{{main.catalog.year}}/modalidades/{{main.modality.course.code}}-{{main.modality.code}}/blocos/{{block.code}}"
+                   class="btn btn-info btn-xs">
+                    <span class="glyphicon glyphicon-hand-up"></span>
+                    <span>detalhes</span>
+                </a>
+            </td>
+            <td>
+                {{block.code}}
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <a href="#/gerenciar-catalogos/{{main.catalog.year}}/modalidades/{{main.modality.course.code}}-{{main.modality.code}}/blocos/criar"
+       class="btn btn-success">
+        <span class="glyphicon glyphicon-plus"></span>
+        criar novo bloco
+    </a>
+    <nav-bar collection="main.blocks"></nav-bar>
+</div>

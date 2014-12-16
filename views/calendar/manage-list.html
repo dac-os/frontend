@@ -4,10 +4,6 @@
         <li><a href="#/">Home</a></li>
         <li class="active">Gerenciar Calendários</li>
     </ol>
-    <a href="#/gerenciar-calendarios/criar" class="btn btn-success btn-lg">
-        <span class="glyphicon glyphicon-plus"></span>
-        criar novo calendário
-    </a>
     <table class="table">
         <thead>
         <tr>
@@ -22,7 +18,8 @@
                     <span class="glyphicon glyphicon-pencil"></span>
                     <span>editar</span>
                 </a>
-                <span ng-controller="CalendarDeleteController as main" ng-click="main.remove(calendar)" class="btn btn-danger btn-xs">
+                <span ng-controller="CalendarDeleteController as main" ng-click="main.remove(calendar)"
+                      class="btn btn-danger btn-xs">
                     <span class="glyphicon glyphicon-trash"></span>
                     <span>remover</span>
                 </span>
@@ -36,7 +33,10 @@
             </td>
         </tr>
         </tbody>
-    </table><nav>
+    </table>
+    <a href="#/gerenciar-calendarios/criar" class="btn btn-success btn-lg">
+        <span class="glyphicon glyphicon-plus"></span>
+        criar novo calendário
+    </a>
     <nav-bar collection="main.calendars"></nav-bar>
-</nav>
 </div>

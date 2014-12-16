@@ -1,0 +1,29 @@
+<div ng-controller="DisciplineDetailsController as main">
+    <h1>Disciplina</h1>
+    <ol class="breadcrumb">
+        <li><a href="#/">Home</a></li>
+        <li><a href="#/disciplinas">Disciplinas</a></li>
+        <li class="active">Disciplina</li>
+    </ol>
+    <dl class="dl-horizontal">
+        <dt>Código</dt>
+        <dd>{{main.discipline.code}}</dd>
+    </dl>
+    <dl class="dl-horizontal">
+        <dt>Nome</dt>
+        <dd>{{main.discipline.name}}</dd>
+    </dl>
+    <dl class="dl-horizontal">
+        <dt>Créditos</dt>
+        <dd>{{main.discipline.credits}}</dd>
+    </dl>
+    <dl class="dl-horizontal">
+        <dt>Departamento</dt>
+        <dd>{{main.discipline.department}}</dd>
+    </dl>
+    <dl class="dl-horizontal">
+        <dt>Descrição</dt>
+        <dd>{{main.discipline.description}}</dd>
+    </dl>
+    <ng-include src="'offering/list.html'"></ng-include>
+</div>

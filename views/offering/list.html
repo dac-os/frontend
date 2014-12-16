@@ -1,34 +1,34 @@
-<div ng-controller="ModalityListController as main">
-    <h2>Modalidades</h2>
+<div ng-controller="OfferingListController as main">
+    <h2>Oferecimentos</h2>
     <table class="table">
         <thead>
         <tr>
             <th width="10%"></th>
-            <th>Modalidade</th>
-            <th>Curso</th>
+            <th>Ano</th>
+            <th>Período</th>
             <th>Código</th>
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="modality in main.modalities">
+        <tr ng-repeat="offering in main.offerings">
             <td>
-                <a ng-href="#/catalogos/{{main.catalog.year}}/modalidades/{{modality.course.code}}-{{modality.code}}/"
+                <a ng-href="#/disciplinas/{{main.discipline.code}}/oferecimentos/{{offering.year}}-{{offering.period}}-{{offering.code}}"
                    class="btn btn-info btn-xs">
                     <span class="glyphicon glyphicon-hand-up"></span>
                     <span>detalhes</span>
                 </a>
             </td>
             <td>
-                {{modality.name}}
+                {{offering.year}}
             </td>
             <td>
-                {{modality.course.name}}
+                {{offering.period}}
             </td>
             <td>
-                {{modality.code}}
+                {{offering.code}}
             </td>
         </tr>
         </tbody>
     </table>
-    <nav-bar collection="main.modalities"></nav-bar>
+    <nav-bar collection="main.offerings"></nav-bar>
 </div>

@@ -3,12 +3,12 @@
     <ol class="breadcrumb">
         <li><a href="#/">Home</a></li>
         <li><a href="#/gerenciar-disciplinas">Gerenciar Disciplinas</a></li>
-        <li><a href="#/gerenciar-disciplinas/{{main.discipline.code}}">{{main.discipline.code}}</a></li>
+        <li><a href="#/gerenciar-disciplinas/{{main.discipline.class}}">{{main.discipline.class}}</a></li>
         <li class="active">Criar</li>
     </ol>
     <div class="alert alert-danger" role="alert" ng-show="error">
         <div ng-show="error.duplicated">Oferecimento repetido</div>
-        <div ng-show="error.code">O codigo do oferecimento é obrigatório</div>
+        <div ng-show="error.class">O codigo do oferecimento é obrigatório</div>
         <div ng-show="error.year">O ano é obrigatório</div>
         <div ng-show="error.period">O período é obrigatório</div>
         <div ng-show="error.vacancy">A vaga é obrigatório</div>
@@ -16,12 +16,12 @@
     </div>
 
     <form class="form-horizontal" role="form" ng-submit="main.save()">
-        <div ng-class="{'form-group' : true, 'has-error' : !!error.code}">
+        <div ng-class="{'form-group' : true, 'has-error' : !!error.class}">
             <label for="inputCode" class="col-sm-2 control-label">Codigo</label>
 
             <div class="col-sm-10">
                 <input type="text" class="form-control" id="inputCode" placeholder="codigo"
-                       ng-model="main.offering.code">
+                       ng-model="main.offering.class">
             </div>
         </div>
         <div ng-class="{'form-group' : true, 'has-error' : !!error.year}">

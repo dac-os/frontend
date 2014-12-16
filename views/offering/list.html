@@ -30,13 +30,13 @@
             <th width="10%"></th>
             <th>Ano</th>
             <th>Período</th>
-            <th>Código</th>
+            <th>Turma</th>
         </tr>
         </thead>
         <tbody>
         <tr ng-repeat="offering in main.offerings">
             <td>
-                <a ng-href="#/disciplinas/{{main.discipline.code}}/oferecimentos/{{offering.year}}-{{offering.period}}-{{offering.code}}"
+                <a ng-href="#/disciplinas/{{main.discipline.code}}/oferecimentos/{{offering.year}}-{{offering.period}}-{{offering.class}}"
                    class="btn btn-info btn-xs">
                     <span class="glyphicon glyphicon-hand-up"></span>
                     <span>detalhes</span>
@@ -49,7 +49,7 @@
                 {{offering.period}}
             </td>
             <td>
-                {{offering.code}}
+                {{offering.class}}
             </td>
         </tr>
         </tbody>

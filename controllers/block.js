@@ -16,6 +16,10 @@
   app.controller('BlockListController', function ($routeParams, $controller, Block) {
     angular.extend(this, $controller('ModalityDetailsController'));
     this.blocks = Block.query($routeParams);
+    this.filterForm = $routeParams;
+    this.filter = function () {
+      $location.search(this.filterForm);
+    };
   });
 
   app.controller('BlockDetailsController', function ($routeParams, $controller, Block) {

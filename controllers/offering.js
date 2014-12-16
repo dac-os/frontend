@@ -14,6 +14,10 @@
   app.controller('OfferingListController', function ($routeParams, $controller, Offering) {
     angular.extend(this, $controller('DisciplineDetailsController'));
     this.offerings = Offering.query($routeParams);
+    this.filterForm = $routeParams;
+    this.filter = function () {
+      $location.search(this.filterForm);
+    };
   });
 
   app.controller('OfferingDetailsController', function ($routeParams, $controller, Offering) {

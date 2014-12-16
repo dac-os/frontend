@@ -16,6 +16,10 @@
   app.controller('ModalityListController', function ($routeParams, $controller, Modality) {
     angular.extend(this, $controller('CatalogDetailsController'));
     this.modalities = Modality.query($routeParams);
+    this.filterForm = $routeParams;
+    this.filter = function () {
+      $location.search(this.filterForm);
+    };
   });
 
   app.controller('ModalityDetailsController', function ($routeParams, $controller, Modality) {

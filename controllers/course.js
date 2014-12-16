@@ -16,6 +16,10 @@
 
   app.controller('CourseListController', function ($routeParams, Course) {
     this.courses = Course.query($routeParams);
+    this.filterForm = $routeParams;
+    this.filter = function () {
+      $location.search(this.filterForm);
+    };
   });
 
   app.controller('CourseDetailsController', function ($routeParams, Course) {

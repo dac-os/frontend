@@ -1,0 +1,32 @@
+<div ng-controller="UserDetailsController as main">
+<dl class="dl-horizontal">
+    <dt>Nome</dt>
+    <dd>{{main.user.name}}</dd>
+<dl class="dl-horizontal">
+    <dt>RA</dt>
+    <dd>{{main.user.academicRegistry}}</dd>
+ </dl>
+ <dl class="dl-horizontal">
+    <dt>Gênero</dt>
+    <dd>{{main.user.gender}}</dd>
+</dl>
+<dl class="dl-horizontal">
+    <dt>Email</dt>
+    <dd>{{main.user.email}}</dd>
+</dl>
+<dl class="dl-horizontal">
+    <dt>Telefones</dt>
+    <dd>{{main.user.phones}}</dd>
+</dl>
+    <dt>Data de Nascimento</dt>
+    <dd>{{main.user.birthDate}}</dd>
+<dl class="dl-horizontal">
+    <dt>Perfil</dt>
+    <dd>{{main.user.profile.name}}</dd>
+</dl>
+<dl class="dl-horizontal">
+    <dt>Permissões</dt>
+    <dd>{{main.user.profile.permissions}}</dd>
+    </dl>
+</dl>
+</div>

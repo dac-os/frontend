@@ -1,0 +1,45 @@
+<div ng-controller="UserCreateController as main">
+    <h1>Cadastrar usuário</h1>
+    <ol class="breadcrumb">
+        <li><a href="#/">Home</a></li>
+        <li><a href="#/gerenciar-usuarios">Gerenciar usuários</a></li>
+        <li class="active">Criar</li>
+    </ol>
+    <div class="alert alert-danger" role="alert" ng-show="error">
+        <span ng-show="error.duplicated">Usuário repetido</span>
+        <span ng-show="error.profile">O Perfil é obrigatório</span>
+        <span ng-show="error.name">O Nome é obrigatório</span>
+        <span ng-show="error.password">A senha é obrigatória</span>
+    </div>
+    <form class="form-horizontal" role="form" ng-submit="main.save()">
+        <div ng-class="{'form-group' : true, 'has-error' : !!error.name}">
+            <label for="inputName" class="col-sm-2 control-label">Nome</label>
+
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputName" placeholder="Nome"
+                       ng-model="main.user.name">
+            </div>
+        </div>
+        <div ng-class="{'form-group' : true, 'has-error' : !!error.profile}">
+            <label for="inputProfile" class="col-sm-2 control-label">Perfil</label>
+           
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputProfile" placeholder="Perfil"
+                       ng-model="main.user.profile">
+            </div>
+        </div>
+        <div ng-class="{'form-group' : true, 'has-error' : !!error.password}">
+            <label for="inputPassword" class="col-sm-2 control-label">Senha</label>
+           
+            <div class="col-sm-10">
+                <input type="password" class="form-control" id="inputPassword" placeholder="Senha"
+                       ng-model="main.user.password">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-success btn-lg">criar usuário</button>
+            </div>
+        </div>
+    </form>
+</div>

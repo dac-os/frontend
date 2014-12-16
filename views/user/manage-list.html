@@ -1,0 +1,42 @@
+<div ng-controller="UserListController as main">
+    <h1>Usuários</h1>
+    <ol class="breadcrumb">
+        <li><a href="#/">Home</a></li>
+        <li class="active">Gerenciar Usuários</li>
+    </ol>
+    <a href="#/gerenciar-usuarios/criar" class="btn btn-success btn-lg">
+        <span class="glyphicon glyphicon-plus"></span>
+        criar novo usuário
+    </a>
+    <table class="table">
+        <thead>
+        <tr>
+            <th width="30%"></th>
+            <th>RA</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="user in main.users">
+            <td>
+                <a href="#/gerenciar-usuarios/{{user.academicRegistry}}/editar" class="btn btn-warning btn-xs">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                    <span>editar</span>
+                </a>
+                <span ng-controller="UserDeleteController as main" ng-click="main.remove(user)" class="btn btn-danger btn-xs">
+                    <span class="glyphicon glyphicon-trash"></span>
+                    <span>remover</span>
+                </span>
+                <a ng-href="#/gerenciar-usuarios/{{user.academicRegistry}}" class="btn btn-info btn-xs">
+                    <span class="glyphicon glyphicon-hand-up"></span>
+                    <span>detalhes</span>
+                </a>
+            </td>
+            <td>
+                {{user.academicRegistry}}
+            </td>
+        </tr>
+        </tbody>
+    </table><nav>
+    <nav-bar collection="main.users"></nav-bar>
+</nav>
+</div>

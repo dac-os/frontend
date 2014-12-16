@@ -13,7 +13,7 @@
     $routeProvider.when('/gerenciar-catalogos/:catalogCode/modalidades/:modalityCode/blocos/:blockCode/editar', {'templateUrl' : 'block/manage-update.html'});
   });
 
-  app.controller('BlockListController', function ($routeParams, $controller, Block) {
+  app.controller('BlockListController', function ($routeParams, $location, $controller, Block) {
     angular.extend(this, $controller('ModalityDetailsController'));
     this.blocks = Block.query($routeParams);
     this.filterForm = $routeParams;

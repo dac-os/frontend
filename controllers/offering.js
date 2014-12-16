@@ -11,7 +11,7 @@
     $routeProvider.when('/gerenciar-disciplinas/:disciplineCode/oferecimentos/:offeringCode/editar', {'templateUrl' : 'offering/manage-update.html'});
   });
 
-  app.controller('OfferingListController', function ($routeParams, $controller, Offering) {
+  app.controller('OfferingListController', function ($routeParams, $location, $controller, Offering) {
     angular.extend(this, $controller('DisciplineDetailsController'));
     this.offerings = Offering.query($routeParams);
     this.filterForm = $routeParams;

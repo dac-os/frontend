@@ -14,7 +14,7 @@
     $routeProvider.when('/gerenciar-cursos/:courseCode/editar', {'templateUrl' : 'course/manage-update.html'});
   });
 
-  app.controller('CourseListController', function ($routeParams, Course) {
+  app.controller('CourseListController', function ($routeParams, $location, Course) {
     this.courses = Course.query($routeParams);
     this.filterForm = $routeParams;
     this.filter = function () {

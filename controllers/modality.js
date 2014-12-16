@@ -13,7 +13,7 @@
     $routeProvider.when('/gerenciar-catalogos/:catalogCode/modalidades/:modalityCode/editar', {'templateUrl' : 'modality/manage-update.html'});
   });
 
-  app.controller('ModalityListController', function ($routeParams, $controller, Modality) {
+  app.controller('ModalityListController', function ($routeParams, $location, $controller, Modality) {
     angular.extend(this, $controller('CatalogDetailsController'));
     this.modalities = Modality.query($routeParams);
     this.filterForm = $routeParams;

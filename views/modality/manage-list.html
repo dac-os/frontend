@@ -1,16 +1,36 @@
 
 <ul ng-controller="ModalityListController as main">
-    <li ng-repeat="modality in main.modalities">
-        <a ng-href="#/gerenciar-catalogos/{{main.catalog.year}}/modalidades/{{modality.course.code}}-{{modality.code}}/editar">
-            editar
-        </a>
-        <span ng-controller="ModalityDeleteController as main" ng-click="main.remove(modality)" class="btn btn-danger btn-xs">
-            <span class="glyphicon glyphicon-trash"></span>
-            <span>remover</span>
-        </span>
-        <a ng-href="#/gerenciar-catalogos/{{main.catalog.year}}/modalidades/{{modality.course.code}}-{{modality.code}}">
-            {{modality.course.code}} {{modality.code}} {{modality.name}}
-        </a>
+        <table class="table">
+        <thead>
+        <tr>
+            <th width="30%"></th>
+            <th>Modalidades</th>
+        </tr>
+        </thead>
+        <tbody>
+        <li ng-repeat="modality in main.modalities">
+            <td>
+                <a ng-href="#/gerenciar-catalogos/{{main.catalog.year}}/modalidades/{{modality.course.code}}-{{modality.code}}/editar"
+                    \\                <span class="glyphicon glyphicon-pencil"></span>
+                    <span>editar</span>
+                </a>
+                <span ng-controller="CatalogDeleteController as main" ng-click="main.remove(catalog)"
+                      class="btn btn-danger btn-xs">
+                   <span class="glyphicon glyphicon-trash"></span>
+                    <span>remover</span>
+                </span>
+                <a ng-href="#/gerenciar-catalogos/{{main.catalog.year}}/modalidades/{{modality.course.code}}-{{modality.code}}" class="btn btn-info btn-xs">
+                    <span class="glyphicon glyphicon-hand-up"></span>
+                    <span>detalhes</span>
+                </a>
+                {{modality.course.code}} {{modality.code}} {{modality.name}}
+            </td>
+        </tr>
+        </tbody>
+    </table>
     </li>
-    <a href="#/gerenciar-catalogos/{{main.catalog.year}}/modalidades/criar">+ criar</a>
 </ul>
+    <a href="#/gerenciar-catalogos/{{main.catalog.year}}/modalidades/criar" class="btn btn-success btn-lg">
+        <span class="glyphicon glyphicon-plus"></span>
+        criar nova modalidade
+    </a>

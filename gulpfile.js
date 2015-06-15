@@ -66,7 +66,7 @@ gulp.task('watch', ['build'], function () {
   require('dacos-calendar');
   require('dacos-courses');
   require('dacos-enrollment');
-  require('dacos-history');
+  //require('dacos-history');
   return gulp.watch(['**/*', '!node_modules/**/*', '!build/*'], function () {
     return sequence('clean', ['index', 'scripts']);
   });

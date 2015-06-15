@@ -6,7 +6,7 @@
   "scripts": {
     "build": "gulp build",
     "prestart": "gulp build",
-    "start": "statik ./build --port ${PORT}",
+    "start": "statik ./build --port ${PORT}"`
   },
   "repository": {
     "type": "git",

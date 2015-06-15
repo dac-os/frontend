@@ -7,7 +7,6 @@
     "build": "gulp build",
     "prestart": "gulp build",
     "start": "statik ./build --port ${PORT}",
-    "watch": "gulp watch"
   },
   "repository": {
     "type": "git",
@@ -20,11 +19,6 @@
   "homepage": "https://github.com/dac-os/frontend",
   "devDependencies": {
     "benv": "^0.1.6",
-    "dacos-auth": "dac-os/auth.git",
-    "dacos-calendar": "dac-os/calendar.git",
-    "dacos-courses": "dac-os/courses.git",
-    "dacos-enrollment": "dac-os/enrollment.git",
-    "dacos-history": "dac-os/history.git",
     "mocha": "^2.0.1",
     "should": "^4.1.0"
   },

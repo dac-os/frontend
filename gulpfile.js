@@ -60,16 +60,4 @@ gulp.task('build', function (next) {
   return sequence('clean', ['bower', 'index', 'scripts'], next);
 });
 
-gulp.task('watch', ['build'], function () {
-  statik({'port' : nconf.get('PORT'), 'root' : './build'});
-  require('dacos-auth');
-  require('dacos-calendar');
-  require('dacos-courses');
-  require('dacos-enrollment');
-  //require('dacos-history');
-  return gulp.watch(['**/*', '!node_modules/**/*', '!build/*'], function () {
-    return sequence('clean', ['index', 'scripts']);
-  });
-});
-
 gulp.task('default', ['build']);
